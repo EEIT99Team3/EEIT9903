@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml> 
+<Context>
+	<Resource name="jdbc/Project1" type="javax.sql.DataSource"
+		username="sa" password="passw0rd" driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+		url="jdbc:sqlserver://localhost:1433;DatabaseName=Project1" maxActive="8"
+		maxIdle="4" maxWait="5000" />
+</Context>
