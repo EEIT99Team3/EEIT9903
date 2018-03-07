@@ -21,13 +21,9 @@
 ApplicationContext context = (ApplicationContext)
 		application.getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);
 
-// HighStockService highStockService = (HighStockService) context.getBean("highStockService");
-// highStockService bean1 = highStockServicelogin("Alex", "A");
-// out.println("<h3>bean="+bean1+"</h3>");
-
 PriceDAO priceDAO = (PriceDAO) context.getBean("priceDAOHibernate");
 List<Price> beans1 = priceDAO.select();
-//out.println("<h3>beans1="+beans1+"</h3>");
+out.println("<h3>beans1="+beans1+"</h3>");
 
 HighStockService service = (HighStockService) context.getBean("highStockService");
 org.json.JSONArray beans2 = service.select("0050");

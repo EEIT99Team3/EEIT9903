@@ -7,16 +7,16 @@
 	   <context-param>
 	    <param-name>contextConfigLocation</param-name>
 	    <param-value>/WEB-INF/beans.config.xml</param-value>
-	  </context-param>
+	  </context-param>      
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
-<!--   <resource-ref> -->
-<!--     <res-ref-name>jdbc/xxx</res-ref-name> -->
-<!--     <res-type>javax.sql.DataSource</res-type> -->
-<!--     <res-auth>Container</res-auth> -->
-<!--     <res-sharing-scope>Shareable</res-sharing-scope> -->
-<!--   </resource-ref> -->
+  <resource-ref>
+    <res-ref-name>jdbc/Project1</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+    <res-auth>Container</res-auth>
+    <res-sharing-scope>Shareable</res-sharing-scope>
+  </resource-ref>
  <servlet>
     <servlet-name>mvc</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
