@@ -14,6 +14,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Repository;
 
 import model.Price;
+import model.PriceDAO;
 import model.PriceId;
 
 @Repository

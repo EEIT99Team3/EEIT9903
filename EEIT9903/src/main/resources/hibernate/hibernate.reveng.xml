@@ -6,5 +6,7 @@
 		match-name="PRICE" />
 	<table-filter match-catalog="Project1" match-schema="dbo"
 		match-name="COMPANY" />
+  	<table-filter match-catalog="Project1" match-schema="dbo" match-name="TRACKING"/>
+
 
 </hibernate-reverse-engineering>

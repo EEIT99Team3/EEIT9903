@@ -37,28 +37,4 @@ public class HighStockService {
 			}
 			return outter;
 	}
-	
-	
-	public static void main(String[] args) {
-		ApplicationContext context = new ClassPathXmlApplicationContext("beans.config.xml");
-		
-		SessionFactory sessionFactory = (SessionFactory) context.getBean("sessionFactory");
-		sessionFactory.getCurrentSession().beginTransaction();
-		
-		HighStockService service = (HighStockService) context.getBean("highStockService");
-		
-		
-	//	sessionFactory.getCurrentSession().beginTransaction();
-		
-		org.json.JSONArray result = service.select("2330");
-		System.out.println(result);
-		
-//		sessionFactory.getCurrentSession().getTransaction().commit();
-//		sessionFactory.getCurrentSession().close();
-		
-		
-		((ConfigurableApplicationContext) context).close();
-
-	}
-	
 }
