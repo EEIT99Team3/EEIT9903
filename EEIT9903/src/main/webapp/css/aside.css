@@ -1,0 +1,39 @@
+.page-main {
+    position: relative;
+}
+
+.page-main > aside {
+    width: 350px;
+    height: 100%;
+    top: 0;
+ /*   left: -350px;*/
+    right: -297px;
+    position: fixed;
+}
+
+
+.page-main > aside ul {
+    margin: 0;
+    padding: 0;
+    top: 130px;
+    left: 114px;
+    position: absolute;
+}
+
+.page-main > aside li {
+    margin: 0 0 20px;
+    list-style: none;
+}
+
+.page-main > aside button {
+    background-color: rgba(0,0,0,0.8);
+    display: block;
+    position: absolute;
+    top: 150px;
+    left: 0px;
+    width: 52px;
+    height: 132px;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
