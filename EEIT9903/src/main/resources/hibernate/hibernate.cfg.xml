@@ -19,5 +19,7 @@
 		<mapping class="model.Balance_sheetBean"/>
         <mapping class="model.Income_statementBean"/>
         <mapping class="model.Cash_flow_statementBean"/>
+        <mapping class="model.Tracking"/>
 	</session-factory>
 </hibernate-configuration>
+
