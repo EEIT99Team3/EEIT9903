@@ -19,6 +19,16 @@ import model.Income_statementPK;
 public class Income_StatementService {
 	@Autowired
 	private Income_statementDAO dao;
+//	@Autowired
+//	private CompanyService service;
+
+	public Income_statementBean select(Income_statementPK pk) {
+		Income_statementBean result = dao.select(pk);
+		if (result != null) {
+			return result;
+		}
+		return null;
+	}
 
 	public void insert() {
 		List<Income_statementBean> beaninsert = this.crawler();
@@ -26,40 +36,42 @@ public class Income_StatementService {
 			dao.insert(beaninsert.get(i));
 		}
 	}
-	
-	
 
 	public List<Income_statementBean> crawler() {
-		
-		int count = 0; //測試有幾筆無資料
-		
-		System.setProperty("http.proxyHost", "127.0.0.1");
-		System.setProperty("http.proxyPort", "8118");
 
 		String url = "http://mops.twse.com.tw/mops/web/t164sb04";// 綜合損益表
 		List<Income_statementBean> is_bean = new ArrayList<Income_statementBean>();
 
-		for (int n = 2330; n < 2340; n++) {
+		for (int n = 1225; n <= 1236; n++) {
 			String co_id = "" + n;
-			
-			//需要Company的Bean來做Select檢查是否有這間公司，若無此公司則跑
-//			CompanyBean bean = null;
-//			bean = dao.select();
-//			if(bean==null) {
-//				continue;			
+
+			// 利用Company的Bean來做Select檢查是否有這間公司，若無此公司則跳過
+//			CompanyBean bean = service.select(co_id);
+//			if (bean == null) {
+//				continue;
 //			}
-					
+			try {
+				Thread.currentThread().sleep(3000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+
 			for (int m = 104; m < 107; m++) {
 				String year = "" + m;
+				try {
+					Thread.currentThread().sleep(3000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 				for (int i = 1; i < 5; i++) {
-					
-					//每個請求設置延遲200毫秒
+
+					// 每個請求設置延遲
 					try {
-						Thread.currentThread().sleep(200);
+						Thread.currentThread().sleep(3000);
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
-					
+
 					String season = "" + i;
 					Document doc = null;
 					try {
@@ -147,11 +159,10 @@ public class Income_StatementService {
 						}
 
 					}
-					
-					//如果得到0，代表該季季報尚未出，故不需存至資料庫
-					//營收、成本都有可能是0，故用稅後淨利檢查
-					if(ni==0) {
-						count++; //測試有幾筆無資料
+
+					// 如果得到0，代表該季季報尚未出，故不需存至資料庫
+					// 營收、成本都有可能是0，故用稅後淨利檢查
+					if (ni == 0) {
 						continue;
 					}
 
@@ -171,7 +182,6 @@ public class Income_StatementService {
 				}
 			}
 		}
-		System.out.println(count); //測試有幾筆無資料
 		return is_bean;
 	}
 }
