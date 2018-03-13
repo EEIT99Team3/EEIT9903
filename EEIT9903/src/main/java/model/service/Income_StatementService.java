@@ -19,7 +19,7 @@ import model.Income_statementPK;
 public class Income_StatementService {
 	@Autowired
 	private Income_statementDAO dao;
-	@Autowired
+//	@Autowired
 //	private CompanyService service;
 
 	public Income_statementBean select(Income_statementPK pk) {

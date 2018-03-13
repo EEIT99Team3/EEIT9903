@@ -15,12 +15,12 @@
 </head>
 <body>
 
-<form action="<c:url value="/CashFlowStatement.controller" />">
-	<jsp:include page="/common/header.html" />
+<form action="<c:url value="/Statement/CashFlowStatement" />">
+<%-- 	<jsp:include page="/partial/header.html" /> --%>
 		<main role="main" class="container mt-2">
 		<div class="row">
 			<div class="col-lg-3">
-				<jsp:include page="/common/nav.html" /></div>
+<%-- 				<jsp:include page="/partial/nav.html" /></div> --%>
 			<div class="col-lg-9">
 
 				<div class="card">
@@ -38,16 +38,17 @@
 							<input id="cfquery" type="submit" value="查詢">
 						</div>
 						<div>${errors.input}</div>
+						<c:if test="${not empty cf_data}">
 						<table id="productTable" class="table table-bordered">
 							<thead>
 								<tr>
 									<th>現金流量表</th>
-									<th>2017</th>
-									<th>2016</th>
+									<th>${param.cfyear}${param.cfseason}</th>
+									<th>${param.cfyear-1}${param.cfseason}</th>
 								</tr>
 							</thead>
 							<tbody>
-							<c:if test="${not empty cf_data}">
+							
 								<tr>
 									<td>營業現金流量</td>
 									<td>${cf_data.bean1.operating_cash_flow}</td>
@@ -63,10 +64,10 @@
 									<td>${cf_data.bean1.financing_cash_flow}</td>
 									<td>${cf_data.bean2.financing_cash_flow}</td>
 								</tr>
-							</c:if>
+							
 							</tbody>
 						</table>
-                        
+                        </c:if>
 					</div>
 				</div>
 

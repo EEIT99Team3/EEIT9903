@@ -15,12 +15,12 @@
 </head>
 <body>
 
-<form action="<c:url value="/IncomeStatemet.controller" />">
-	<jsp:include page="/common/header.html" />
+<form action="<c:url value="/Statement/IncomeStatement" />">
+<%-- 	<jsp:include page="/partial/header.html" /> --%>
 		<main role="main" class="container mt-2">
 		<div class="row">
 			<div class="col-lg-3">
-				<jsp:include page="/common/nav.html" /></div>
+<%-- 				<jsp:include page="/partial/nav.html" /></div> --%>
 			<div class="col-lg-9">
 
 				<div class="card">
