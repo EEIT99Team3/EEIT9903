@@ -83,20 +83,14 @@
 																	type : "get",
 																	url : url,
 																	dataType : "json",
-																	success : function(
-																			data) {
-																		console
-																				.log(stock_id);
-																		$(
-																				'#stock_name')
-																				.html(
-																						"<h2>"
+																	success : function(data) {
+																		console.log(stock_id);
+																		$('#stock_name').html("<h2>"
 																								+ stock_id
 																								+ "股價走勢圖"
 																								+ "</h2>");
 																		// split the data set into ohlc and volume
-																		console
-																				.log(data);
+																		console.log(data);
 																		var ohlc = [], volume = [], dataLength = data.length,
 																		// set the allowed units for data grouping
 																		groupingUnits = [
@@ -116,8 +110,7 @@
 																		i = 0;
 
 																		for (i; i < dataLength; i += 1) {
-																			ohlc
-																					.push([
+																			ohlc.push([
 																							data[i][0], // the date
 																							data[i][1], // open
 																							data[i][2], // high
@@ -125,16 +118,14 @@
 																							data[i][4] // close
 																					]);
 
-																			volume
-																					.push([
+																			volume.push([
 																							data[i][0], // the date
 																							data[i][5] // the volume
 																					]);
 																		}
 
 																		// create the chart
-																		Highcharts
-																				.stockChart(
+																		Highcharts.stockChart(
 																						'container',
 																						{
 

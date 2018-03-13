@@ -27,7 +27,7 @@ public class TrackingDAOHibernate implements TrackingDAO {
 	 */
 	@Override
 	public List<Tracking> select(String account){
-		String hql = "select stock_id from Tracking where m_account = '"+ account + "'";
+		String hql = "from Tracking where m_account = '"+ account + "'";
 		System.out.println(hql);
 		Query<Tracking> query = this.getSession().createQuery(hql,Tracking.class);
 		return query.list();

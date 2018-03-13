@@ -11,11 +11,19 @@
     position: fixed;
 }
 
-
-.page-main > aside ul {
+.page-main > aside h3 {
     margin: 0;
     padding: 0;
     top: 130px;
+    left: 114px;
+    position: absolute;
+}
+
+/*
+.page-main > aside ul {
+    margin: 0;
+    padding: 0;
+    top: 180px;
     left: 114px;
     position: absolute;
 }
@@ -24,8 +32,9 @@
     margin: 0 0 20px;
     list-style: none;
 }
+*/
 
-.page-main > aside button {
+.page-main > aside >.slider {
     background-color: rgba(0,0,0,0.8);
     display: block;
     position: absolute;
@@ -36,4 +45,24 @@
     margin: 0;
     padding: 0;
     border: none;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    top: 180px;
+    left: 114px;
+    position: absolute;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
 }

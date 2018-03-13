@@ -10,16 +10,31 @@
 <body>
 	<div class="page-main" role="main">
 	    <aside>
-	    
-<%-- 	    <c:if test="${not empty login}"> --%>
-	    	
-	    	<h3>最愛股票</h3>
-	        <ul>
-	            <li>data1</li>
-	            <li>data2</li>
-	            <li>data3</li>
-	        </ul>
-	        <button><img src="images/btn_open.png"></button>
+	    	<h3>我的最愛</h3>
+	        <table id="stockTable">
+	        <thead>
+			  <tr>
+			    <th>股價代號</th>
+			<!--     <th></th> -->
+			    <th>管理</th>
+			  </tr>
+			</thead>
+			<tbody>
+<!-- 			  <tr> -->
+<!-- 			    <td>2330</td> -->
+<!-- 			    <td><button>刪除</td> -->
+<!-- 			  </tr> -->
+<!-- 			  <tr> -->
+<!-- 			    <td>0050</td> -->
+<!-- 			    <td><button>刪除</td> -->
+<!-- 			  </tr> -->
+<!-- 			  <tr> -->
+<!-- 			    <td>2317</td> -->
+<!-- 			    <td><button>刪除</td> -->
+<!-- 			  </tr> -->
+			</tbody>
+			</table>
+	        <button class="slider"><img src="images/btn_open.png"></button>
 	    </aside>
 	</div>
 

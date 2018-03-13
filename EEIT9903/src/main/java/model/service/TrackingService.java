@@ -1,7 +1,10 @@
 package model.service;
 
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 
+import org.json.simple.JSONValue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,13 +31,22 @@ public class TrackingService {
 	
 	
 	//列出我最愛的股票代號
-	public List<Tracking> myFavorite(String account){
-		return dao.select(account);
+	public String myFavorite(String account){
+		LinkedList<HashMap<String, String>> l1 = new LinkedList<HashMap<String, String>>();
+		List<Tracking> list = dao.select(account);
+		for(Tracking p: list) {
+			HashMap<String, String> m1 = new HashMap<String, String>();
+			m1.put("stock_id", p.getId().getStockId());
+			l1.add(m1);
+		}
+		String jsonString = JSONValue.toJSONString(l1);
+		//System.out.println(jsonString);
+		return jsonString;
 	}
 	
 	//刪除我的最愛股價追蹤
 	public int deleteMyFavorite(TrackingId trackingId) {
-		if(trackingId != null) {
+		if(trackingId.getMAccount() != null) {
 			dao.delete(trackingId);
 			return 1;	
 		}
