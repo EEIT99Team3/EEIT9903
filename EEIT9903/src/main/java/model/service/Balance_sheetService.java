@@ -14,11 +14,21 @@ import org.springframework.stereotype.Service;
 import model.Balance_sheetBean;
 import model.Balance_sheetDAO;
 import model.Balance_sheetPK;
+import model.Income_statementBean;
+import model.Income_statementPK;
 
 @Service
 public class Balance_sheetService {
 	@Autowired
 	private Balance_sheetDAO dao;
+	
+	public Balance_sheetBean select(Balance_sheetPK pk) {
+		Balance_sheetBean result = dao.select(pk);
+		if (result != null) {
+			return result;
+		}
+		return null;
+	}
 
 	public void insert() {
 		List<Balance_sheetBean> beaninsert = this.crawler();

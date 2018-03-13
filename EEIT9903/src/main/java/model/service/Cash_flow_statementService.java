@@ -11,6 +11,8 @@ import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import model.Balance_sheetBean;
+import model.Balance_sheetPK;
 import model.Cash_flow_statementBean;
 import model.Cash_flow_statementDAO;
 import model.Cash_flow_statementPK;
@@ -19,6 +21,14 @@ import model.Cash_flow_statementPK;
 public class Cash_flow_statementService {
 	@Autowired
 	private Cash_flow_statementDAO dao;
+	
+	public Cash_flow_statementBean select(Cash_flow_statementPK pk) {
+		Cash_flow_statementBean result = dao.select(pk);
+		if (result != null) {
+			return result;
+		}
+		return null;
+	}
 	
 	public void insert() {
 		List<Cash_flow_statementBean> beaninsert = this.crawler();

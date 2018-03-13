@@ -9,7 +9,7 @@
 <!-- 		<property name="hibernate.connection.password">sa123456</property> -->
 <!-- 		<property name="hibernate.connection.url">jdbc:sqlserver://localhost:1433;DatabaseName=Project1</property> -->
 <!-- 		<property name="hibernate.connection.username">sa</property> -->
-		<property name="connection.datasource">java:comp/env/jdbc/Project1</property>
+<!-- 		<property name="connection.datasource">java:comp/env/jdbc/Project1</property> -->
 		<property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
 		<property name="hibernate.show_sql">true</property>
 		<property name="current_session_context_class">thread</property>
@@ -22,3 +22,4 @@
         <mapping class="model.Tracking"/>
 	</session-factory>
 </hibernate-configuration>
+

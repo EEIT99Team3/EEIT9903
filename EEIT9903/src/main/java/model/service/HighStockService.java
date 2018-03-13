@@ -38,3 +38,4 @@ public class HighStockService {
 			return outter;
 	}
 }
+
