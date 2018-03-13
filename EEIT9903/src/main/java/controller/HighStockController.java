@@ -17,7 +17,6 @@ public class HighStockController {
 	@RequestMapping("/p/test.do") 
 	public @ResponseBody
 	String doAjax(@RequestParam("stock_id")  String stockId) {
-		
 		String result = highStockService.select(stockId) +"";
 		return result;
 	}
