@@ -1,6 +1,12 @@
+<<<<<<< HEAD
+/.classpath
+/.project
+/.settings/
+=======
 /.settings/
 /.classpath
 /.project
+>>>>>>> branch 'master' of https://github.com/EEIT99Team3/EEIT9903.git
 /.springBeans
 /.tern-project
 /target
