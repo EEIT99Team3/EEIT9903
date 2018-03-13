@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+<!-- 	JDBC的設定 -->
+<!-- 		<property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property> -->
+<!-- 		<property name="hibernate.connection.password">sa123456</property> -->
+<!-- 		<property name="hibernate.connection.url">jdbc:sqlserver://localhost:1433;DatabaseName=Project1</property> -->
+<!-- 		<property name="hibernate.connection.username">sa</property> -->
+<!-- 		<property name="connection.datasource">java:comp/env/jdbc/Project1</property> -->
+		<property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="current_session_context_class">thread</property>
+		<mapping class="model.Price"/>
+		<mapping class="model.Company"/>
+		<mapping class="model.PriceId"/>
+		<mapping class="model.Balance_sheetBean"/>
+        <mapping class="model.Income_statementBean"/>
+        <mapping class="model.Cash_flow_statementBean"/>
+        <mapping class="model.Tracking"/>
+		<mapping class="model.CompanyBean"/>
+		<mapping class="model.DividendBean"/>
+		<mapping class="model.NewsBean"/>
+	</session-factory>
+</hibernate-configuration>
+
