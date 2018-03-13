@@ -8,12 +8,9 @@
 	<context:component-scan base-package="model"></context:component-scan>
 	
 
-	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
-		<property name="url" value="jdbc:sqlserver://localhost:1433;database=Project1" />
-		<property name="username" value="sa" />
-		<property name="password" value="passw0rd" />
-	</bean>
+    <bean id ="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+      <property name="jndiName" value="java:comp/env/jdbc/Project1"></property>
+    </bean>
 
 	<bean id="sessionFactory" destroy-method="destroy"
 			class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
