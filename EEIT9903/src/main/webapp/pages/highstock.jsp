@@ -20,8 +20,6 @@
 <!-- /test/src/main/webapp/js/jquery-3.3.1.min.js -->
 <script>
 	$(document).ready(function(){
-
-
 	$("#search").change(function(event) {
 			var url = '/EEIT9903/p/test.do';
 			var stock_id = $('#stock_id').val();
@@ -138,7 +136,7 @@
 </head>
 <body>
 	<div class="container">
-	<div class="main">
+	<div class="main_highstock">
 	<p>穩健的報酬,更悠閒的生活</p>
 		<form id= "search" method="post">
 			<input type="text" id="stock_id" name="stock_id" value="" placeholder="請輸入股價代號">
@@ -150,7 +148,7 @@
 	</div>
 </body>
 <style>
- .main{
+ .main_highstock{
   	margin-top: 100px;
     margin-bottom: 100px;
     margin-right: 150px;
@@ -161,4 +159,5 @@
  #container{
  	text-align:center;
  }
+ </style>
 </html>
