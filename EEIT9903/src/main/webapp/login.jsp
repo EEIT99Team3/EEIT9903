@@ -1,4 +1,4 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+﻿﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,11 +23,11 @@
 </head>
 
 <body>
-	<jsp:include page="common/header.html"></jsp:include>
+	<jsp:include page="/common/header.html"></jsp:include>
 
 	<div class="container-fluid">
 		<div class="row">
-			<jsp:include page="common/nav.html"></jsp:include>
+			<jsp:include page="/common/nav.html"></jsp:include>
 			<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 			<div
 				class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
@@ -71,7 +71,7 @@
 		</div>
 
 	</div>
-	<jsp:include page="common/footer.jsp" />
+	<jsp:include page="/common/footer.jsp" />
 </body>
 
 </html>
