@@ -12,6 +12,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+
 <title>EZStock綜合股情查詢系統</title>
 
 <!-- Bootstrap core CSS -->
@@ -27,10 +28,10 @@
 	<div class="container-fluid">
 		<div class="row">
 			<jsp:include page="/common/nav.html"></jsp:include>
+			
 			<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 
 			<!-- 每頁不同的內容從這裡開始  --> 
-			
 			<!-- 每頁不同的內容到這裡結束  -->
 		</div>
 

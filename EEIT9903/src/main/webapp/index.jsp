@@ -10,7 +10,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
- <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+<script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
 <title>EZStock綜合股情查詢系統</title>
 
 <!-- Bootstrap core CSS -->
