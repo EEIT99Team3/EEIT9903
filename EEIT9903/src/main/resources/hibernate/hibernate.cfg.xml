@@ -20,6 +20,7 @@
         <mapping class="model.Income_statementBean"/>
         <mapping class="model.Cash_flow_statementBean"/>
         <mapping class="model.Tracking"/>
+        <mapping class="model.SupervisorBean"/> 
 	</session-factory>
 </hibernate-configuration>
 
