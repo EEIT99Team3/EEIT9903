@@ -13,10 +13,10 @@ function toggleAside(){
             $aside.toggleClass('open');
             if($aside.hasClass('open')){
                 $aside.stop(true).animate({right: '0px'}, duration, 'easeOutBack');
-                $asidButton.find('img').attr('src', 'images/btn_close.png');
+                $asidButton.find('img').attr('src', 'http://localhost:8080/testWEB9903/images/btn_close.png');
             }else{
                 $aside.stop(true).animate({right: '-297px'}, duration, 'easeInBack');
-                $asidButton.find('img').attr('src', 'images/btn_open.png');
+                $asidButton.find('img').attr('src', '/testWEB9903/images/btn_open.png');
             };
         });
 };

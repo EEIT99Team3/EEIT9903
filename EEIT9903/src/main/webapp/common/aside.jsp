@@ -34,9 +34,9 @@
 <!-- 			  </tr> -->
 			</tbody>
 			</table>
-	        <button class="slider"><img src="images/btn_open.png"></button>
+	        <button class="slider"><img src="../images/btn_open.png"></button>
 	    </aside>
 	</div>
-
+<%-- <c:url value=""></c:url> --%>
 </body>
 </html>
