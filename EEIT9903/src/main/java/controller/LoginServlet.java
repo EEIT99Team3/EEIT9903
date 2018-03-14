@@ -13,10 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.Member;
-import model.dao.memberService;
+import model.service.MemberService;
 
 @WebServlet("/login.controller")
-public class loginServlet extends HttpServlet {
+public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -53,7 +53,7 @@ public class loginServlet extends HttpServlet {
 		}
 		// 4. 進行 Business Logic 運算
 		// 將LoginService類別new為物件，存放物件參考的變數為 ms
-		memberService ms = new memberService();
+		MemberService ms = new MemberService();
 		// 呼叫 ms物件的 login()，要記得傳入account與password兩個參數
 		// 同時將傳回值放入MemberBean型別的變數mb之內。
 		Member mb = ms.login(account, password);
