@@ -23,6 +23,7 @@
 		<mapping class="model.CompanyBean"/>
 		<mapping class="model.DividendBean"/>
 		<mapping class="model.NewsBean"/>
+		<mapping class="model.SupervisorBean"/> 
 	</session-factory>
 </hibernate-configuration>
 
