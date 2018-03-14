@@ -38,4 +38,13 @@ public class SupervisorService {
 		return result;
 	}
 	
+	public SupervisorBean select(String s_account) {
+		SupervisorBean temp = null;
+		if(s_account!=null && s_account.trim().length()!=0) {
+			temp = supervisorDAO.select(s_account);
+			return temp;
+		}
+		return temp;
+	}
+	
 }
