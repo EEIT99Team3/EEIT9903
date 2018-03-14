@@ -4,17 +4,20 @@
 
 .page-main > aside {
     width: 350px;
-    height: 100%;
-    top: 0;
+ /*   height: 100%;
+    top: 0;       */
  /*   left: -350px;*/
     right: -297px;
+    height: 76%;
+    top: 61px;   
     position: fixed;
+    background-color: lightyellow;
 }
 
 .page-main > aside h3 {
     margin: 0;
     padding: 0;
-    top: 130px;
+    top: 8px;
     left: 114px;
     position: absolute;
 }
@@ -38,7 +41,7 @@
     background-color: rgba(0,0,0,0.8);
     display: block;
     position: absolute;
-    top: 150px;
+    top: 40px;
     left: 0px;
     width: 52px;
     height: 132px;
@@ -52,7 +55,7 @@ table {
     border-collapse: collapse;
     margin: 0;
     padding: 0;
-    top: 180px;
+    top: 52px;
     left: 114px;
     position: absolute;
 }
