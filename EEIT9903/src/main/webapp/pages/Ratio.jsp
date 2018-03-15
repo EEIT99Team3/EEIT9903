@@ -126,7 +126,7 @@
 	 		if(apturnover.value!=""){cond+="&apturnover="+apturnover.value.toString()};
 	 		if(debtratio.value!=""){cond+="&debtratio="+debtratio.value.toString()};
 	 		if(currentratio.value!=""){cond+="&currentratio="+stockid.value.toString()};
-// 	 		if(fcfgrowth.value!=""){cond+="&fcfgrowth="+stockid.value.toString()};
+	 		if(fcfgrowth.value!=""){cond+="&fcfgrowth="+stockid.value.toString()};
 	 		if(ocfgrowth.value!=""){cond+="&ocfgrowth="+stockid.value.toString()};
 	 		if(revenuesgrowth.value!=""){cond+="&revenuesgrowth="+stockid.value.toString()};
 	  			return cond;
