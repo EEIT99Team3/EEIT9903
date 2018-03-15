@@ -100,30 +100,4 @@ public class Member implements java.io.Serializable {
 	public void setPhoto(byte[] photo) {
 		this.photo = photo;
 	}
-
-	public static void main(String[] args) {
-		try {
-			HibernateUtil.getSessionFactory().getCurrentSession().beginTransaction();
-			Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-
-			// insert
-			Member insert = new Member();
-			insert.setMAccount("thirdtry");
-			insert.setMPwd("thirdtry");
-			insert.setEmail("thirdtry@gmail.com");
-			insert.setBlacklist(null);
-			insert.setPhoto(null);
-			session.save(insert);
-			
-			// delete
-//			 Member delete = new Member();
-//			 delete.setMAccount("xxx");
-//			 session.delete(delete);
-			HibernateUtil.getSessionFactory().getCurrentSession().getTransaction().commit();
-			HibernateUtil.getSessionFactory().getCurrentSession().close();
-		} finally {
-			HibernateUtil.closeSessionFactory();
-		}
-	}
-
 }

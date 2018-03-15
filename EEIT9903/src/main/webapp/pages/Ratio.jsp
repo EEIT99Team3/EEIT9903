@@ -7,8 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>EZStock綜合股情查詢系統</title>
 
-<link rel="stylesheet" href="../css/bootstrap.min.css">
-<link rel="stylesheet" href="../css/jumbotron.css">
+<link rel="stylesheet" href="../lib/bootstrap.min.css">
+<link rel="stylesheet" href="../lib/jumbotron.css">
 <link rel="stylesheet" type="text/css"
 	href="https://cdn.datatables.net/v/bs4/dt-1.10.16/datatables.min.css" />
 
@@ -18,7 +18,6 @@
 	<main role="main" class="container mt-2" style="margin-left:50px">
 	<div class="row" style="width: 700px">
 		<div class="col-lg-3" style="padding: 0px; width: 180px">
-			<jsp:include page="../common/nav.html" /></div>
 		<div class="col-lg-9" style="width: 1100px">
 
 			<div class="card" style="width: 1100px">
@@ -33,16 +32,24 @@
 					style="width: 1000px">
 					<thead>
 						<tr>
-							<th>股票代號</th>
-							<th>股票名稱</th>
-							<th>日期</th>
-							<th>開盤價</th>
-							<th>收盤價</th>
-							<th>最高價</th>
-							<th>最低價</th>
-							<th>本益比</th>
-							<th>殖利率</th>
-							<th>買賣股數</th>
+							<th>stock_id</th>
+							<th>rat_year</th>
+							<th>rat_season</th>
+							<th>eps</th>
+							<th>bvps</th>
+							<th>gp_margin</th>
+							<th>op_margin</th>
+							<th>ni_margin</th>
+							<th>roe</th>
+							<th>roa</th>
+							<th>ar_turnover</th>
+							<th>inv_turnover</th>
+							<th>ap_turnover</th>
+							<th>debt_ratio</th>
+							<th>current_ratio</th>
+							<th>fcf_growth</th>
+							<th>ocf_growth</th>
+							<th>revenues_growth</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -60,50 +67,65 @@
 	</main>
 
 	<jsp:include page="../common/footer.jsp" />
-	<script src="../js/jquery-3.3.1.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-	<script type="text/javascript"
-		src="https://cdn.datatables.net/v/bs4/dt-1.10.16/datatables.min.js"></script>
-<!-- 	<script> -->
-<!--  		var table = null; -->
-<!--  		var stockid = document.getElementById("stockid"); -->
-<!--  		function condition() {//動態產生查詢條件 -->
-<!--  			var cond = "/EEIT9903/h/RatioController?stock_id=" + stockid.value.toString(); -->
-<!--  			return cond; -->
-<!--  		} -->
+	<script src="../lib/jquery-3.3.1.min.js"></script>
+	<script src="../lib/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.16/datatables.min.js"></script>
+		<script>
+	 		var table = null;
+	  		var stockid = document.getElementById("stockid");
+	 		function condition() {//動態產生查詢條件
+	  			var cond = "/EEIT9903/h/RatioController?stock_id=" + stockid.value.toString();
+	  			return cond;
+	  		}
 
-<!--  		$(document).ready(function() { -->
-<!--  			table = $('#table1').DataTable({ -->
-<!--  				ajax : "/EEIT9903/h/RatioController?stock_id=2330", -->
-<!--  				columns : [ { -->
-<!--  					"data" : "stockId" -->
-<!--  				}, { -->
-<!--  					"data" : "stockName" -->
-<!--  				}, { -->
-<!--  					"data" : "priceDate" -->
-<!--  				}, { -->
-<!-- 					"data" : "priceOpen" -->
-<!--  				}, { -->
-<!--  					"data" : "priceClose" -->
-<!--  				}, { -->
-<!-- 				"data" : "priceHighest" -->
-<!-- 				}, { -->
-<!-- 					"data" : "priceLowest" -->
-<!--  				}, { -->
-<!-- 					"data" : "peRatio" -->
-<!-- 				}, { -->
-<!--  					"data" : "yieldRate" -->
-<!--  				}, { -->
-<!--  					"data" : "volume" -->
-<!--  				} ] -->
-<!-- 			}); -->
+	 		$(document).ready(function() {
+	 			table = $('#table1').DataTable({
+	 				ajax : "/EEIT9903/RatioController?stock_id=2330",
+	 				columns : [ {
+	 					"data" : "stock_id"
+	 				}, {
+	 					"data" : "rat_year"
+	 				}, {
+	 					"data" : "rat_season"
+	 				}, {
+						"data" : "eps"
+	 				}, {
+	 					"data" : "bvps"
+	 				}, {
+						"data" : "gp_margin"
+					}, {
+						"data" : "op_margin"
+	 				}, {
+						"data" : "ni_margin"
+					}, {
+	 					"data" : "roe"
+	 				}, {
+	 					"data" : "roa"
+	 				} , {
+	 					"data" : "ar_turnover"
+	 				} , {
+	 					"data" : "inv_turnover"
+	 				} , {
+	 					"data" : "ap_turnover"
+	 				} , {
+	 					"data" : "debt_ratio"
+	 				} , {
+	 					"data" : "current_ratio"
+	 				} , {
+	 					"data" : "fcf_growth"
+	 				} , {
+	 					"data" : "ocf_growth"
+	 				} , {
+	 					"data" : "revenues_growth"
+	 				}]
+				});
 
-<!-- 		}); -->
+			});
 
-<!--  		$('#sub').click(function() { -->
-<!--  			table.ajax.url(condition()); -->
-<!-- 			table.ajax.reload(); -->
-<!-- 	}); -->
-<!-- 	</script> -->
+	 		$('#sub').click(function() {
+	 			table.ajax.url(condition());
+				table.ajax.reload();
+		});
+		</script>
 </body>
 </html>

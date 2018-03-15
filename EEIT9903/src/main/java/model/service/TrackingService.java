@@ -21,7 +21,7 @@ public class TrackingService {
 
 	//加入我的最愛股價追蹤
 	public int addMyfavorites(Tracking tracking) {
-		if(tracking ==null) {
+		if(tracking !=null) {
 		   dao.insert(tracking);
 		   return 1;
 		}

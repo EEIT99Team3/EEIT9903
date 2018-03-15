@@ -4,17 +4,20 @@
 
 .page-main > aside {
     width: 350px;
-    height: 100%;
-    top: 0;
+ /*   height: 100%;
+    top: 0;       */
  /*   left: -350px;*/
     right: -297px;
+    height: 76%;
+    top: 61px;   
     position: fixed;
+    background-color: white;
 }
 
 .page-main > aside h3 {
     margin: 0;
     padding: 0;
-    top: 130px;
+    top: 8px;
     left: 114px;
     position: absolute;
 }
@@ -38,31 +41,57 @@
     background-color: rgba(0,0,0,0.8);
     display: block;
     position: absolute;
-    top: 150px;
+    top: 40px;
     left: 0px;
     width: 52px;
     height: 132px;
     margin: 0;
     padding: 0;
     border: none;
+    
 }
 
-table {
+
+.deleteBtn{
+	cursor: pointer;
+  //  background-color: lightgray;
+    color: white;
+    border: 2px solid gray;
+  	border-radius: 5px;
+	background-color:black;
+}
+
+.addNew {
+    display: absolute;
+    position: absolute;
+    top: 500px;
+    left: 100px;
+}
+
+.addBtn {
+	border-radius: 5px;
+}
+
+#stock_id{
+	border-radius: 5px;
+}
+
+#stockTable {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     margin: 0;
     padding: 0;
-    top: 180px;
+    top: 52px;
     left: 114px;
     position: absolute;
 }
 
-td, th {
+td.myFav, th.myFav {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
 }
 
-tr:nth-child(even) {
+tr:nth-child(even).myFav {
     background-color: #dddddd;
 }
