@@ -27,7 +27,10 @@
 		<mapping class="model.Member"/>
 		<mapping class="model.Ratio"/>
 		<mapping class="model.RatioId"/> 
-		
+		<mapping class="model.ArticleBean" />
+		<mapping class="model.ArticleReplyBean" />
+
+				
 	</session-factory>
 </hibernate-configuration>
 
