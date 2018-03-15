@@ -19,7 +19,7 @@
 
 <link href="<c:url value="/lib/bootstrap.min.css" />" rel="stylesheet" type="text/css"/>
 <!-- Custom styles for this template -->
-<link href="<c:url value="/lib/advanced Css/index.css" />" rel="stylesheet" type="text/css"/>
+<link href="<c:url value="/lib/advanced Css/dashboard.css" />" rel="stylesheet" type="text/css"/>
 <link href="../css/aside.css" rel="stylesheet" type="text/css">
 <script src="../lib/jquery-1.10.2.min.js"></script>
 <script src="../lib/jquery-ui-1.10.3.custom.min.js"></script>
