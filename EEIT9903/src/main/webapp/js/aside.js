@@ -2,21 +2,22 @@ $(function(){
 	toggleAside();
     showMyFafovrite();
     deleteMyFavrite();
+    addMyFavorite();
 });
 
 function toggleAside(){	
     var duration = 300;
     // aside ----------------------------------------
     var $aside = $('.page-main > aside');
-    var $asidButton = $aside.find('button')
+    var $asidButton = $aside.find('button.slider')
         .on('click', function(){
             $aside.toggleClass('open');
             if($aside.hasClass('open')){
                 $aside.stop(true).animate({right: '0px'}, duration, 'easeOutBack');
-                $asidButton.find('img').attr('src', 'http://localhost:8080/testWEB9903/images/btn_close.png');
+                $asidButton.find('img').attr('src', 'http://localhost:8080/EEIT9903/images/btn_close.png');
             }else{
                 $aside.stop(true).animate({right: '-297px'}, duration, 'easeInBack');
-                $asidButton.find('img').attr('src', '/testWEB9903/images/btn_open.png');
+                $asidButton.find('img').attr('src', 'http://localhost:8080/EEIT9903/images/btn_open.png');
             };
         });
 };
@@ -35,9 +36,9 @@ function showMyFafovrite(){
 				var tb=$('#stockTable>tbody').empty();
 				
 				$.each(data,function(index,value){
-					var cell1 = $('<td></td>').text(value.stock_id);
-					var cell2 = $('<td></td>').html('<button>刪除</button>');
-					var row =$('<tr></tr>').append([cell1,cell2]);	
+					var cell1 = $('<td class="myFav"></td>').text(value.stock_id);
+					var cell2 = $('<td class="myFav"></td>').html('<button class="deleteBtn">刪除</button>');
+					var row =$('<tr class="myFav"></tr>').append([cell1,cell2]);	
 					tb.append(row);
 				//	var cell5 = $('<td></td>').html('<button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>');
 				//	$("#myList").append(cell1);
@@ -69,9 +70,9 @@ function refreshpage(){
 			var tb=$('#stockTable>tbody').empty();
 			
 			$.each(data,function(index,value){
-				var cell1 = $('<td></td>').text(value.stock_id);
-				var cell2 = $('<td></td>').html('<button>刪除</button>');
-				var row =$('<tr></tr>').append([cell1,cell2]);	
+				var cell1 = $('<td class="myFav"></td>').text(value.stock_id);
+				var cell2 = $('<td class="myFav"></td>').html('<button class="deleteBtn">刪除</button>');
+				var row =$('<tr class="myFav"></tr>').append([cell1,cell2]);	
 				tb.append(row);
 			//	var cell5 = $('<td></td>').html('<button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>');
 			//	$("#myList").append(cell1);
@@ -81,3 +82,15 @@ function refreshpage(){
 		}
 	})
 }
+
+function addMyFavorite(){
+	$('.addBtn').click(function(){
+		var stock_id = $("#stock_id").val();
+		//console.log(stock_id);
+		$.get('stockAdd.do',{stock_id:stock_id},function(data){
+		  alert(data);
+		  refreshpage();
+		});
+	});
+};
+

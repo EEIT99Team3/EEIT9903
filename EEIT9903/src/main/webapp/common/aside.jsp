@@ -10,14 +10,14 @@
 <body>
 	<div class="page-main" role="main">
 	    <aside>
-	    	<h3>我的最愛</h3>
+	    	<h3>追蹤清單</h3>
 	        <table id="stockTable">
 	        <thead>
-			  <tr>
-			    <th>股價代號</th>
+			  <tr class="myFav">
+			    <th class="myFav">股價代號</th>
 			<!--     <th></th> -->
-			    <th>管理</th>
-			  </tr>
+			    <th class="myFav">管理</th>
+			  </tr class="myFav">
 			</thead>
 			<tbody>
 <!-- 			  <tr> -->
@@ -35,6 +35,10 @@
 			</tbody>
 			</table>
 	        <button class="slider"><img src="../images/btn_open.png"></button>
+	        <div class="addNew">        
+	        	<input type="text" name="stock_id" id="stock_id" value="">
+	        	<button class="addBtn">新增</button>
+	        </div>
 	    </aside>
 	</div>
 <%-- <c:url value=""></c:url> --%>
