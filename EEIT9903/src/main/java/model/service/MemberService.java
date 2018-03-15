@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import model.Member;
 import model.dao.MemberDAO;
+
 @Service
 public class MemberService {
 	@Autowired
@@ -20,5 +21,57 @@ public class MemberService {
 	}
 
 	// 註冊
+	public Member register(String MAccount, String MPwd, String email, String MName, String blacklist, byte[] photo) {
+		Member temp = memberDAO.select(MAccount);
+		if (temp == null) {
+			Member addNew = new Member();
+			addNew.setMAccount(MAccount);
+			addNew.setMPwd(MPwd);
+			addNew.setEmail(email);
+			addNew.setMName(MName);
+			addNew.setBlacklist(blacklist);
+			addNew.setPhoto(photo);
+			memberDAO.insert(addNew);
+
+			return addNew;
+		}
+		return null;
+	}
+
+	// 忘記密碼
+	public Member changePassword(String MAccount, String MPwd, String newPwd) {
+		Member bean = this.login(MAccount, MPwd);
+		if (bean != null) {
+			if (newPwd != null && newPwd.trim().length() != 0) {
+				return memberDAO.update(MAccount, newPwd, bean.getEmail(), bean.getMName(), bean.getBlacklist(),
+						bean.getPhoto());
+			}
+		}
+		return null;
+	}
+
+	// 更新資料
+	public Member updateInfo(String MAccount, String newPwd, String newEmail, String newName, byte[] newPhoto) {
+		Member update = memberDAO.select(MAccount);
+		// 確認哪些資料有被更新
+		if (newPwd != null && newPwd.trim().length() != 0) {
+			update.setMPwd(newPwd);
+		}
+
+		if (newEmail != null && newEmail.trim().length() != 0) {
+			update.setEmail(newEmail);
+		}
+
+		if (newName != null && newName.trim().length() != 0) {
+			update.setMName(newName);
+		}
+
+		if (newPhoto != null && newPhoto.length != 0) {
+			update.setPhoto(newPhoto);
+		}
+        // 更新資料
+		return memberDAO.update(
+				MAccount, update.getMPwd(), update.getEmail(), update.getMName(), update.getBlacklist(), update.getPhoto());
+	}
 
 }
