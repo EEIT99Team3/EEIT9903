@@ -73,7 +73,7 @@
 										<a href="#" class="forgot">Can't access your account?</a>
 									</p>
 									<p>
-										<strong>New to TimeInfo?</strong><br> <a href="#"
+										<strong>New to Ez_Stock ?</strong><br> <a href="#"
 											id="flip-btn" class="signup signup_link">Sign up for a
 											new account</a>
 									</p>

@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import model.Tracking;
 import model.TrackingId;
 import model.service.TrackingService;
 
@@ -23,7 +24,7 @@ public class TrackingController {
 		
 	}
 	
-	@RequestMapping("stockDelete.do")
+	@RequestMapping("pages/stockDelete.do")
 	@ResponseBody
 	public String delete(@RequestParam("stock_id") String stockId) {
 		TrackingId trackingId = new TrackingId();
@@ -37,5 +38,21 @@ public class TrackingController {
 		
 	}
 	
+	@RequestMapping("pages/stockAdd.do")
+	@ResponseBody
+	public String insert(@RequestParam("stock_id") String stockId) {
+		Tracking tracking = new Tracking();
+		TrackingId trackingId = new TrackingId();
+		trackingId.setMAccount("kitty");
+		trackingId.setStockId(stockId);
+		tracking.setId(trackingId);
+		tracking.setAlertHigh(Integer.valueOf(123));
+		tracking.setAlertLow(Integer.valueOf(125));
+		int i = trackingService.addMyfavorites(tracking);
+		if(i>0) {
+			return "Add Success";	
+		}
+		return "Add Fail";
+}
 	
 }
