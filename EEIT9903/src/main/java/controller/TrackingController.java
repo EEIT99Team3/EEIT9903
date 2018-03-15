@@ -13,21 +13,20 @@ import model.service.TrackingService;
 
 @Controller
 public class TrackingController {
-	
+
 	@Autowired
 	private TrackingService trackingService;
 
 	@RequestMapping("/p/tracking.do")
 	@ResponseBody
 	public String doGetMyFavorite() {
-		//String result = trackingService.myFavorite("kitty");		
 		TrackMyFavoriteDAO_JDBC myFavorite = new TrackMyFavoriteDAO_JDBC();
 		String result = myFavorite.TrackMyFavorite("kitty");
-		System.out.println(result);		
+		// System.out.println(result);
 		return result;
-		
+
 	}
-	
+
 	@RequestMapping("pages/stockDelete.do")
 	@ResponseBody
 	public String delete(@RequestParam("stock_id") String stockId) {
@@ -35,13 +34,13 @@ public class TrackingController {
 		trackingId.setStockId(stockId);
 		trackingId.setMAccount("kitty");
 		int delete = trackingService.deleteMyFavorite(trackingId);
-		if(delete > 0) {
+		if (delete > 0) {
 			return "Delete Success";
 		}
-			return "Delete Fail";
-		
+		return "Delete Fail";
+
 	}
-	
+
 	@RequestMapping("pages/stockAdd.do")
 	@ResponseBody
 	public String insert(@RequestParam("stock_id") String stockId) {
@@ -53,10 +52,10 @@ public class TrackingController {
 		tracking.setAlertHigh(Integer.valueOf(123));
 		tracking.setAlertLow(Integer.valueOf(125));
 		int i = trackingService.addMyfavorites(tracking);
-		if(i>0) {
-			return "Add Success";	
+		if (i > 0) {
+			return "Add Success";
 		}
 		return "Add Fail";
-}
-	
+	}
+
 }

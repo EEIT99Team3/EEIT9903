@@ -41,6 +41,5 @@
 	        </div>
 	    </aside>
 	</div>
-<%-- <c:url value=""></c:url> --%>
 </body>
 </html>

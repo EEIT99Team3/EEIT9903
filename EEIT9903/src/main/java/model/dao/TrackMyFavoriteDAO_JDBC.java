@@ -29,7 +29,7 @@ public class TrackMyFavoriteDAO_JDBC {
 				"  where TRACKING.m_account ="+"'"+ account+"'" +" AND price_date = (select MAX(price_date) from PRICE)" + 
 				"  order by price_date desc";
 		
-		System.out.println(query);
+		// System.out.println(query);
 		
 		try {
 			ctx = new InitialContext();
@@ -68,8 +68,5 @@ public class TrackMyFavoriteDAO_JDBC {
 			}
 		}
 	}
-//	public static void main(String[] args) {
-//		TrackMyFavoriteDAO_JDBC test = new TrackMyFavoriteDAO_JDBC();
-//		System.out.println(test.TrackMyFavorite("kitty"));
-//	}
+
 }

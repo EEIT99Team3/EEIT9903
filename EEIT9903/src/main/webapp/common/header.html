@@ -78,11 +78,8 @@
 <script>
 
 		$('.outline-success').click(function() {
-
-			stock_id = $('input').val();
-				
-			$.get("/baseinfo/search",{"stock_id":stock_id},function(){					
-
+			stock_id = $('input').val();	
+			$.get("/baseinfo/search",{"stock_id":stock_id},function(){				
 			})
 		})
 
