@@ -26,6 +26,8 @@ ApplicationContext context = (ApplicationContext)
 // List<Price> beans1 = priceDAO.select();
 //out.println("<h3>beans1="+beans1+"</h3>");
 
+ArticleReplyDAOHibernate articleReplyDAOHibernate =(ArticleReplyDAOHibernate)context.getBean("articleReplyDAOHibernate");
+articleReplyDAOHibernate.select(1);
 TrackingDAOHibernate dao = (TrackingDAOHibernate) context.getBean("trackingDAOHibernate");
 // List<Tracking> tracking = dao.select("kitty");
 // out.println("<h3>tracking:" + tracking + "</h3>"); 
