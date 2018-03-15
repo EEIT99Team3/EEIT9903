@@ -17,7 +17,6 @@
 <% 
 ApplicationContext context = (ApplicationContext)
      application.getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);
-
 // Balance_sheetDAO dao = (Balance_sheetDAO) context.getBean("balance_sheetDAOHibernate");
 // Balance_sheetBean bean = dao.select(new Balance_sheetPK("2330", 105, 4));
 // out.println(bean);

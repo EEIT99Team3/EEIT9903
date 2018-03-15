@@ -102,7 +102,7 @@ public class loginServlet extends HttpServlet {
 	 response)
 	 throws ServletException, IOException {
 	
-	 doGet(request, response);
+	 doPost(request, response);
 	 }
 
 }
