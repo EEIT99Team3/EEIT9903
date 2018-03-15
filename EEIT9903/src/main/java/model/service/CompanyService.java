@@ -1,10 +1,13 @@
 package model.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 
 import org.apache.commons.logging.LogFactory;
+import org.json.JSONArray;
+import org.json.simple.JSONValue;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +37,7 @@ public class CompanyService {
 		return select;
 	}
 	
-	public CompanyBean search(String stock_id) {
+	public String search(String stock_id) {
 		String url = "http://mops.twse.com.tw/mops/web/t05st03?firstin=true&off=1&first=true&step=1&co_id=" + stock_id;
 		String header = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36";
 		
@@ -42,9 +45,21 @@ public class CompanyService {
 			CompanyBean select = companyDao.select(stock_id);
 			
 			if (select != null) {
-				return select;
+				HashMap<String,String> temp = new HashMap<String,String>();
+				
+				temp.put("stock_id" , select.getStockId());
+				temp.put("stock_name" , select.getStockName());
+				temp.put("chairman" , select.getChairman());
+				temp.put("manager" , select.getManager());
+				temp.put("captial" , select.getCaptial().toString());
+				temp.put("stock_website" , select.getStockWebsite());
+				temp.put("tax_number" , select.getTaxNumber());
+				
+				return JSONValue.toJSONString(temp);
 			} else {
 				try {
+					JSONArray jsonCompany = new JSONArray();
+					
 					Document doc = Jsoup.connect(url).header("user-agent", header).get();
 					CompanyBean bean = new CompanyBean();
 					bean.setStockId(doc.select("table.hasBorder tr:eq(0) td").get(0).text());
@@ -54,8 +69,17 @@ public class CompanyService {
 					bean.setCaptial(Long.parseLong(doc.select("table.hasBorder tr:eq(8) td").get(0).text().replace("元", "").replace(",", "")));
 					bean.setStockWebsite(doc.select("table.hasBorder tr:eq(23) a").get(0).text());
 					bean.setTaxNumber(doc.select("table.hasBorder tr:eq(7) td").get(1).text());
+					companyDao.insert(bean);
 					
-					return companyDao.insert(bean);
+					jsonCompany.put(bean.getStockId());
+					jsonCompany.put(bean.getStockName());
+					jsonCompany.put(bean.getChairman());
+					jsonCompany.put(bean.getManager());
+					jsonCompany.put(bean.getCaptial());
+					jsonCompany.put(bean.getStockWebsite());
+					jsonCompany.put(bean.getTaxNumber());
+					
+					return jsonCompany+"";
 				} catch (Exception e) {
 					return null;
 				}

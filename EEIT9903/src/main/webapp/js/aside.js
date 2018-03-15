@@ -37,8 +37,9 @@ function showMyFafovrite(){
 				
 				$.each(data,function(index,value){
 					var cell1 = $('<td class="myFav"></td>').text(value.stock_id);
-					var cell2 = $('<td class="myFav"></td>').html('<button class="deleteBtn">刪除</button>');
-					var row =$('<tr class="myFav"></tr>').append([cell1,cell2]);	
+					var cell2 = $('<td class="myFav"></td>').text(value.stock_price);
+					var cell3 = $('<td class="myFav"></td>').html('<button class="deleteBtn">刪除</button>');
+					var row =$('<tr class="myFav"></tr>').append([cell1,cell2,cell3]);	
 					tb.append(row);
 				//	var cell5 = $('<td></td>').html('<button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>');
 				//	$("#myList").append(cell1);
@@ -71,8 +72,9 @@ function refreshpage(){
 			
 			$.each(data,function(index,value){
 				var cell1 = $('<td class="myFav"></td>').text(value.stock_id);
-				var cell2 = $('<td class="myFav"></td>').html('<button class="deleteBtn">刪除</button>');
-				var row =$('<tr class="myFav"></tr>').append([cell1,cell2]);	
+				var cell2 = $('<td class="myFav"></td>').text(value.stock_price);
+				var cell3 = $('<td class="myFav"></td>').html('<button class="deleteBtn">刪除</button>');
+				var row =$('<tr class="myFav"></tr>').append([cell1,cell2,cell3]);	
 				tb.append(row);
 			//	var cell5 = $('<td></td>').html('<button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>');
 			//	$("#myList").append(cell1);

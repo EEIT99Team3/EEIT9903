@@ -28,9 +28,6 @@
 </head>
 
 <body class="main">
-	<%-- 	<jsp:include page="/partial/header.html"></jsp:include> --%>
-
-
 
 	<!-- 每頁不同的內容從這裡開始  -->
 	<div class="login-screen"></div>
@@ -43,24 +40,26 @@
 						<div class="front signin_form">
 							<p>Login Your Account</p>
 							<form class="login-form" method="post"
-								action=" <c:url value='/login.controller'/>">
+								action=" <c:url value='/member/login'/>">
 								<div class="form-group">
 									<div class="input-group">
-										<input type="text" class="form-control" name="account"
-											value="${param.account}" placeholder="Type your account">
+										<input type="text" class="form-control" name="frontloginaccount"
+											value="${param.frontloginaccount}" placeholder="Type your account">
 										<span class="input-group-addon"> <i
 											class="glyphicon glyphicon-user"></i>
 										</span>
 									</div>
+									<span>${loginerrors.frontaccounterror}</span>
 								</div>
 								<div class="form-group">
 									<div class="input-group">
-										<input type="password" class="form-control" name="password"
-											value="${param.password}" placeholder="Type your password">
+										<input type="password" class="form-control" name="frontloginpassword"
+											value="${param.frontloginpassword}" placeholder="Type your password">
 										<span class="input-group-addon"> <i
 											class="glyphicon glyphicon-lock"></i>
 										</span>
 									</div>
+									<span>${loginerrors.frontpassworderror}</span>
 								</div>
 								<div class="checkbox">
 									<label><input type="checkbox">Remember me next
@@ -82,11 +81,12 @@
 						</div>
 						<div class="back signup_form" style="opacity: 0;">
 							<p>Sign Up for Your New Account</p>
-							<form class="login-form">
+							<form class="login-form" method="post"
+							    action="<c:url value='/member/register'/>">
 								<div class="form-group">
 									<div class="input-group">
 										<input type="text" class="form-control"
-											placeholder="Member Name" name="name" value=""> <span
+											placeholder="Member Name" name="addname" value=""> <span
 											class="input-group-addon"> <i
 											class="glyphicon glyphicon-user"></i>
 										</span>
@@ -95,24 +95,15 @@
 								<div class="form-group">
 									<div class="input-group">
 										<input type="text" class="form-control" placeholder="Account"
-											name="account" value=""> <span
+											name="addaccount" value=""> <span
 											class="input-group-addon"> <i
 											class="glyphicon glyphicon-user"></i>
 										</span>
 									</div>
 								</div>
-								<!-- 								<div class="form-group"> -->
-								<!-- 									<div class="input-group"> -->
-								<!-- 										<input type="text" class="form-control"> <span -->
-								<!-- 											class="input-group-btn"><button type="button" -->
-								<!-- 												class="btn btn-cyan"> -->
-								<!-- 												<span class="fa fa-refresh"></span> -->
-								<!-- 											</button></span> -->
-								<!-- 									</div> -->
-								<!-- 								</div> -->
 								<div class="form-group">
 									<div class="input-group">
-										<input type="password" class="form-control" name="password"
+										<input type="password" class="form-control" name="addpassword"
 											value="" placeholder="Password"> <span
 											class="input-group-addon"> <i
 											class="glyphicon glyphicon-lock"></i>
@@ -121,7 +112,8 @@
 								</div>
 								<div class="form-group">
 									<div class="input-group">
-										<input type="email" class="form-control" placeholder="Email">
+										<input type="email" class="form-control" 
+										name="addemail" placeholder="Email">
 										<span class="input-group-addon"> <i
 											class="glyphicon glyphicon-envelope"></i>
 										</span>

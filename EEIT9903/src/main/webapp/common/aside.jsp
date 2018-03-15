@@ -15,7 +15,7 @@
 	        <thead>
 			  <tr class="myFav">
 			    <th class="myFav">股價代號</th>
-			<!--     <th></th> -->
+			    <th class="myFav">當日股價</th>
 			    <th class="myFav">管理</th>
 			  </tr class="myFav">
 			</thead>
@@ -41,6 +41,5 @@
 	        </div>
 	    </aside>
 	</div>
-<%-- <c:url value=""></c:url> --%>
 </body>
 </html>
