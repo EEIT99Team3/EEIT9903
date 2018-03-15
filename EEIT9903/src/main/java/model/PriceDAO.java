@@ -6,7 +6,7 @@ import java.util.List;
 public interface PriceDAO {
 
 	List<Price> select(String stockId);
-
+	
 	List<Price> select();
 
 	Price insert(Price bean);
