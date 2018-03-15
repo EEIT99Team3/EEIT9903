@@ -47,4 +47,13 @@
     <servlet-name>ratio</servlet-name>
     <url-pattern>/ratio/*</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>member</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <load-on-startup>3</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>member</servlet-name>
+    <url-pattern>/member/*</url-pattern>
+  </servlet-mapping>
 </web-app>
