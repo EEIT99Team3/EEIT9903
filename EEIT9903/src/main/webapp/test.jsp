@@ -28,7 +28,7 @@ ApplicationContext context = (ApplicationContext)
 
 ArticleReplyDAOHibernate articleReplyDAOHibernate =(ArticleReplyDAOHibernate)context.getBean("articleReplyDAOHibernate");
 articleReplyDAOHibernate.select(1);
-TrackingDAOHibernate dao = (TrackingDAOHibernate) context.getBean("trackingDAOHibernate");
+// TrackingDAOHibernate dao = (TrackingDAOHibernate) context.getBean("trackingDAOHibernate");
 // List<Tracking> tracking = dao.select("kitty");
 // out.println("<h3>tracking:" + tracking + "</h3>"); 
 

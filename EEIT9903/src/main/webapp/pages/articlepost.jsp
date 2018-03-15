@@ -140,12 +140,12 @@
 						<h5 class="card-header">Leave a Comment:</h5>
 						<div class="card-body">
 					
-							<form action="	<c:url value="/pages/reply.article" />">
+							<form action="	<c:url value="/pages/reply.article#footer" />">
 						
 								<div class="form-group">
 									<textarea name="reply" class="form-control" rows="3"></textarea>
 								</div>
-								<button name="prodaction" value="insertreply" type="submit" class="btn btn-primary">Submit</button>
+								<button name="prodaction" value="insertreply" type="submit" class="btn btn-primary" >Submit</button>
 							</form>
 						</div>
 					</div>
@@ -172,7 +172,7 @@
 		</div>
 
 	</div>
-
+	<div id="new"></div>
 	<!-- Sidebar Widgets Column -->
 	<div class="col-md-4">
 
@@ -215,18 +215,19 @@ $(function(){
 		  var eleImg = $("<img></img>").addClass("d-flex mr-3 rounded-circle").attr("src","http://placehold.it/50x50");
 		  var eleH5 = $("<h5></h5>").addClass("mt-0").html(replymain.m_account);
 		  var eleDivreply = $("<div></div>").html(replymain.reply);
-		  var eleDivmain = $("<div></div>").addClass("media-body");
+		  var eleDivmain = $("<div></div>").addClass("media-body")
 	      
 		  eleDivmain.append(eleH5);
 		  eleDivmain.append(eleDivreply);
 		
-		  var eleDiv = $("<div></div>").addClass("media mb-4");
+		  var eleDiv = $("<div></div>").addClass("media mb-4")
 		  eleDiv.append(eleImg);
 		  eleDiv.append(eleDivmain);
 		
 		  docFrag.append(eleDiv);
 	  })}
 	 $('#replybody').append(docFrag);
+	
    })
    
 })

@@ -48,7 +48,14 @@ public class ArticleEditorController {
 		bean.setArticle_number(Integer.parseInt(article_number));
 		}
 		
-		if(bean.getArticle_number()!=null) {
+		if("articleDelete".equals(prodaction)) {
+	    	boolean deleteresult = articleServise.delete(bean);
+	    	if(deleteresult) {
+	    		return "deletesuccess.do";
+	    	}
+	    }
+		
+		if(bean.getArticle_number()!=null && !"articleDelete".equals(prodaction) ) {
 			
 			bean = articleServise.select(Integer.parseInt(article_number));
 			System.out.println("887");
@@ -59,12 +66,7 @@ public class ArticleEditorController {
 			session.setAttribute("article_number", bean.getArticle_number());
 			return "articleshow.do";
 		}
-		if("articleDelete".equals(prodaction)) {
-		    	boolean deleteresult = articleServise.delete(bean);
-		    	if(deleteresult) {
-		    		return "deletesuccess.do";
-		    	}
-		    }
+	
 	
 		if ("submitOk".equals(prodaction)) {
 			boolean insertresult = articleServise.insert(bean);
@@ -81,6 +83,17 @@ public class ArticleEditorController {
 		
 	}
 	
+	@RequestMapping(
+			path= {"/pages/replycount.article"},
+			method= {RequestMethod.GET,RequestMethod.POST},
+			produces = "application/json;charset=UTF-8"
+			)
+	public String replyCount(String article_number) {
+		
+		int i= articleServise.select_count(Integer.parseInt(article_number));
+		String result =Integer.toString(i);
+;		return result;
+	}
 		
 	@RequestMapping(
 			path= {"/pages/articleshow.article"},

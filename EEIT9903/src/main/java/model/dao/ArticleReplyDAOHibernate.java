@@ -11,6 +11,7 @@ import java.util.LinkedList;
 
 import javax.sql.DataSource;
 
+import org.apache.regexp.recompile;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Projections;
@@ -80,6 +81,18 @@ public class ArticleReplyDAOHibernate implements ArticleReplyDAO {
 		}
 		
 		return false;
+	}
+	
+
+
+
+
+	public boolean delete(int article_number) {
+		
+		this.getSession().delete(article_number);
+				
+		return true;
+	
 	}
 
 }

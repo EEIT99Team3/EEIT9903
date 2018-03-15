@@ -55,7 +55,7 @@ public class LoginServlet extends HttpServlet {
 		// 將LoginService類別new為物件，存放物件參考的變數為 ms
 		MemberService ms = new MemberService();
 		// 呼叫 ms物件的 login()，要記得傳入account與password兩個參數
-		// 同時將傳回值放入MemberBean型別的變數mb之內。
+		// 同時將傳回值放入MemberBean型別的變數mb之內。S
 		Member mb = ms.login(account, password);
 		// 如果變數mb的值不等於 null,表示資料庫含有userId搭配password的紀錄
 		if (mb != null) {
@@ -102,7 +102,7 @@ public class LoginServlet extends HttpServlet {
 	 response)
 	 throws ServletException, IOException {
 	
-	 doGet(request, response);
+	 doPost(request, response);
 	 }
 
 }
