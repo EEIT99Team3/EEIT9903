@@ -31,12 +31,8 @@
 
 	<div class="container-fluid">
 		<div class="row">
-<<<<<<< HEAD
-<%-- 			<jsp:include page="/common/nav.html"></jsp:include> --%>
-=======
 			<jsp:include page="/common/nav.html"></jsp:include>
 			<jsp:include page="/common/aside.jsp" />
->>>>>>> branch 'master' of https://github.com/EEIT99Team3/EEIT9903.git
 			<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 
 			<!-- 每頁不同的內容從這裡開始  --> 
