@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import model.Tracking;
 import model.TrackingDAO;
 import model.TrackingId;
+import model.dao.TrackMyFavoriteDAO_JDBC;
 
 @Service
 public class TrackingService {
@@ -18,7 +19,6 @@ public class TrackingService {
 	@Autowired
 	private TrackingDAO dao;
 	
-
 	//加入我的最愛股價追蹤
 	public int addMyfavorites(Tracking tracking) {
 		if(tracking !=null) {

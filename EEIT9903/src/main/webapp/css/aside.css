@@ -62,10 +62,9 @@
 }
 
 .addNew {
-    display: absolute;
     position: absolute;
     top: 500px;
-    left: 100px;
+    left: 123px;
 }
 
 .addBtn {

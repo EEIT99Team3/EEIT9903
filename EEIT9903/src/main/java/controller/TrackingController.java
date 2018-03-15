@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import model.Tracking;
 import model.TrackingId;
+import model.dao.TrackMyFavoriteDAO_JDBC;
 import model.service.TrackingService;
 
 @Controller
@@ -19,7 +20,10 @@ public class TrackingController {
 	@RequestMapping("/p/tracking.do")
 	@ResponseBody
 	public String doGetMyFavorite() {
-		String result = trackingService.myFavorite("kitty");		
+		//String result = trackingService.myFavorite("kitty");		
+		TrackMyFavoriteDAO_JDBC myFavorite = new TrackMyFavoriteDAO_JDBC();
+		String result = myFavorite.TrackMyFavorite("kitty");
+		System.out.println(result);		
 		return result;
 		
 	}
