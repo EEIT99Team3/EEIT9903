@@ -24,6 +24,9 @@
 		<mapping class="model.DividendBean"/>
 		<mapping class="model.NewsBean"/>
 		<mapping class="model.SupervisorBean"/> 
+		<mapping class="model.Ratio"/>
+		<mapping class="model.RatioId"/> 
+		
 	</session-factory>
 </hibernate-configuration>
 

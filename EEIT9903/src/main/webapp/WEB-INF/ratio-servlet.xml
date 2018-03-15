@@ -7,7 +7,7 @@
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
 
 	<context:annotation-config></context:annotation-config>
-	<context:component-scan base-package="contorller"></context:component-scan>
+	<context:component-scan base-package="controller"></context:component-scan>
 	<bean class="org.springframework.web.servlet.view.XmlViewResolver">
 		<property name="location" value="/WEB-INF/ratioviews.xml"></property>
 		<property name="order" value="3"></property>

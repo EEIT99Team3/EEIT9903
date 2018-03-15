@@ -10,13 +10,13 @@ public class RatioId implements java.io.Serializable {
 	}
 	private static final long serialVersionUID = 1L;
 	private String stockId;
-	private int ratYear;
-	private int ratSeason;
+	private Integer ratYear;
+	private Integer ratSeason;
 
 	public RatioId() {
 	}
 
-	public RatioId(String stockId, int ratYear, int ratSeason) {
+	public RatioId(String stockId, Integer ratYear, Integer ratSeason) {
 		this.stockId = stockId;
 		this.ratYear = ratYear;
 		this.ratSeason = ratSeason;
@@ -32,20 +32,20 @@ public class RatioId implements java.io.Serializable {
 	}
 
 	@Column(name = "rat_year", nullable = false)
-	public int getRatYear() {
+	public Integer getRatYear() {
 		return this.ratYear;
 	}
 
-	public void setRatYear(int ratYear) {
+	public void setRatYear(Integer ratYear) {
 		this.ratYear = ratYear;
 	}
 
 	@Column(name = "rat_season", nullable = false)
-	public int getRatSeason() {
+	public Integer getRatSeason() {
 		return this.ratSeason;
 	}
 
-	public void setRatSeason(int ratSeason) {
+	public void setRatSeason(Integer ratSeason) {
 		this.ratSeason = ratSeason;
 	}
 
