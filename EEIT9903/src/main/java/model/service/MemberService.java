@@ -53,6 +53,9 @@ public class MemberService {
 	// 更新資料
 	public Member updateInfo(String MAccount, String newPwd, String newEmail, String newName, byte[] newPhoto) {
 		Member update = memberDAO.select(MAccount);
+		if (update == null) {
+			return null;
+		}
 		// 確認哪些資料有被更新
 		if (newPwd != null && newPwd.trim().length() != 0) {
 			update.setMPwd(newPwd);
@@ -69,9 +72,20 @@ public class MemberService {
 		if (newPhoto != null && newPhoto.length != 0) {
 			update.setPhoto(newPhoto);
 		}
-        // 更新資料
-		return memberDAO.update(
-				MAccount, update.getMPwd(), update.getEmail(), update.getMName(), update.getBlacklist(), update.getPhoto());
+		// 更新資料
+		return memberDAO.update(MAccount, update.getMPwd(), update.getEmail(), update.getMName(), update.getBlacklist(),
+				update.getPhoto());
+	}
+	
+	//檢查帳號存在與否	
+	public boolean isExist(String MAccount) {
+		boolean result = false;
+		Member temp = memberDAO.select(MAccount);
+		if(temp!=null) {
+			result = true;
+			return result;
+		}
+		return result;
 	}
 
 }
