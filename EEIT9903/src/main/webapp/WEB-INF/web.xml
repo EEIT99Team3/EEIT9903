@@ -30,15 +30,6 @@
     <url-pattern>*.do</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>statement</servlet-name>
-    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>statement</servlet-name>
-    <url-pattern>/Statement/*</url-pattern>
-  </servlet-mapping>
-  <servlet>
     <servlet-name>ratio</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     <load-on-startup>2</load-on-startup>
@@ -46,5 +37,32 @@
   <servlet-mapping>
     <servlet-name>ratio</servlet-name>
     <url-pattern>/ratio/*</url-pattern>
+  </servlet-mapping>
+  	<servlet>
+	  <servlet-name>statement</servlet-name>
+	  <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+	  <load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+	  <servlet-name>statement</servlet-name>
+	  <url-pattern>/Statement/*</url-pattern>
+	</servlet-mapping>	
+	<servlet>
+	  <servlet-name>baseinfo</servlet-name>
+	  <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+	  <load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+	  <servlet-name>baseinfo</servlet-name>
+	  <url-pattern>/baseinfo/*</url-pattern>
+	</servlet-mapping>
+	  <servlet>
+    <servlet-name>member</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <load-on-startup>3</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>member</servlet-name>
+    <url-pattern>/member/*</url-pattern>
   </servlet-mapping>
 </web-app>
