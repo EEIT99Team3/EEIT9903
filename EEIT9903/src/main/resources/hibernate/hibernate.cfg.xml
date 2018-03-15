@@ -25,6 +25,12 @@
 		<mapping class="model.NewsBean"/>
 		<mapping class="model.SupervisorBean"/> 
 		<mapping class="model.Member"/>
+		<mapping class="model.Ratio"/>
+		<mapping class="model.RatioId"/> 
+		<mapping class="model.ArticleBean" />
+		<mapping class="model.ArticleReplyBean" />
+
+				
 	</session-factory>
 </hibernate-configuration>
 

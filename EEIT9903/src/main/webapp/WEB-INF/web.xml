@@ -17,7 +17,7 @@
     <res-auth>Container</res-auth>
     <res-sharing-scope>Shareable</res-sharing-scope>
   </resource-ref>
- <servlet>
+  <servlet>
     <servlet-name>mvc</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     <init-param>
@@ -29,25 +29,22 @@
     <servlet-name>mvc</servlet-name>
     <url-pattern>*.do</url-pattern>
   </servlet-mapping>
-  
-  	<servlet>
-	  <servlet-name>statement</servlet-name>
-	  <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-	  <load-on-startup>1</load-on-startup>
-	</servlet>
-	<servlet-mapping>
-	  <servlet-name>statement</servlet-name>
-	  <url-pattern>/Statement/*</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-	  <servlet-name>ChoosingStocks</servlet-name>
-	  <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-	  <load-on-startup>2</load-on-startup>
-	</servlet>
-	<servlet-mapping>
-	  <servlet-name>ChoosingStocks</servlet-name>
-	  <url-pattern>/ChoosingStocks/*</url-pattern>
-	</servlet-mapping>
-	
+  <servlet>
+    <servlet-name>statement</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>statement</servlet-name>
+    <url-pattern>/Statement/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ratio</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <load-on-startup>2</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ratio</servlet-name>
+    <url-pattern>/ratio/*</url-pattern>
+  </servlet-mapping>
 </web-app>
