@@ -12,13 +12,18 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+
 <title>EZStock綜合股情查詢系統</title>
 
 <!-- Bootstrap core CSS -->
 
 <link href="<c:url value="/lib/bootstrap.min.css" />" rel="stylesheet" type="text/css"/>
 <!-- Custom styles for this template -->
-<link href="<c:url value="/lib/advanced Css/index.css" />" rel="stylesheet" type="text/css"/>
+<link href="<c:url value="/lib/advanced Css/dashboard.css" />" rel="stylesheet" type="text/css"/>
+<link href="../css/aside.css" rel="stylesheet" type="text/css">
+<script src="../lib/jquery-1.10.2.min.js"></script>
+<script src="../lib/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="../js/aside.js"></script>
 </head>
 
 <body>
@@ -26,17 +31,21 @@
 
 	<div class="container-fluid">
 		<div class="row">
+<<<<<<< HEAD
 <%-- 			<jsp:include page="/common/nav.html"></jsp:include> --%>
+=======
+			<jsp:include page="/common/nav.html"></jsp:include>
+			<jsp:include page="/common/aside.jsp" />
+>>>>>>> branch 'master' of https://github.com/EEIT99Team3/EEIT9903.git
 			<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 
 			<!-- 每頁不同的內容從這裡開始  --> 
-			
 			<!-- 每頁不同的內容到這裡結束  -->
 		</div>
 
 	</div>
 	<jsp:include page="/common/footer.jsp" />
-	<script src="<c:url value="/lib/jquery-3.3.1.min.js" />"></script>
+<%-- 	<script src="<c:url value="/lib/jquery-3.3.1.min.js" />"></script> --%>
     <script>
       feather.replace()
     </script>
