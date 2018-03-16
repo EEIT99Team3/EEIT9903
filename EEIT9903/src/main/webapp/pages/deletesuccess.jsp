@@ -5,6 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
+<link rel="stylesheet"
+	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
 	crossorigin="anonymous"></script>
@@ -16,28 +23,39 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
 	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
 	crossorigin="anonymous"></script>
-<SCRIPT LANGUAGE="JavaScript">
-
-var time = 3; //秒
-
-function Redirect(){
-window.location = "ForumIndex.jsp";
-}
-var i = 0;
-function dis(){
-document.all.s.innerHTML = "文章刪除成功!" + (time	- i) + "秒後，回到文章專欄首頁";
-i++;
-}
-timer=setInterval('dis()', 1000);//顯示時間
-timer=setTimeout('Redirect()',time * 1000); //跳轉
-
-
-</SCRIPT>
+	
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    
 </head>
  
-    
- <BODY>
-<span id="s"></span>
-</BODY> 
 
+<body>
+
+
+
+<div style="text-align:center;margin-top:20%;height: 100px;font-size:1.2cm" class="text-primary mw-100" id="show"></div>
+
+</body>
+
+<script type="text/javascript">
+
+var t=2;//设定跳转的时间
+
+setInterval("refer()",800); //启动1秒定时
+
+function refer(){
+
+    if(t==0){
+
+        location="ForumIndex.jsp"; //设定跳转的链接地址
+
+    }
+
+    document.getElementById('show').innerHTML="文章刪除成功!"+t+"秒後回到文章首頁"; //显示倒计时
+
+    t--; //计数器递减
+
+}
+
+</script>
 </html>

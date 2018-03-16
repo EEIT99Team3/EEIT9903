@@ -20,5 +20,5 @@ public interface ArticleDAO {
 
 	boolean delete(int article_number) throws SQLException;
 
-
+	int select_count(int article_number);
 }
