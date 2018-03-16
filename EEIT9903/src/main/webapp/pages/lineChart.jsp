@@ -55,9 +55,9 @@
       var myChart = new Chart(ctx, {
         type: 'line',
         data: {
-          labels: ["2012", "2013", "2014", "2015", "2016", "2017", "2018"],
+          labels: ["2010","2011","2012", "2013", "2014", "2015", "2016", "2017", "2018"],
           datasets: [{
-            data: [0, 100, 200, 300, 400, 500, 600],
+            data: [8,8,0, 10, 8, 6, 8, 8, 7],
             lineTension: 0,
             backgroundColor: 'transparent',
             borderColor: '#007bff',
