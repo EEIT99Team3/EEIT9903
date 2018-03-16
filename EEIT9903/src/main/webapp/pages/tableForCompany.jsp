@@ -49,31 +49,30 @@
 
 			<h2 style="padding-top: 20px">Section title</h2>
 			<div class="table-responsive" style="padding-right: 400px">
-				<table class="table table-striped table-sm blueTable"
+				<table class="table table-striped  blueTable"
 					style="border: 3px #cccccc solid;" cellpadding="10" border='1'>
-					<thead>
-						<tr>
-							<th>公司代號:</th>
-							<td>2330</td>
-							<th>公司名稱:</th>
-							<td>台灣積體電路製造</td>
-						</tr>
-					</thead>
+
 					<tbody>
+					<tr>
+							<th>公司代號:</th>
+							<th>2330</th>
+							<th>公司名稱:</th>
+							<th>台灣積體電路製造</th>
+						</tr>
 						<tr>
-							<th>公司貿易額:</th>
+							<td>公司貿易額:</td>
 							<td></td>
-							<th>統一編號:</th>
+							<td>統一編號:</td>
 							<td></td>
 						</tr>
 						<tr>
-							<th>董事長:</th>
+							<td>董事長:</td>
 							<td></td>
-							<th>總經理:</th>
+							<td>總經理:</td>
 							<td></td>
 						</tr>
 						<tr>
-							<th>公司網站:</th>
+							<td>公司網站:</td>
 							<td colspan=3></td>
 						</tr>
 					</tbody>
