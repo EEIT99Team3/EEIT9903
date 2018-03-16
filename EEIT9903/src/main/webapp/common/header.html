@@ -74,17 +74,22 @@
 		</ul>
 	</div>
 </nav>
-<div id="showStock" style="visibility:hidden">${data.stock_name}</div>
 <script>
 
-		$('.outline-success').click(function() {
+		$('.outline-success').click(function(event) {
 
 			stock_id = $('input').val();
 				
-			$.get("/baseinfo/search",{"stock_id":stock_id},function(){					
+			$.get("../baseinfo/search",{"stock_id":stock_id},function(){					
 
 			})
 		})
+// 		$('.outline-success').submit(function(event){
+// 			stock_id = $('input').val();
+// 			$.get("../baseinfo/search",{"stock_id":stock_id},function(){					
+
+// 	 			})
+// 		});
 
     </script>
 
