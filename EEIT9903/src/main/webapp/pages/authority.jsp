@@ -31,10 +31,32 @@
 	<jsp:include page="/common/navbar.html"></jsp:include>
 	<jsp:include page="/common/footbar.jsp"></jsp:include>
 	<div class="content-wrapper">
-         <!--此頁內容由此開始 -->
 
-         <!--此頁內容由此開始 -->
-	</div>
+		<h2 style="padding-top: 20px; padding-left: 60px; padding-right: 300px">Section title</h2>
+		<div class="table-responsive"
+			style="padding-left: 60px; padding-right: 300px">
+			<table class="table table-striped table-sm">
+				<thead>
+					<tr>
+						<th>A</th>
+						<th>B</th>
+						<th>c</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>1</th>
+						<th>2</th>
+						<th>3</th>
+					</tr>
+					<tr>
+						<th>4</th>
+						<th>5</th>
+						<th>6</th>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 
 		<!-- Logout 展開-->
 		    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

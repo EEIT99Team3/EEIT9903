@@ -31,6 +31,9 @@ public class DividendService {
 		
 		if (stock_id != null && stock_id.length() == 4) {
 			List<DividendBean> select = dividendDao.select(stock_id);
+			for(int s=0 ; s < select.size() ; s++) {
+				
+			}
 			
 			if (select.size() != 0) {
 				return "Select:<br>" + select;

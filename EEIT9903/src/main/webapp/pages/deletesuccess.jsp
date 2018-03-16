@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-
+<link href="<c:url value="/lib/advanced Css/deletepage.css" />"
+	rel="stylesheet" type="text/css" />
 <link rel="stylesheet"
 	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" />
 <link rel="stylesheet"
@@ -22,8 +24,7 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
 	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-	crossorigin="anonymous"></script>
-	
+	crossorigin="anonymous"></script>	
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     
 </head>
@@ -40,8 +41,8 @@
 <script type="text/javascript">
 
 var t=3;//设定跳转的时间
-window.onload=refer;
- setInterval("refer()",1000); //启动1秒定时
+window.onload=refer
+setInterval("refer()",800); //启动1秒定时
 
 function refer(){
 
@@ -58,4 +59,5 @@ function refer(){
 }
 
 </script>
+
 </html>

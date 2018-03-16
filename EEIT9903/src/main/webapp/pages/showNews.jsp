@@ -48,35 +48,26 @@
 			<jsp:include page="/common/aside.jsp" /> <!-- 以下輸入各網頁不同的地方 -->
 
 			<h2 style="padding-top: 20px">Section title</h2>
-			<div class="table-responsive" style="padding-right: 400px">
-				<table class="table table-striped  blueTable"
-					style="border: 3px #cccccc solid;" cellpadding="10" border='1' >
+			<div>
+				<div class="col-xl-3 col-sm-6 mb-3 ">
+<!-- 					<ul> -->
+<!-- 						<li>公司: 代號:</li> -->
+<!-- 					</ul> -->
+					<ul style="font-size: 30px">
+						<li>news</li>
+						<li>news</li>
+						<li>news</li>
+						<li>news</li>
+						<li>news</li>
+						<li>news</li>
+						<li>news</li>
+						<li>news</li>
+						<li>news</li>
+						<li>news</li>
+					</ul>
 
-					<tbody  style="  font-size: 30px;">
-					<tr>
-							<td>公司代號:</td>
-							<td class="stock_id"></td>
-							<td>公司名稱:</td>
-							<td class="stock_name"></td>
-						</tr>
-						<tr>
-							<td>公司資本額:</td>
-							<td class="stock_captial"></td>
-							<td>統一編號:</td>
-							<td class="tax_number"></td>
-						</tr>
-						<tr>
-							<td>董事長:</td>
-							<td class="stock_chairman"></td>
-							<td>總經理:</td>
-							<td class="stock_manager"></td>
-						</tr>
-						<tr>
-							<td>公司網站:</td>
-							<td colspan=3 class="stock_website"></td>
-						</tr>
-					</tbody>
-				</table>
+				</div>
+
 			</div>
 
 			<!-- 以上輸入各網頁不同的地方 --> </main>
@@ -86,29 +77,6 @@
 	<%-- 	<script src="<c:url value="/lib/jquery-3.3.1.min.js" />"></script> --%>
 	<script>
 		feather.replace()
-	</script>
-	<script>
-		
-		$(document).ready(function() {
-
-			$.getJSON("/EEIT9903/baseinfo/company", { }, function(data) {
-				$('.stock_id').text(data.stock_id);
-				$('.stock_name').text(data.stock_name);
-				$('.stock_chairman').text(data.chairman);
-				$('.stock_manager').text(data.manager);
-				$('.stock_captial').text(data.captial);
-				$('.stock_website').text(data.stock_website);
-				$('.tax_number').text(data.tax_number);
-				
-// 				console.log(data.stock_id);
-// 				console.log(data.stock_name);
-// 				console.log(data.chairman);
-// 				console.log(data.manager);
-// 				console.log(data.captial);
-// 				console.log(data.stock_website);
-// 				console.log(data.tax_number);
-			})
-		})
 	</script>
 </body>
 
