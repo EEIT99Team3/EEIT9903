@@ -4,14 +4,12 @@
 
 .page-main > aside {
     width: 350px;
- /*   height: 100%;
-    top: 0;       */
- /*   left: -350px;*/
     right: -297px;
-    height: 76%;
-    top: 61px;   
+	height: 78%;
+    top: 65px;  
     position: fixed;
     background-color: white;
+    z-index: 1000;
 }
 
 .page-main > aside h3 {
