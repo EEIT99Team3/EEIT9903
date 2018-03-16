@@ -39,9 +39,9 @@
 
 <script type="text/javascript">
 
-var t=2;//设定跳转的时间
-
-setInterval("refer()",800); //启动1秒定时
+var t=3;//设定跳转的时间
+window.onload=refer;
+ setInterval("refer()",1000); //启动1秒定时
 
 function refer(){
 

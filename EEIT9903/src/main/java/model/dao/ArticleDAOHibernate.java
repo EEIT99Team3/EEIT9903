@@ -48,16 +48,7 @@ public class ArticleDAOHibernate implements ArticleDAO {
 		
 		return this.getSession().get(ArticleBean.class, article_number);
 	}
-	
-	public int select_count(int article_number) {
-		
-		NativeQuery<Integer> query = this.getSession().createNativeQuery("select count(*) from REPLY where article_number="+article_number);
-		
-		int result = (int)query.uniqueResult();
-		System.out.println(result);
-		return result;
-	}
-	
+
 	@Override
 	public LinkedList<HashMap<String,String>> select() throws SQLException {
 		
@@ -109,6 +100,7 @@ public class ArticleDAOHibernate implements ArticleDAO {
 	
 	
 	
+	
 	@Override
 	public boolean delete(int article_number) throws SQLException {
 		
@@ -126,4 +118,15 @@ public class ArticleDAOHibernate implements ArticleDAO {
 		
 		return false;
 	}
+	@Override
+	public boolean articleupdate(Integer article_number,String title,String article) {
+		ArticleBean bean = this.getSession().get(ArticleBean.class, article_number);
+		if(bean != null) {
+			bean.setArticle(article);
+			bean.setArticle_title(title);
+			return true;
+		}
+		return false;
+	}
+
 }

@@ -19,6 +19,6 @@ public interface ArticleDAO {
 	boolean insert(ArticleBean bean) throws SQLException;
 
 	boolean delete(int article_number) throws SQLException;
-
-	int select_count(int article_number);
+	
+	boolean articleupdate(Integer integer,String title,String article);
 }

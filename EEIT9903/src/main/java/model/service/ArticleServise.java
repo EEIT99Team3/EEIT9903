@@ -53,9 +53,13 @@ public class ArticleServise {
 		return result;
 	}
 	
-	public int select_count(int article_number) {
-		int result = dao.select_count(article_number);
-		return result;
+	public boolean update(ArticleBean bean) {
+		
+		if(bean != null) {
+			dao.articleupdate(bean.getArticle_number(),bean.getArticle_title(),bean.getArticle());
+			return true;
+		}
+		return false;
 	}
 	
 	public boolean delete(ArticleBean bean) {
