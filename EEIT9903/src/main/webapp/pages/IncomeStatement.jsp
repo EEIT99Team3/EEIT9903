@@ -37,7 +37,7 @@
 			<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 			<jsp:include page="/common/aside.jsp" /> <!-- 以下輸入各網頁不同的地方 -->
 
-			<h2 style="padding-top: 20px">綜合損益表</h2>
+			<h2 style="padding-top: 50px">綜合損益表</h2>
 			<form action="<c:url value="/Statement/IncomeStatement" />">
 				<div class="table-responsive" style="padding-right: 400px">
 					<div>
