@@ -48,7 +48,7 @@
 			<jsp:include page="/common/aside.jsp" /> <!-- 以下輸入各網頁不同的地方 -->
 
 			<h2 style="padding-top: 20px">Section title</h2>
-			<div class="table">
+			<div>
 				<div class="col-xl-3 col-sm-6 mb-3 ">
 <!-- 					<ul> -->
 <!-- 						<li>公司: 代號:</li> -->

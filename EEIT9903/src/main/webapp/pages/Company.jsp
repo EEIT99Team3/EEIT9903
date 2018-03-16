@@ -50,14 +50,14 @@
 			<h2 style="padding-top: 20px">Section title</h2>
 			<div class="table-responsive" style="padding-right: 400px">
 				<table class="table table-striped  blueTable"
-					style="border: 3px #cccccc solid;" cellpadding="10" border='1'>
+					style="border: 3px #cccccc solid;" cellpadding="10" border='1' >
 
-					<tbody>
+					<tbody  style="  font-size: 30px;">
 					<tr>
-							<th>公司代號:</th>
-							<th class="stock_id"></th>
-							<th>公司名稱:</th>
-							<th class="stock_name"></th>
+							<td>公司代號:</td>
+							<td class="stock_id"></td>
+							<td>公司名稱:</td>
+							<td class="stock_name"></td>
 						</tr>
 						<tr>
 							<td>公司資本額:</td>
