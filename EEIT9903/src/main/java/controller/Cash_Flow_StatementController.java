@@ -28,26 +28,32 @@ public class Cash_Flow_StatementController {
 		model.addAttribute("errors", errors);
 
 		if (cfcorporation == null || cfcorporation.trim().length() == 0) {
-			errors.put("input", "請輸入股票代碼");
+			errors.put("input", "請輸入股票代碼　");
 		}
 
 		Integer year = 0;
+		if (cfyear == null || cfyear.trim().length() == 0) {
+			errors.put("input2", "年份別有誤，請輸入民國年　");
+		}
 		if (cfyear != null && cfyear.trim().length() != 0) {
 			try {
 				year = Integer.parseInt(cfyear);
 			} catch (Exception e) {
 				e.printStackTrace();
-				errors.put("input", "年份別有誤，請輸入民國年");
+				errors.put("input2", "年份別有誤，請輸入民國年　");
 			}
 		}
 		
 		Integer season = 0;
+		if (cfseason == null || cfseason.trim().length() == 0) {
+			errors.put("input3", "季節別有誤　");
+		}
 		if (cfseason != null && cfseason.trim().length() != 0) {
 			try {
 				season = Integer.parseInt(cfseason);
 			} catch (Exception e) {
 				e.printStackTrace();
-				errors.put("input", "季節別有誤");
+				errors.put("input3", "季節別有誤　");
 			}
 		}
 
