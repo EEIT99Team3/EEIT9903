@@ -1,6 +1,6 @@
 <nav
 	class="navbar navbar-expand-md mr-auto navbar-dark fixed-top bg-dark">
-	<a class="navbar-brand" href="index.jsp">EZStock綜合股情查詢系統 <span
+	<a class="navbar-brand" href="/EEIT9903/index.jsp">EZStock綜合股情查詢系統 <span
 		data-feather="search"></span></a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse"
 		data-target="#navbarCollapse" aria-controls="navbarCollapse"
@@ -14,29 +14,28 @@
 			<li class="nav-item "><a class="nav-link" href="#">文章專欄</a></li>
 			<li class="nav-item"><a class="nav-link" href="#">選股總覽</a></li>
 		</ul>
-		<div class="form-inline mt-2 mt-md-0">
+		<form class="form-inline mt-2 mt-md-0" action="Company.jsp">
 			<input class="form-control mr-sm-2 mainInput" type="text" placeholder="Search"
 				aria-label="Search">
-			<button class="btn btn-outline-success my-2 my-sm-0 mainSearch">Search</button>
-		</div>
+			<button class="btn btn-outline-success my-2 my-sm-0 mainSearch" type="submit">Search</button>
+		</form>
 		<ul class="navbar-nav px-4">
 			<li class="nav-item text-nowrap"><a class="nav-link"
-				href='pages/login.jsp'>登入</a></li>
+				href='/EEIT9903/pages/login.jsp'>登入</a></li>
 			<li class="nav-item text-nowrap"><a class="nav-link"
-				href='pages/login.jsp'>註冊</a></li>
+				href='/EEIT9903/pages/login.jsp'>註冊</a></li>
 		</ul>
 	</div>
 </nav>
-<div id="showStock" style="visibility:hidden">${data.stock_name}</div>
 <script>
 
 		$('.mainSearch').click(function() {
 			stock_id = $('.mainInput').val();
-			console.log(stock_id);	
-			$.get("baseinfo/search",{"stock_id":stock_id},function(data){	
-			//	/baseinfo/company			
+// 			console.log(stock_id);	
+			$.get("../baseinfo/search",{"stock_id":stock_id},function(){	
+				$('.mainSearch').submit();	
 			})
 		})
 
-    </script>
+</script>
 

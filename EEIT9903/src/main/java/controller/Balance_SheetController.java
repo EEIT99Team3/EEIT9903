@@ -28,26 +28,32 @@ public class Balance_SheetController {
 		model.addAttribute("errors", errors);
 
 		if (bscorporation == null || bscorporation.trim().length() == 0) {
-			errors.put("input", "請輸入股票代碼");
+			errors.put("input", "請輸入股票代碼　");
 		}
 
 		Integer year = 0;
+		if (bsyear == null || bsyear.trim().length() == 0) {
+			errors.put("input2", "年份別有誤，請輸入民國年　");
+		}
 		if (bsyear != null && bsyear.trim().length() != 0) {
 			try {
 				year = Integer.parseInt(bsyear);
 			} catch (Exception e) {
 				e.printStackTrace();
-				errors.put("input", "年份別有誤，請輸入民國年");
+				errors.put("input2", "年份別有誤，請輸入民國年　");
 			}
 		}
 		
 		Integer season = 0;
+		if (bsseason == null || bsseason.trim().length() == 0) {
+			errors.put("input3", "季節別有誤　");
+		}
 		if (bsseason != null && bsseason.trim().length() != 0) {
 			try {
 				season = Integer.parseInt(bsseason);
 			} catch (Exception e) {
 				e.printStackTrace();
-				errors.put("input", "季節別有誤");
+				errors.put("input3", "季節別有誤　");
 			}
 		}
 

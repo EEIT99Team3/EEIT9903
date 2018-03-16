@@ -10,7 +10,6 @@ public class SearchController {
 
 	@RequestMapping("/baseinfo/search")
 	public String setStockId(String stock_id , HttpSession session) {
-//		model.addAttribute("data", stock_id);
 		session.setAttribute("data", stock_id);
 		return "info.page";  
 	}
