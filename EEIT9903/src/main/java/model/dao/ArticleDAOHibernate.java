@@ -13,6 +13,7 @@ import javax.sql.DataSource;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.NativeQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -31,6 +32,8 @@ public class ArticleDAOHibernate implements ArticleDAO {
 	private DataSource dataSource;
 	@Autowired
 	private SessionFactory sessionFactory ;
+	
+	
 	private SimpleDateFormat sdf;
 	public ArticleDAOHibernate() {
 		sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm");	
@@ -46,6 +49,14 @@ public class ArticleDAOHibernate implements ArticleDAO {
 		return this.getSession().get(ArticleBean.class, article_number);
 	}
 	
+	public int select_count(int article_number) {
+		
+		NativeQuery<Integer> query = this.getSession().createNativeQuery("select count(*) from REPLY where article_number="+article_number);
+		
+		int result = (int)query.uniqueResult();
+		System.out.println(result);
+		return result;
+	}
 	
 	@Override
 	public LinkedList<HashMap<String,String>> select() throws SQLException {
@@ -60,11 +71,17 @@ public class ArticleDAOHibernate implements ArticleDAO {
 		
 		while (rs.next()) {
 			HashMap<String, String> m1 = new HashMap<>();
+			
+			NativeQuery<Integer> query = this.getSession().createNativeQuery("select count(*) from REPLY where article_number="+rs.getString(3));
+		
+			int result = (int)query.uniqueResult();
+			
 			m1.put("m_account",rs.getString(1));
 			m1.put("article_date",rs.getString(2));
 			m1.put("article_number",rs.getString(3));
 			m1.put("article_title",rs.getString(4));
 			m1.put("article",rs.getString(5));
+			m1.put("reply_count", Integer.toString(result));
 			l1.add(m1);
 		}
 	
@@ -94,6 +111,12 @@ public class ArticleDAOHibernate implements ArticleDAO {
 	
 	@Override
 	public boolean delete(int article_number) throws SQLException {
+		
+
+		Connection conn = dataSource.getConnection();
+		PreparedStatement pstm = conn.prepareStatement("delete from reply where article_number="+article_number);
+		pstm.executeUpdate();
+		
 		
 		ArticleBean bean = this.getSession().get(ArticleBean.class, article_number);
 		if(bean != null) {

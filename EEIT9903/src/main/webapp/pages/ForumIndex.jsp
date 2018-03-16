@@ -1,41 +1,53 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet"
-	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" />
-<link rel="stylesheet" href="<c:url value='../ckeditor/contents.css' />">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-	crossorigin="anonymous">
 
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+<title>EZStock綜合股情查詢系統</title>
 
-<link rel="stylesheet" href="<c:url value='../css/blog.css' />">
+<!-- Bootstrap core CSS -->
 
-	
-
-<script src="<c:url value="../ckeditor/ckeditor.js" />"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-	crossorigin="anonymous"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-	crossorigin="anonymous"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-	crossorigin="anonymous"></script>
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-
+<link href="<c:url value="/lib/bootstrap.min.css" />" rel="stylesheet"
+	type="text/css" />
+<!-- Custom styles for this template -->
+<link href="<c:url value="/lib/advanced Css/dashboard.css" />"
+	rel="stylesheet" type="text/css" />
+<link href="<c:url value="/css/aside.css" />" rel="stylesheet" type="text/css">
+<script src="<c:url value="/lib/jquery-1.10.2.min.js" />"></script>
+<script src="<c:url value="/lib/jquery-ui-1.10.3.custom.min.js" />"></script>
+<script src="<c:url value="/js/aside.js" />"></script>
 </head>
+
 <body>
-	<div class="container">
+	<jsp:include page="/common/header.html"></jsp:include>
+
+<!-- 	<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0"> -->
+<!-- 		<a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company -->
+<!-- 			name</a> <input class="form-control form-control-dark w-100" type="text" -->
+<!-- 			placeholder="Search" aria-label="Search"> -->
+<!-- 		<ul class="navbar-nav px-3"> -->
+<!-- 			<li class="nav-item text-nowrap"><a class="nav-link" href="#">Sign -->
+<!-- 					out</a></li> -->
+<!-- 		</ul> -->
+<!-- 	</nav> -->
+
+	<div class="container-fluid">
+		<div class="row">
+<%-- 			<jsp:include page="/common/nav.html"></jsp:include>		 --%>
+			<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <jsp:include page="/common/aside.jsp" />
+			<!-- 以下輸入各網頁不同的地方 -->
+
+		<div class="container" style="margin-right:400px;margin-top:100px">
 
 		<input type="button" class="btn btn-primary" id="post" value="發表文章">
 		<!-- Page Content -->
@@ -54,54 +66,22 @@
 					<div class="card mb-4">
 					
 					</div>
-
-					
-					<!-- Pagination -->
-<!-- 					<ul class="pagination justify-content-center mb-4"> -->
-<!-- 						<li class="page-item"><a class="page-link" href="#">&larr; -->
-<!-- 								Older</a></li> -->
-<!-- 						<li class="page-item disabled"><a class="page-link" href="#">Newer -->
-<!-- 								&rarr;</a></li> -->
-<!-- 					</ul> -->
-					
 				</div>
-
-		
-				<!-- Sidebar Widgets Column -->
-		
-				<!-- /.container -->
-
-				<!-- Footer -->
-<!-- 				<footer class="py-5 bg-dark"> -->
-<!-- 				<div class="container"> -->
-<!-- 					<p class="m-0 text-center text-white">Copyright &copy; Your -->
-<!-- 						Website 2018</p> -->
-<!-- 				</div> -->
-				<!-- /.container --> </footer>
-
-				<!-- Bootstrap core JavaScript -->
-				
-				
-
 
 				<script>
 					$('#post').click(function() {
 						window.location.href = "<c:url value='CkEditor.jsp' />"
 					})
-					
-					
+
 				</script>
 
 				<script >
-				
-			
+
 				$(document).ready(function(){
-				
-				
 					$.getJSON( "articleshow.article", function(data) {
 						  var docFrag = $(document.createDocumentFragment());
 							$.each(data,function(idx,articlemain){
-							
+								
 								var eleImg = $("<img></img>").attr("src","http://via.placeholder.com/38x38").css("padding-right","20px");
 							 	var eleh2 = $("<h2></h2>").addClass("card-title").html(articlemain.article_title+"&nbsp&nbsp")
 								var eleAaccount = $("<a></a>").attr("href","#").html(articlemain.m_account);
@@ -113,15 +93,14 @@
 								eleDivacdate.append(eleSpan);
 								
 								var eleArticleDiv = $("<div></div>").attr("class","article").html(articlemain.article).css({"overflow":"hidden","width":"800px","height":"200px"});	
-								var eleADiv = $("<div></div>").css("text-align","right");
+								var eleADiv = $("<div></div>").addClass("abc").css("text-align","right");
 								var eleA = $("<a></a>").addClass("btn btn-primary ").attr("href","<c:url value='/pages/article.article?article_number=' />"+articlemain.article_number).html("Read More &rarr;")
 								
-							
-								var div = $("<a></a>").addClass("btn btn-primary ").attr("href","<c:url value='/pages/article.article?article_number=' />"+articlemain.article_number).html("回覆("+articlemain.replycount+")");
+								var div = $("<a></a>").addClass("btn btn-warning mr-2").attr("href","<c:url value='/pages/article.article?article_number=' />"+articlemain.article_number+"#replybody").html("回覆("+articlemain.reply_count+")");
 								eleADiv.append(div);
 								eleADiv.append(eleA);
 								eleADiv.append(eleDivacdate);
-								
+							
 								
 								var eleBodyDiv = $("<div></div>").addClass("card-body rounded m-2 ").css({"width":"1000px","padding":"0 20px 0 20px","border-bottom": "1px solid #8c8b8b"})
 							    
@@ -130,11 +109,10 @@
 								eleBodyDiv.append(eleArticleDiv);
 								eleBodyDiv.append(eleADiv);
 								docFrag.prepend(eleBodyDiv);							
-							
+
 							})
 							$('#articlebody').append(docFrag);
 
-							
 							//限制文章顯示字數
 							$(function() {
 								var len = 400; // 超過400個字以"..."取代
@@ -156,13 +134,21 @@
 
 					
 				})
-								
+		</script>
+		</div>
+	</div>
+</div>
 			
-				
 
-				</script>
-			
-			
+			<!-- 以上輸入各網頁不同的地方 --> </main>
+		</div>
+	</div>
+	<jsp:include page="/common/footer.jsp" />
+	<%-- 	<script src="<c:url value="/lib/jquery-3.3.1.min.js" />"></script> --%>
+	<script>
+		feather.replace()
+	</script>
+	<div style="height:100px "></div>
 </body>
-</html>
 
+</html>
