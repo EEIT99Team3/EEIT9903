@@ -40,6 +40,13 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
 	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
 	crossorigin="anonymous"></script>
+<script>
+	function on() {
+		
+	}
+
+</script>
+
 </head>
 
 <body>
@@ -57,23 +64,23 @@
 
 	<div class="container-fluid">
 		<div class="row">
-			<jsp:include page="/common/nav.html"></jsp:include>		
+<%-- 			<jsp:include page="/common/nav.html"></jsp:include>		 --%>
 			<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
             <jsp:include page="/common/aside.jsp" />
 			<!-- 以下輸入各網頁不同的地方 -->
 
-		<div class="container" style="margin-top:50px;margin-right: 300px ">
-		<form name='form' action="<c:url value='/pages/article.article' />"
+		<div class="container" style="margin-top:50px;margin-right: 400px ">
+		<form id="form" name='form' action="article.article"
 			method='post'>
 			<div class="input-group input-group-sm mb-3 ">
 				<div class="input-group-prepend ">
 					<span class="input-group-text" id="inputGroup-sizing-sm">標題</span>
 				</div>
 				<input type="text" id="article-title" name="title"  class="form-control" aria-label="Small"
-					aria-describedby="inputGroup-sizing-sm">
+					aria-describedby="inputGroup-sizing-sm" value="${article_title}">
 			</div>
-			<textarea name="content" id="content" rows="10" cols="80"></textarea>
-			
+			<textarea name="content" id="content" rows="10" cols="80">${article}</textarea>
+			<input type="hidden" name="article_number" value="${article_number}">
 		
 			
 			<script>
@@ -138,7 +145,7 @@
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary"
 								data-dismiss="modal">取消</button>
-							<button type="submit" name="prodaction" value="submitcancle" class="btn btn-primary">確定</button>
+							<button type="submit" id="cancleeditor" name="prodaction" value="submitcancle" class="btn btn-primary">確定</button>
 						</div>
 					</div>
 				</div>
@@ -151,9 +158,14 @@
 		
 	<script>
 	$(function(){
-
+		if(${not empty article_number}){
+			$("#submitOk").attr("value","articleEditok");
+		
+		}
 		$("#post").click(function(){
-
+		
+				
+		
 			if (editor.getData().length == 0){
 			
 			$("#pOfDiv").text("請輸入文章內容");

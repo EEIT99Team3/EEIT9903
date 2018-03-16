@@ -29,4 +29,9 @@
 		<property name="contextRelative" value="true"></property>
 		<property name="url" value="/pages/deletesuccess.jsp"></property>
 	</bean>
+	<bean id="ckeditor.do"
+		class="org.springframework.web.servlet.view.RedirectView">
+		<property name="contextRelative" value="true"></property>
+		<property name="url" value="/pages/CkEditor.jsp"></property>
+	</bean>
 </beans>

@@ -55,10 +55,10 @@ public class ArticleEditorController {
 	    	}
 	    }
 		
-		if(bean.getArticle_number()!=null && !"articleDelete".equals(prodaction) ) {
+		if(bean.getArticle_number()!=null && !"articleDelete".equals(prodaction) && !"articleEdit".equals(prodaction) && !"articleEditok".equals(prodaction)) {
 			
 			bean = articleServise.select(Integer.parseInt(article_number));
-			System.out.println("887");
+	
 			session.setAttribute("articleDate", bean.getArticle_date());	
 			session.setAttribute("article", bean.getArticle());
 			session.setAttribute("M_account", bean.getM_account());
@@ -66,7 +66,26 @@ public class ArticleEditorController {
 			session.setAttribute("article_number", bean.getArticle_number());
 			return "articleshow.do";
 		}
-	
+		
+		if("articlepost".equals(prodaction)) {
+			session.setAttribute("article", "");
+			session.setAttribute("article_title", "");
+			return "ckeditor.do";
+		}
+		if("articleEdit".equals(prodaction)) {
+			bean = articleServise.select(Integer.parseInt(article_number));
+			
+			model.addAttribute("article", bean.getArticle());
+			model.addAttribute("article_title", bean.getArticle_title());
+			return "ckeditor.do";
+		}
+		if("articleEditok".equals(prodaction)) {
+			
+			boolean updateresult = articleServise.update(bean);
+			if(updateresult) {
+				return "article.do";
+			}
+		}
 	
 		if ("submitOk".equals(prodaction)) {
 			boolean insertresult = articleServise.insert(bean);
@@ -82,19 +101,7 @@ public class ArticleEditorController {
 		}
 		
 	}
-	
-	@RequestMapping(
-			path= {"/pages/replycount.article"},
-			method= {RequestMethod.GET,RequestMethod.POST},
-			produces = "application/json;charset=UTF-8"
-			)
-	public String replyCount(String article_number) {
-		
-		int i= articleServise.select_count(Integer.parseInt(article_number));
-		String result =Integer.toString(i);
-;		return result;
-	}
-		
+
 	@RequestMapping(
 			path= {"/pages/articleshow.article"},
 			method= {RequestMethod.GET,RequestMethod.POST},

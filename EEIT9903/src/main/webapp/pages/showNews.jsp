@@ -48,36 +48,26 @@
 			<jsp:include page="/common/aside.jsp" /> <!-- 以下輸入各網頁不同的地方 -->
 
 			<h2 style="padding-top: 20px">Section title</h2>
-			<div class="table-responsive" style="padding-right: 400px">
-				<table class="table table-striped table-sm blueTable"
-					style="border: 3px #cccccc solid;" cellpadding="10" border='1'>
-					<thead>
-						<tr>
-							<th>公司代號:</th>
-							<td>2330</td>
-							<th>公司名稱:</th>
-							<td>台灣積體電路製造</td>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<th>公司貿易額:</th>
-							<td></td>
-							<th>統一編號:</th>
-							<td></td>
-						</tr>
-						<tr>
-							<th>董事長:</th>
-							<td></td>
-							<th>總經理:</th>
-							<td></td>
-						</tr>
-						<tr>
-							<th>公司網站:</th>
-							<td colspan=3></td>
-						</tr>
-					</tbody>
-				</table>
+			<div>
+				<div class="col-xl-3 col-sm-6 mb-3 ">
+<!-- 					<ul> -->
+<!-- 						<li>公司: 代號:</li> -->
+<!-- 					</ul> -->
+					<ul style="font-size: 30px">
+						<li>news</li>
+						<li>news</li>
+						<li>news</li>
+						<li>news</li>
+						<li>news</li>
+						<li>news</li>
+						<li>news</li>
+						<li>news</li>
+						<li>news</li>
+						<li>news</li>
+					</ul>
+
+				</div>
+
 			</div>
 
 			<!-- 以上輸入各網頁不同的地方 --> </main>
