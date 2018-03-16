@@ -19,7 +19,7 @@
 <link href="<c:url value="/lib/bootstrap.min.css" />" rel="stylesheet"
 	type="text/css" />
 <!-- Custom styles for this template -->
-<link href="<c:url value="/lib/advanced Css/dashboard.css" />"
+<link href="<c:url value="/lib/advanced Css/dashboardTable.css" />"
 	rel="stylesheet" type="text/css" />
 <link href="<c:url value="/css/aside.css" />" rel="stylesheet"
 	type="text/css">
@@ -49,7 +49,7 @@
 
 			<h2 style="padding-top: 20px">Section title</h2>
 			<div class="table-responsive" style="padding-right: 400px">
-				<table class="table table-striped table-sm"
+				<table class="table table-striped table-sm blueTable"
 					style="border: 3px #cccccc solid;" cellpadding="10" border='1'>
 					<thead>
 						<tr>
