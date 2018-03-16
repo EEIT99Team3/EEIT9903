@@ -14,7 +14,7 @@
 			<li class="nav-item "><a class="nav-link" href="ForumIndex.jsp">文章專欄</a></li>
 			<li class="nav-item"><a class="nav-link" href="#">選股總覽</a></li>
 		</ul>
-		<form class="form-inline mt-2 mt-md-0" action="Company.jsp">
+		<form class="form-inline mt-2 mt-md-0" action="/EEIT9903/pages/Company.jsp">
 			<input class="form-control mr-sm-2 mainInput" type="text" placeholder="Search"
 				aria-label="Search">
 			<button class="btn btn-outline-success my-2 my-sm-0 mainSearch" type="submit">Search</button>
@@ -32,7 +32,7 @@
 		$('.mainSearch').click(function() {
 			stock_id = $('.mainInput').val();
 // 			console.log(stock_id);	
-			$.get("../baseinfo/search",{"stock_id":stock_id},function(){	
+			$.get("/EEIT9903/baseinfo/search",{"stock_id":stock_id},function(){	
 				$('.mainSearch').submit();	
 			})
 		})
