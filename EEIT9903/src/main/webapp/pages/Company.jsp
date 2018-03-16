@@ -46,12 +46,10 @@
 	<script>
 		
 		$(document).ready(function() {
-// 			var stock_id = $('#showStock').text();			
-// 			console.log(stock_id);
-			$.getJSON("../baseinfo/company", { }, function(data) {
-				console.log(data.stock_id);
-			})
 
+			$.getJSON("../baseinfo/company", { }, function(data) {
+				console.log(data.stock_name);
+			})
 		})
 	</script>
 </body>
