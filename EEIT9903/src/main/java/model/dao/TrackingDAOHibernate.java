@@ -8,6 +8,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import model.TrackMyFavorite;
 import model.Tracking;
 import model.TrackingDAO;
 import model.TrackingId;
@@ -28,7 +29,7 @@ public class TrackingDAOHibernate implements TrackingDAO {
 	@Override
 	public List<Tracking> select(String account){
 		String hql = "from Tracking where m_account = '"+ account + "'";
-		System.out.println(hql);
+		//System.out.println(hql);
 		Query<Tracking> query = this.getSession().createQuery(hql,Tracking.class);
 		return query.list();
 	}
@@ -53,7 +54,7 @@ public class TrackingDAOHibernate implements TrackingDAO {
 	public Tracking insert(Tracking tracking){
 		Tracking temp = this.getSession().get(Tracking.class, tracking.getId());
 		if(temp == null) {
-			System.out.println(temp);
+			//System.out.println(temp);
 			this.getSession().save(tracking);
 		}
 		return tracking;

@@ -14,12 +14,17 @@
 
 <%
 
-// ApplicationContext context = (ApplicationContext)
-// application.getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);
+ApplicationContext context = (ApplicationContext)
+application.getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);
 
-// MemberService service = (MemberService) context.getBean("memberService");
+MemberService service = (MemberService) context.getBean("memberService");
 // Member temp = service.login("test123", "123");
 // out.println(temp);
+// service.changePassword("test123", "123", "123456");
+// service.updateInfo("test123", "456", null, null, null);
+// Member temp2 = service.updateInfo("test124", "456", null, null, null);
+// out.println(temp2);
+
 
 %>
 

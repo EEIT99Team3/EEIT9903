@@ -72,7 +72,7 @@ public class PriceDAOHibernate implements PriceDAO  {
 		Query<Price> query = this.getSession().createQuery(hql, Price.class);
 		return query.list();
 	}
-
+	
 	/* (non-Javadoc)
 	 * @see model.dao.PriceDAO#select()
 	 */
