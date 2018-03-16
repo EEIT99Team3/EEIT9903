@@ -39,7 +39,7 @@
 
 	</div>
 	<jsp:include page="/common/footer.jsp" />
-	<%-- 	<script src="<c:url value="/js/jquery-3.3.1.min.js" />"></script> --%>
+<%-- 	<script src="<c:url value="/lib/jquery-3.3.1.min.js" />"></script> --%>
 	<script>
 		feather.replace()
 	</script>
@@ -47,7 +47,7 @@
 		
 		$(document).ready(function() {
 
-			$.getJSON("../baseinfo/company", { }, function(data) {
+			$.getJSON("/EEIT9903/baseinfo/company", { }, function(data) {
 				console.log(data.stock_id);
 				console.log(data.stock_name);
 				console.log(data.chairman);

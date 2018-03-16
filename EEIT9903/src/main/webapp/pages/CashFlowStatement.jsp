@@ -37,7 +37,7 @@
 			<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 			<jsp:include page="/common/aside.jsp" /> <!-- 以下輸入各網頁不同的地方 -->
 
-			<h2 style="padding-top: 20px">現金流量表</h2>
+			<h2 style="padding-top: 50px">現金流量表</h2>
 			<form action="<c:url value="/Statement/CashFlowStatement" />">
 				<div>
 					<input type="text" name="cfcorporation" width="20px"> <input
