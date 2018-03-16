@@ -22,7 +22,7 @@
 <link href="<c:url value="/lib/advanced Css/dashboard.css" />"
 	rel="stylesheet" type="text/css" />
 <link href="<c:url value="/css/aside.css" />" rel="stylesheet" type="text/css">
-<script src="<c:url value="/lib/jquery-1.10.2.min.js" />"></script>
+<script src="<c:url value="/lib/jquery-3.3.1.min.js" />"></script>
 <script src="<c:url value="/lib/jquery-ui-1.10.3.custom.min.js" />"></script>
 <script src="<c:url value="/js/aside.js" />"></script>
 </head>

@@ -14,11 +14,11 @@
 			<li class="nav-item "><a class="nav-link" href="#">文章專欄</a></li>
 			<li class="nav-item"><a class="nav-link" href="#">選股總覽</a></li>
 		</ul>
-		<form class="form-inline mt-2 mt-md-0">
-			<input class="form-control mr-sm-2" type="text" placeholder="Search"
+		<div class="form-inline mt-2 mt-md-0">
+			<input class="form-control mr-sm-2 mainInput" type="text" placeholder="Search"
 				aria-label="Search">
-			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-		</form>
+			<button class="btn btn-outline-success my-2 my-sm-0 mainSearch">Search</button>
+		</div>
 		<ul class="navbar-nav px-4">
 			<li class="nav-item text-nowrap"><a class="nav-link"
 				href='pages/login.jsp'>登入</a></li>
@@ -30,12 +30,11 @@
 <div id="showStock" style="visibility:hidden">${data.stock_name}</div>
 <script>
 
-		$('.outline-success').click(function() {
-
-			stock_id = $('input').val();
-				
-			$.get("/baseinfo/search",{"stock_id":stock_id},function(){					
-            
+		$('.mainSearch').click(function() {
+			stock_id = $('.mainInput').val();
+			console.log(stock_id);	
+			$.get("baseinfo/search",{"stock_id":stock_id},function(data){	
+			//	/baseinfo/company			
 			})
 		})
 
