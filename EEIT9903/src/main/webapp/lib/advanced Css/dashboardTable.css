@@ -98,12 +98,12 @@ table.blueTable {
   border-collapse: collapse;
 }
 table.blueTable td, table.blueTable th {
-	width:200px;
+	width:150px;
   border: 1px solid #AAAAAA;
   padding: 3px 2px;
 }
 table.blueTable tbody td {
-  font-size: 13px;
+  font-size: 30px;
 }
 table.blueTable tr:nth-child(even) {
   background: #D0E4F5;
@@ -116,7 +116,7 @@ table.blueTable thead {
   border-bottom: 2px solid #444444;
 }
 table.blueTable thead th {
-  font-size: 15px;
+  font-size: 30px;
   font-weight: bold;
   color: #FFFFFF;
   border-left: 2px solid #D0E4F5;

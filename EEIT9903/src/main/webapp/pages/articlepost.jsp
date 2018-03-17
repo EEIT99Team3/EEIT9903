@@ -29,6 +29,19 @@
 <script src="<c:url value="/js/aside.js" />"></script>
 <script src="<c:url value="../ckfinder/ckfinder.js" />"></script>
 <script src=" <c:url value="../ckeditor/ckeditor.js" />"></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	crossorigin="anonymous"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 </head>
 
 <body>
@@ -36,7 +49,7 @@
 
 	<div class="container-fluid">
 		<div class="row">
-			<jsp:include page="/common/nav.html"></jsp:include>		
+<%-- 			<jsp:include page="/common/nav.html"></jsp:include>		 --%>
 			<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
             <jsp:include page="/common/aside.jsp" />
 			<!-- 以下輸入各網頁不同的地方 -->
@@ -59,10 +72,14 @@
 
 					<!-- Author -->
 					<p class="lead">				 
-						by <a href="#">${M_account}</a> ${fn:substring(articleDate, 0,16)} <a role="button" data-toggle="modal" data-target="#exampleModalCenter" href="<c:url value='/pages/article.article?prodaction=articleDelete&article_number='/>${article_number}" style="margin-left:60% " class="btn btn-danger">刪除</a>
+						by <a href="#">${M_account}</a> ${fn:substring(articleDate, 0,16)} 
+						<a role="button" href="<c:url value='/pages/article.article?prodaction=articleEdit&article_number='/>${article_number}" style="margin-left:60% " class="btn btn-info">編輯</a>
+						<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter">刪除</button>
 				
 					</p>
 					<!-- Modal -->
+					
+					
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -73,7 +90,7 @@
         </button>
       </div>
       <div class="modal-body">
-      	 確定刪除文章嗎?
+        確定刪除文章嗎?
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
@@ -82,6 +99,7 @@
     </div>
   </div>
 </div>
+
 				<hr>
 					<div id="post_Content">${article}</div>
 					<hr>
@@ -162,9 +180,10 @@ $(function(){
 
 </script>
 
-			<!-- 以上輸入各網頁不同的地方 -->  </main>
+		<!-- 以上輸入各網頁不同的地方 -->  </main>
 		</div>
 	</div>
+	
 	<jsp:include page="/common/footer.jsp" />
 	<%-- 	<script src="<c:url value="/lib/jquery-3.3.1.min.js" />"></script> --%>
 	<script>

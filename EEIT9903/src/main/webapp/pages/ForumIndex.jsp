@@ -49,7 +49,7 @@
 
 		<div class="container" style="margin-right:400px;margin-top:100px">
 
-		<input type="button" class="btn btn-primary" id="post" value="發表文章">
+		<a class="btn btn-primary" href="article.article?prodaction=articlepost" >發表文章</a>
 		<!-- Page Content -->
 		<div class="container">
 
@@ -68,12 +68,7 @@
 					</div>
 				</div>
 
-				<script>
-					$('#post').click(function() {
-						window.location.href = "<c:url value='CkEditor.jsp' />"
-					})
-
-				</script>
+		
 
 				<script >
 
