@@ -1,66 +1,33 @@
 package controller;
 
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import org.springframework.context.ApplicationContext;
-import org.springframework.web.context.WebApplicationContext;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import model.service.RatioService;
 
-@WebServlet("/RatioController")
-public class RatioController extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+@Controller("ratio")
+public class RatioController {
+	@Autowired
 	RatioService service = null;
-
-	@Override
-	public void init() throws ServletException {
-		System.out.println(this.getServletContext());
-		ApplicationContext context = (ApplicationContext) this.getServletContext()
-				.getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);
-		service = (RatioService) context.getBean("ratioService");
-		System.out.println(service);
-	}
-
 	String[] statement = null;
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-//		System.out.println("time for doGet/doPost");
-		response.setHeader("Access-Control-Allow-Origin", "*");
-		response.setHeader("content-type", "application/Json;charset=UTF-8");
-		response.setCharacterEncoding("UTF-8");
-		PrintWriter out = response.getWriter();
-		// 接收前端丟進來的get條件陣列
-//		String stockid = request.getParameter("stockid");
-		String ratyear = request.getParameter("ratyear");
-		String ratseason = request.getParameter("ratseason");
-		String eps = request.getParameter("eps");
-		String bvps = request.getParameter("bvps");
-		String gpmargin = request.getParameter("gpmargin");
-		String opmargin = request.getParameter("opmargin");
-		String nimargin = request.getParameter("nimargin");
-		String roe = request.getParameter("roe");
-		String roa = request.getParameter("roa");
-		String arturnover = request.getParameter("arturnover");
-		String invturnover = request.getParameter("invturnover");
-		String apturnover = request.getParameter("apturnover");
-		String debtratio = request.getParameter("debtratio");
-		String currentratio = request.getParameter("currentratio");
-		String fcfgrowth = request.getParameter("fcfgrowth");
-		String ocfgrowth = request.getParameter("ocfgrowth");
-		String revenuesgrowth = request.getParameter("revenuesgrowth");
+	@RequestMapping(path= {"/choose"}, method= {RequestMethod.GET, RequestMethod.POST})
+	public String method() {
+		System.out.println("準備丟出choose page");
+		return "RatioController";
+	}
+	@RequestMapping(
+			path= {"/data"},
+			method= {RequestMethod.GET,RequestMethod.POST},
+			produces = "application/json;charset=UTF-8"
+			)
+	public @ResponseBody String getData(String ratyear,String ratseason,String eps,String bvps,
+			String gpmargin,String opmargin,String nimargin,String roe,String roa,String arturnover,String invturnover,
+			String apturnover,String debtratio,String currentratio,String fcfgrowth,String ocfgrowth,String revenuesgrowth) {
 		ArrayList<String> list = new ArrayList<String>();
-//		if (stockid != null) {
-//			list.add("stock_id");
-//			list.add("=");
-//			list.add("'" + stockid + "'");
-//
-//		}
 		if (ratyear != null) {
 			list.add("rat_year");
 			list.add("=");
@@ -169,13 +136,7 @@ public class RatioController extends HttpServlet {
 			System.out.println(statement.toString());
 			service.setStatement(statement);
 		}
-		out.println(service.getRatioJson());
+		return service.getRatioJson();
+		
 	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
 }
