@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import model.ArticleReplyBean;
+import model.Member;
 import model.service.ArticleReplyServise;
 @Controller
 public class ArticleReplyController {
@@ -41,14 +42,15 @@ public class ArticleReplyController {
 			path="/pages/reply.article",
 			method= {RequestMethod.GET,RequestMethod.POST}
 			)
-	public String replyEditor(String prodaction,String reply,String m_account,HttpSession session
+	public String replyEditor(String prodaction,String reply,HttpSession session
 			,ArticleReplyBean bean) {
+		Member member = (Member) session.getAttribute("user");
 		
 		Integer article_number = (Integer) session.getAttribute("article_number");
 		System.out.println(article_number);
 		bean.setArticle_number(article_number);
 		bean.setReply(reply);
-		bean.setM_account("aaa");
+		bean.setM_account(member.getMAccount());
 		
 		if ("insertreply".equals(prodaction)) {
 			boolean insertreply = articleReplyServise.insert(bean);

@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import model.ArticleBean;
+import model.Member;
 import model.service.ArticleServise;
 
 @Controller
@@ -39,12 +40,12 @@ public class ArticleEditorController {
 			path="/pages/article.article",
 			method= {RequestMethod.GET,RequestMethod.POST})
 	public String method(String title,String content,
-			String articleAccount,String prodaction,ArticleBean bean,String article_number,Model model,HttpSession session,HttpServletResponse response) {
-		
+			String user,String prodaction,ArticleBean bean,String article_number,Model model,HttpSession session,HttpServletResponse response) {
+		Member member = (Member) session.getAttribute("user");
 		bean.setArticle_title(title);
 		bean.setArticle(content);
-		bean.setM_account("aaa");
-		if(article_number != null) {
+		bean.setM_account(member.getMAccount());
+		if(article_number != null && article_number.trim().length()!=0) {
 		bean.setArticle_number(Integer.parseInt(article_number));
 		}
 		
@@ -61,7 +62,7 @@ public class ArticleEditorController {
 	
 			session.setAttribute("articleDate", bean.getArticle_date());	
 			session.setAttribute("article", bean.getArticle());
-			session.setAttribute("M_account", bean.getM_account());
+			model.addAttribute("M_account", bean.getM_account());
 			session.setAttribute("article_title", bean.getArticle_title());
 			session.setAttribute("article_number", bean.getArticle_number());
 			return "articleshow.do";
