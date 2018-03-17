@@ -159,7 +159,7 @@
 		}}
 		$(document).ready(function() {
 			table = $('#table1').DataTable({
-				ajax : "/EEIT9903/ratio/data?",
+//				ajax : "/EEIT9903/ratio/data?",
 				columns : [ {
 					"visible" : true,
 					"data" : "stock_id"
