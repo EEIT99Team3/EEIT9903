@@ -29,7 +29,7 @@
 		<mapping class="model.RatioId"/> 
 		<mapping class="model.ArticleBean" />
 		<mapping class="model.ArticleReplyBean" />
-
+		<mapping class="model.ArticleReportBean"/>
 				
 	</session-factory>
 </hibernate-configuration>

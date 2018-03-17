@@ -17,6 +17,7 @@
 
 <!-- Bootstrap core CSS -->
 <c:url value="/js/aside.js" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="<c:url value="/lib/bootstrap.min.css" />" rel="stylesheet"
 	type="text/css" />
 <!-- Custom styles for this template -->
@@ -73,13 +74,13 @@
 					<!-- Author -->
 					<p class="lead">				 
 						by <a href="#">${M_account}</a> ${fn:substring(articleDate, 0,16)} 
-						<a role="button" href="<c:url value='/pages/article.article?prodaction=articleEdit&article_number='/>${article_number}" style="margin-left:60% " class="btn btn-info">編輯</a>
-						<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter">刪除</button>
-				
+						<a role="button" href="<c:url value='/pages/article.article?prodaction=articleEdit&article_number='/>${article_number}" style="margin-left:50% " class="btn btn-info fa fa-edit">編輯</a>
+						<button type="button" class="btn btn-danger fa fa-close" data-toggle="modal" data-target="#exampleModalCenter">刪除</button>
+						<button type="button" class="btn btn-warning fa fa-ban" data-toggle="modal" data-target="#reportModal" data-whatever="@mdo">檢舉</button>
 					</p>
 					<!-- Modal -->
 					
-					
+<!-- 刪除文章的互動視窗  -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -100,6 +101,52 @@
   </div>
 </div>
 
+<!-- 檢舉文章的互動視窗 -->
+<div class="modal fade" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">檢舉:</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="report.article">
+          <div class="form-group">
+            <label for="dropdownMenuButton" class="col-form-label">檢舉:</label>
+            <div class="dropdown">
+			  <button class="btn btn-info dropdown-toggle btn-block" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			   	檢舉選項
+			  </button>
+			  <div class="dropdown-menu btn-block " aria-labelledby="dropdownMenuButton">
+			    <button class="dropdown-item" type="button">1.內容與股市無關</button>
+  				<button class="dropdown-item" type="button">2.謾罵</button>
+    			<button class="dropdown-item" type="button">3.技術不純熟的召喚師</button>
+    			<button class="dropdown-item" type="button">Something else here</button>
+    			<button class="dropdown-item" type="button">Something else here</button>
+    			<button class="dropdown-item" type="button">Something else here</button>
+			  </div>
+			</div>
+<!--             <input type="text" class="form-control" id="recipient-name"> -->
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">檢舉補充:</label>
+            <textarea class="form-control" id="message-text" name="report_content"></textarea>
+          </div>
+          <input type="hidden" name="article_number" value="${article_number}"> 
+          <input type="hidden" name="type_of_report" id="type_of_report"> 
+         	<div class="modal-footer">
+        		<button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+        		<button type="submit" class="btn btn-primary" name="prodaction" value="insertReport">確定</button>
+      		</div>
+        </form>
+      </div>
+    
+    </div>
+  </div>
+</div>
+
 				<hr>
 					<div id="post_Content">${article}</div>
 					<hr>
@@ -107,7 +154,7 @@
 
 					<!-- Comments Form -->
 					<div  class="card my-4">
-						<h5 class="card-header">Leave a Comment:</h5>
+						<h5 class="card-header">回覆文章:</h5>
 						<div class="card-body">
 					
 							<form action="	<c:url value="/pages/reply.article#replybody" />">
@@ -115,7 +162,7 @@
 								<div class="form-group">
 									<textarea name="reply" class="form-control" rows="3"></textarea>
 								</div>
-								<button name="prodaction" value="insertreply" type="submit" class="btn btn-primary" >Submit</button>
+								<button name="prodaction" value="insertreply" type="submit" class="btn btn-primary" >發送</button>
 							</form>
 						</div>
 					</div>
@@ -152,6 +199,16 @@
 
 <script type="text/javascript">
 $(function(){
+
+	$(".dropdown-item").click(function(){
+
+			var xxx=  $(this).text();
+
+			$("#dropdownMenuButton").text(xxx);
+			$("#type_of_report").attr("value",xxx);
+		})
+
+
 	
   $.getJSON('replyshow.article',{article_number: ${article_number}},function(data){
 	  if(data!=null){
@@ -185,7 +242,7 @@ $(function(){
 	</div>
 	
 	<jsp:include page="/common/footer.jsp" />
-	<%-- 	<script src="<c:url value="/lib/jquery-3.3.1.min.js" />"></script> --%>
+
 	<script>
 		feather.replace()
 	</script>
