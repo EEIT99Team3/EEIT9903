@@ -54,26 +54,26 @@
 
 					<tbody  style="  font-size: 30px;">
 					<tr>
-							<td>公司代號:</td>
-							<td class="stock_id"></td>
-							<td>公司名稱:</td>
-							<td class="stock_name"></td>
+							<td class="blue">公司代號:</td>
+							<td class="stock_id white"></td>
+							<td class="blue">公司名稱:</td>
+							<td class="stock_name white"></td>
 						</tr>
 						<tr>
 							<td>公司資本額:</td>
-							<td class="stock_captial"></td>
+							<td class="stock_captial white"></td>
 							<td>統一編號:</td>
-							<td class="tax_number"></td>
+							<td class="tax_number white"></td>
 						</tr>
 						<tr>
 							<td>董事長:</td>
-							<td class="stock_chairman"></td>
+							<td class="stock_chairman white"></td>
 							<td>總經理:</td>
-							<td class="stock_manager"></td>
+							<td class="stock_manager white"></td>
 						</tr>
 						<tr>
 							<td>公司網站:</td>
-							<td colspan=3 class="stock_website"></td>
+							<td colspan=3 class="stock_website white"></td>
 						</tr>
 					</tbody>
 				</table>

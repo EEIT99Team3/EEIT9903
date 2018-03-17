@@ -125,3 +125,6 @@ table.blueTable thead th {
 table.blueTable thead th:first-child {
   border-left: none;
 }
+.white{
+background: #FFFFFF;
+}
