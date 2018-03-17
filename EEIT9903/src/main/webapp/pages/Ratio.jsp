@@ -26,9 +26,6 @@
 					<div class="card-header" style="width: 1800px">基本面指標建議選股</div>
 					<div class="card-body" style="width: 1800px">
 						<!-- 每頁不同的內容從這裡開始 -->
-			<div id="draggable" class="ui-widget-content">
-				<p>Drag me to my target</p>
-			</div>
 			<div id="notchoosed">
 			<div class=condition id=eps>EPS</div>
 			<div class=condition id=bvps>每股淨值</div>

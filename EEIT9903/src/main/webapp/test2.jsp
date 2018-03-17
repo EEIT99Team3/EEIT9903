@@ -13,6 +13,7 @@
 <%@ page import="model.service.*"%>
 <%@ page import="org.hibernate.*" %>
 <%@ page import="javax.sql.DataSource" %>
+<%@ page import="java.util.*" %>
 
 <% 
 ApplicationContext context = (ApplicationContext)
@@ -38,6 +39,9 @@ ApplicationContext context = (ApplicationContext)
 // Cash_flow_statementService test3 = (Cash_flow_statementService) context.getBean("cash_flow_statementService");
 // test3.insert();
 
+// SupervisorService service = (SupervisorService) context.getBean("supervisorService");
+// LinkedList<HashMap<String, Object>> test = service.select(null);
+// out.println(test);
 
 %>
 
