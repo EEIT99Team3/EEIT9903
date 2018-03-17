@@ -10,7 +10,7 @@ public class SupervisorBean {
 	@Id
 	private String s_account;
 	private String s_pwd;
-	private boolean ispowerful;
+	private Boolean ispowerful;
 	
 	@Override
 	public String toString() {
@@ -32,7 +32,7 @@ public class SupervisorBean {
 	public boolean isIspowerful() {
 		return ispowerful;
 	}
-	public void setIspowerful(boolean ispowerful) {
+	public void setIspowerful(Boolean ispowerful) {
 		this.ispowerful = ispowerful;
 	}
 	
