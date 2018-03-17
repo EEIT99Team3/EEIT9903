@@ -91,7 +91,7 @@
 								var eleADiv = $("<div></div>").addClass("abc").css("text-align","right");
 								var eleA = $("<a></a>").addClass("btn btn-primary ").attr("href","<c:url value='/pages/article.article?article_number=' />"+articlemain.article_number).html("Read More &rarr;")
 								
-								var div = $("<a></a>").addClass("btn btn-warning mr-2").attr("href","<c:url value='/pages/article.article?article_number=' />"+articlemain.article_number+"#replybody").html("回覆("+articlemain.reply_count+")");
+								var div = $("<a></a>").addClass("btn btn-success mr-2").attr("href","<c:url value='/pages/article.article?article_number=' />"+articlemain.article_number+"#replybody").html("回覆("+articlemain.reply_count+")");
 								eleADiv.append(div);
 								eleADiv.append(eleA);
 								eleADiv.append(eleDivacdate);
