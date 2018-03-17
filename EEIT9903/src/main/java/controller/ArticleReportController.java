@@ -17,7 +17,7 @@ public class ArticleReportController {
 	@Autowired
 	private ArticleReportService articleReportService;
 	@RequestMapping(
-			path="/report.article",
+			path="/pages/report.article",
 			method= {RequestMethod.GET,RequestMethod.POST}
 			)
 	public String report(String article_number,String m_account,String type_of_report

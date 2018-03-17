@@ -112,11 +112,11 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="article.article">
+        <form action="report.article">
           <div class="form-group">
             <label for="dropdownMenuButton" class="col-form-label">檢舉:</label>
             <div class="dropdown">
-			  <button class="btn btn-info dropdown-toggle btn-block" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" name="type_of_report">
+			  <button class="btn btn-info dropdown-toggle btn-block" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			   	檢舉選項
 			  </button>
 			  <div class="dropdown-menu btn-block " aria-labelledby="dropdownMenuButton">
@@ -135,12 +135,14 @@
             <textarea class="form-control" id="message-text" name="report_content"></textarea>
           </div>
           <input type="hidden" name="article_number" value="${article_number}"> 
+          <input type="hidden" name="type_of_report" id="type_of_report"> 
+         	<div class="modal-footer">
+        		<button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+        		<button type="submit" class="btn btn-primary" name="prodaction" value="insertReport">確定</button>
+      		</div>
         </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-        <button type="submit" class="btn btn-primary" name="prodaction" value="insertReport">確定</button>
-      </div>
+    
     </div>
   </div>
 </div>
@@ -152,7 +154,7 @@
 
 					<!-- Comments Form -->
 					<div  class="card my-4">
-						<h5 class="card-header">Leave a Comment:</h5>
+						<h5 class="card-header">回覆文章:</h5>
 						<div class="card-body">
 					
 							<form action="	<c:url value="/pages/reply.article#replybody" />">
@@ -160,7 +162,7 @@
 								<div class="form-group">
 									<textarea name="reply" class="form-control" rows="3"></textarea>
 								</div>
-								<button name="prodaction" value="insertreply" type="submit" class="btn btn-primary" >Submit</button>
+								<button name="prodaction" value="insertreply" type="submit" class="btn btn-primary" >發送</button>
 							</form>
 						</div>
 					</div>
@@ -202,8 +204,8 @@ $(function(){
 
 			var xxx=  $(this).text();
 
-			$("#dropdownMenuButton").attr("value",xxx).text(xxx);
-			
+			$("#dropdownMenuButton").text(xxx);
+			$("#type_of_report").attr("value",xxx);
 		})
 
 

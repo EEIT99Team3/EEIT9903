@@ -56,7 +56,8 @@ public class ArticleEditorController {
 	    	}
 	    }
 		
-		if(bean.getArticle_number()!=null && !"articleDelete".equals(prodaction) && !"articleEdit".equals(prodaction) && !"articleEditok".equals(prodaction)) {
+	
+	if(bean.getArticle_number()!=null && !"articleDelete".equals(prodaction) && !"articleEdit".equals(prodaction) && !"articleEditok".equals(prodaction) && !"submitOk".equals(prodaction)) {
 			
 			bean = articleServise.select(Integer.parseInt(article_number));
 	
@@ -67,7 +68,6 @@ public class ArticleEditorController {
 			session.setAttribute("article_number", bean.getArticle_number());
 			return "articleshow.do";
 		}
-		
 		if("articlepost".equals(prodaction)) {
 			session.setAttribute("article", "");
 			session.setAttribute("article_title", "");
@@ -100,6 +100,8 @@ public class ArticleEditorController {
 		}else {
 			return "article.do"; 
 		}
+		
+		
 		
 	}
 
