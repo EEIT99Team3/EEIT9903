@@ -21,7 +21,8 @@
 <!-- Custom styles for this template -->
 <link href="<c:url value="/lib/advanced Css/index.css" />"
 	rel="stylesheet" type="text/css" />
-<link href="<c:url value="/css/aside.css" />" rel="stylesheet" type="text/css">
+<link href="<c:url value="/css/aside.css" />" rel="stylesheet"
+	type="text/css">
 <script src="<c:url value="/lib/jquery-3.3.1.min.js" />"></script>
 <script src="<c:url value="/lib/jquery-ui-1.10.3.custom.min.js" />"></script>
 <script src="<c:url value="/js/aside.js" />"></script>
@@ -32,12 +33,30 @@
 
 	<div class="container-fluid">
 		<div class="row">
-<%-- 			<jsp:include page="/common/nav.html"></jsp:include>		 --%>
+			<%-- 			<jsp:include page="/common/nav.html"></jsp:include>		 --%>
 			<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-<%-- 			<jsp:include page="/common/aside.jsp" /> --%>
-			<!-- 以下輸入各網頁不同的地方 -->
-
-
+			<%-- 			<jsp:include page="/common/aside.jsp" /> --%> <!-- 			<!-- 以下輸入各網頁不同的地方 -->
+			--> <!-- 			<div class="row" style="padding-top: 800px"> --> <!-- 				<a href="#"><span data-feather="activity"></span>關鍵的財報圖表</a> <a -->
+			<!-- 					href="#"><span data-feather=""></span></a> --> <!-- 			</div> -->
+<!-- 			<div class="row" style="padding-right: 300px; padding-top: 770px"> -->
+<!-- 				<div class="col-sm-4"> -->
+<!-- 					<div class="card"> -->
+<!-- 						<a href="#" class="btn"><span data-feather="bar-chart-2"></span>關鍵的財務報表</a> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 				<div class="col-sm-4"> -->
+<!-- 					<div class="card"> -->
+<!-- 						<a href="#" class="btn"><span data-feather="crosshair"></span>精確的選股程式</a> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 				<div class="col-sm-4"> -->
+<!-- 					<div class="card"> -->
+<!-- 						<div class="card"> -->
+<!-- 							<a href="#" class="btn"><span data-feather="users"></span>深入的股票討論區</a> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
 			<!-- 以上輸入各網頁不同的地方 --> </main>
 		</div>
 	</div>
