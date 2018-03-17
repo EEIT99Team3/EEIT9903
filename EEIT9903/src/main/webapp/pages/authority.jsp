@@ -35,25 +35,25 @@
 		<h2 style="padding-top: 20px; padding-left: 60px; padding-right: 300px">Section title</h2>
 		<div class="table-responsive"
 			style="padding-left: 60px; padding-right: 300px">
-			<table class="table table-striped table-sm">
+			<table id="supervisortable" class="table table-striped table-sm">
 				<thead>
 					<tr>
-						<th>A</th>
-						<th>B</th>
-						<th>c</th>
+						<th>帳號</th>
+						<th>密碼</th>
+						<th>權限</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<th>1</th>
-						<th>2</th>
-						<th>3</th>
-					</tr>
-					<tr>
-						<th>4</th>
-						<th>5</th>
-						<th>6</th>
-					</tr>
+<!-- 					<tr> -->
+<!-- 						<th>1</th> -->
+<!-- 						<th>2</th> -->
+<!-- 						<th>3</th> -->
+<!-- 					</tr> -->
+<!-- 					<tr> -->
+<!-- 						<th>4</th> -->
+<!-- 						<th>5</th> -->
+<!-- 						<th>6</th> -->
+<!-- 					</tr> -->
 				</tbody>
 			</table>
 		</div>
@@ -83,6 +83,37 @@
 		<script src="<c:url value="/lib/jquery.easing.min.js" />"></script>
 		<!-- Custom scripts for all pages-->
 		<script src="<c:url value="/lib/sb-admin.min.js" />"></script>
+		
+		<script>
+
+        $(document).ready(function(){
+
+        loadsupervisor();
+
+        function loadsupervisor(){
+
+            $.getJSON("<c:url value="/Statement/all"/>" , function(datas){
+
+                var tb = $("#supervisortable > tbody");
+                tb.empty();
+                var fragment = $(document.createDocumentFragment());
+                $.each(datas, function(idx, data){
+
+                    var td1 = $("<td></td>").text(data.s_account);
+                    var td2 = $("<td></td>").text(data.s_pwd);
+                    var td3 = $("<td></td>").text(data.ispowerful);
+                    var row = $("<tr></tr>").append([td1, td2, td3]);
+
+                    fragment.append(row); 
+                    })
+                    tb.append(fragment);
+                })   	
+            }
+
+            })
+
+
+		</script>
 
 	</div>
 </body>
