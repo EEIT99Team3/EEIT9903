@@ -37,7 +37,7 @@
 			<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 			<jsp:include page="/common/aside.jsp" /> <!-- 以下輸入各網頁不同的地方 -->
 
-			<h2 style="padding-top: 20px">Section title</h2>
+			<h2 style="padding-top: 20px">股利政策</h2>
 			<canvas class="my-4" id="myChart" width="800" height="300"
 				style="padding-right: 400px"></canvas>
 
@@ -54,41 +54,74 @@
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
 	<script>
-		var ctx = document.getElementById("myChart");
-		var myChart = new Chart(ctx, {
-			type : 'line',
-			data : {
-				labels : [ "2010", "2011", "2012", "2013", "2014", "2015",
-						"2016", "2017", "2018" ],
-				datasets : [ {
-					data : [ 8, 8, 0, 10, 8, 6, 8, 8, 7 ],
-					lineTension : 0,
-					backgroundColor : 'transparent',
-					borderColor : '#007bff',
-					borderWidth : 4,
-					pointBackgroundColor : '#007bff'
-				}, {
-					data : [ 0, 2, 4, 6, 8, 10, 8, 6,4 ],
-					lineTension : 0,
-					backgroundColor : 'transparent',
-					borderColor : '#ff007f',
-					borderWidth : 4,
-					pointBackgroundColor : '#ff007f'
-				} ]
-			},
-			options : {
-				scales : {
-					yAxes : [ {
-						ticks : {
-							beginAtZero : false
-						}
-					} ]
-				},
-				legend : {
-					display : false,
+		
+	</script>
+	<script>
+		
+		$(document).ready(function() {
+
+			$.getJSON("/EEIT9903/baseinfo/dividend", { }, function(data) {
+// 				console.log(data.data[0].stock_id);
+
+				var dataStock = [] , dataCash = [] , dataYear = [];
+
+				for(var j=0 ; j < data.data.length ; j++) {
+					dataCash.push([
+						data.data[j].div_cash
+					]);
 				}
-			}
-		});
+				
+				for(var i=0 ; i < data.data.length ; i++) {
+					dataStock.push([
+						data.data[i].div_stock
+					]);
+				}
+				
+				for(var k=0 ; k < data.data.length ; k++) {
+					dataYear.push([
+						data.data[k].div_year
+					]);
+				}
+// 				console.log(dataStock);
+// 				console.log(dataCash);
+// 				console.log(dataYear);
+
+				var ctx = document.getElementById("myChart");
+				var myChart = new Chart(ctx, {
+					type : 'line',
+					data : {
+						labels : dataYear,
+						datasets : [ {
+							data : dataCash,
+							lineTension : 0,
+							backgroundColor : 'transparent',
+							borderColor : '#007bff',
+							borderWidth : 4,
+							pointBackgroundColor : '#007bff'
+						}, {
+							data : dataStock,
+							lineTension : 0,
+							backgroundColor : 'transparent',
+							borderColor : '#ff007f',
+							borderWidth : 4,
+							pointBackgroundColor : '#ff007f'
+						} ]
+					},
+					options : {
+						scales : {
+							yAxes : [ {
+								ticks : {
+									beginAtZero : false
+								}
+							} ]
+						},
+						legend : {
+							display : false,
+						}
+					}
+				});
+			})
+		})
 	</script>
 </body>
 
