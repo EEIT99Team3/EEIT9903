@@ -47,7 +47,7 @@
 			<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 			<jsp:include page="/common/aside.jsp" /> <!-- 以下輸入各網頁不同的地方 -->
 
-			<h2 style="padding-top: 20px">Section title</h2>
+			<h2 style="padding-top: 20px">基本資料</h2>
 			<div class="table-responsive" style="padding-right: 400px">
 				<table class="table table-striped  blueTable"
 					style="border: 3px #cccccc solid;" cellpadding="10" border='1' >
