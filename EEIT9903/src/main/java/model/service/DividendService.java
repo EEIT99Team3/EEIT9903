@@ -1,10 +1,13 @@
 package model.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
 
 import org.apache.commons.logging.LogFactory;
+import org.json.simple.JSONValue;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,12 +34,24 @@ public class DividendService {
 		
 		if (stock_id != null && stock_id.length() == 4) {
 			List<DividendBean> select = dividendDao.select(stock_id);
-			for(int s=0 ; s < select.size() ; s++) {
-				
-			}
 			
 			if (select.size() != 0) {
-				return "Select:<br>" + select;
+				
+				LinkedList<HashMap<String,String>> listData = new LinkedList<HashMap<String,String>>();
+				for(int s=0 ; s < select.size() ; s++) {
+					HashMap<String,String>  mapData = new HashMap<String,String>();
+					mapData.put("stock_id" , select.get(s).getStock_id());
+					mapData.put("div_year" , select.get(s).getDiv_year().toString());
+					mapData.put("div_cash" , select.get(s).getDiv_cash().toString());
+					mapData.put("div_stock" , select.get(s).getDiv_stock().toString());
+					
+					listData.add(mapData);
+				}
+				
+				HashMap<String,LinkedList<HashMap<String,String>>> mapTemp = new HashMap<String,LinkedList<HashMap<String,String>>>();
+				mapTemp.put("data" , listData);
+				
+				return JSONValue.toJSONString(mapTemp);
 			} else {
 				try {
 					Document doc = Jsoup.connect(url).header("user-agent", header).get();
@@ -113,7 +128,7 @@ public class DividendService {
 		
 		
 		for(int i=0 ; i < Siis.length ; i++) {
-			Document doc = Jsoup.connect(url+Siis[i]).userAgent(header).referrer("https://goodinfo.tw/StockInfo/index.asp").get();
+			Document doc = Jsoup.connect(url+Siis[i]).timeout(5000).header("user-agent", header).get();
 			String[] divYears = doc.select("table.solid_1_padding_3_0_tbl tbody>tr td:eq(0)").text().split(" ");
 			
 			if(Siis[i].length() == 4) {
@@ -140,33 +155,33 @@ public class DividendService {
 			}
 		}
 		
-		for(int k=0 ; k < Otcs.length ; k++) {
-			Document doc = Jsoup.connect(url+Otcs[k]).userAgent(header).referrer("https://goodinfo.tw/StockInfo/index.asp").get();
-			String[] divYears = doc.select("table.solid_1_padding_3_0_tbl tbody>tr td:eq(0)").text().split(" ");
-			
-			if(Otcs[k].length() == 4) {
-				
-				for(int h=0 ; h < divYears.length-2 ; h++) {
-					String divCash = doc.select("table.solid_1_padding_3_0_tbl tbody>tr td:eq(3)").get(h).text();
-					String divStock = doc.select("table.solid_1_padding_3_0_tbl tbody>tr td:eq(6)").get(h).text();
-					
-					if(!divCash.equals("-") || !divStock.equals("-")) {
-						
-						bean = new DividendBean();
-						bean.setStock_id(doc.select("a.link_blue").get(36).text().substring(0, 4));
-						bean.setDiv_year(Integer.parseInt(divYears[h]));
-						bean.setDiv_cash(Float.parseFloat(divCash));
-						bean.setDiv_stock(Float.parseFloat(divStock));
-						
-						temp.add(bean);
-					}
-//					if(k % 10 == 0) {
-						Thread.currentThread();
-						Thread.sleep(10000);
+//		for(int k=0 ; k < Otcs.length ; k++) {
+//			Document doc = Jsoup.connect(url+Otcs[k]).userAgent(header).referrer("https://goodinfo.tw/StockInfo/index.asp").get();
+//			String[] divYears = doc.select("table.solid_1_padding_3_0_tbl tbody>tr td:eq(0)").text().split(" ");
+//			
+//			if(Otcs[k].length() == 4) {
+//				
+//				for(int h=0 ; h < divYears.length-2 ; h++) {
+//					String divCash = doc.select("table.solid_1_padding_3_0_tbl tbody>tr td:eq(3)").get(h).text();
+//					String divStock = doc.select("table.solid_1_padding_3_0_tbl tbody>tr td:eq(6)").get(h).text();
+//					
+//					if(!divCash.equals("-") || !divStock.equals("-")) {
+//						
+//						bean = new DividendBean();
+//						bean.setStock_id(doc.select("a.link_blue").get(36).text().substring(0, 4));
+//						bean.setDiv_year(Integer.parseInt(divYears[h]));
+//						bean.setDiv_cash(Float.parseFloat(divCash));
+//						bean.setDiv_stock(Float.parseFloat(divStock));
+//						
+//						temp.add(bean);
 //					}
-				}
-			}
-		}
+////					if(k % 10 == 0) {
+//						Thread.currentThread();
+//						Thread.sleep(10000);
+////					}
+//				}
+//			}
+//		}
 		
 		for(int m=0 ; m < temp.size() ; m++) {
 			DividendBean data = temp.get(m);
