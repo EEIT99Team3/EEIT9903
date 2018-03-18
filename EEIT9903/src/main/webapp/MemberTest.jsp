@@ -21,7 +21,7 @@ MemberService service = (MemberService) context.getBean("memberService");
 // Member temp = service.login("test123", "123");
 // out.println(temp);
 // service.changePassword("test123", "123", "123456");
-// service.updateInfo("test123", "456", null, null, null);
+// service.updateInfo("test123", "456", "789", null, null, null);
 // Member temp2 = service.updateInfo("test124", "456", null, null, null);
 // out.println(temp2);
 

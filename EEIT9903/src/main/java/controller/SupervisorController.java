@@ -23,7 +23,7 @@ public class SupervisorController {
 	private SupervisorService supervisorService;
 
 	@RequestMapping(path = { "/Statement/addnew" }, method = { RequestMethod.GET, RequestMethod.POST })
-	public String addMethod(String s_account, String s_password, Model model) {
+	public @ResponseBody String addMethod(String s_account, String s_password, Model model) {
 
 		Map<String, String> errorsadd = new HashMap<>();
 		model.addAttribute("errorsadd", errorsadd);
@@ -37,7 +37,7 @@ public class SupervisorController {
 		}
 
 		if (errorsadd != null && !errorsadd.isEmpty()) {
-			return "supervisoradd.error";
+			return "Add the new account fail";
 		}
 
 		SupervisorBean bean = new SupervisorBean();
@@ -47,11 +47,11 @@ public class SupervisorController {
 
 		supervisorService.addSupervisor(bean);
 
-		return "supervisoradd.success";
+		return "Add the new account success";
 	}
 
 	@RequestMapping(path = { "/Statement/delete" }, method = { RequestMethod.GET, RequestMethod.POST })
-	public String deleteMethod(String s_delete, Model model) {
+	public @ResponseBody String deleteMethod(String s_delete, Model model) {
 
 		Map<String, String> errorsdelete = new HashMap<>();
 		model.addAttribute("errorsdelete", errorsdelete);
@@ -61,12 +61,17 @@ public class SupervisorController {
 		}
 
 		if (errorsdelete != null && !errorsdelete.isEmpty()) {
-			return "supervisordelete.error";
+			return "Delete error";
+		}
+		
+		SupervisorBean temp1 = supervisorService.select(s_delete);
+		if(temp1.isIspowerful()) {
+			errorsdelete.put("deleteerror", "無法刪除最高權限管理員");
+			return "Delete error, you have no right to delete this manager.";
 		}
 
 		supervisorService.deleteSupervisor(s_delete);
-
-		return "supervisordelete.success";
+		return "Delete success";
 	}
 
 	@RequestMapping(path = { "/Statement/login" }, method = { RequestMethod.GET, RequestMethod.POST })
@@ -104,7 +109,7 @@ public class SupervisorController {
 			produces = "application/json; charset=UTF-8")
 	public @ResponseBody String selectAll() {
 
-		LinkedList<HashMap<String, Object>> result = supervisorService.select(null);
+		LinkedList<HashMap<String, Object>> result = supervisorService.select();
 		if (result != null) {
 			String jsonString = JSONValue.toJSONString(result);
 			return jsonString;
