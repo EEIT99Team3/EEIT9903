@@ -200,6 +200,15 @@
 <script type="text/javascript">
 $(function(){
 
+	$.getJSON("articleshow.article",function(data){
+		$.each(data,function(idx,datas)){
+				if(${M_account} == datas.m_account)
+
+
+			}
+
+		})
+	
 	$(".dropdown-item").click(function(){
 
 			var xxx=  $(this).text();

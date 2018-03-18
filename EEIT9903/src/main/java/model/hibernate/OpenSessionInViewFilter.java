@@ -19,12 +19,12 @@ import org.hibernate.SessionFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.WebApplicationContext;
 
-@WebFilter(
-		urlPatterns={"/*"},
-		initParams={
-			@WebInitParam(name="sessionFactoryBeanName", value="sessionFactory")
-		}
-)
+//@WebFilter(
+//		urlPatterns={"/*"},
+//		initParams={
+//			@WebInitParam(name="sessionFactoryBeanName", value="sessionFactory")
+//		}
+//)
 public class OpenSessionInViewFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest req, ServletResponse resp,

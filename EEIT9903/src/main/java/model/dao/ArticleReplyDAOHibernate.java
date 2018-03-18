@@ -4,19 +4,17 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedList;
 
 import javax.sql.DataSource;
 
-import org.apache.regexp.recompile;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Projections;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import model.ArticleReplyBean;
 import model.ArticleReplyDAO;
@@ -36,6 +34,7 @@ public class ArticleReplyDAOHibernate implements ArticleReplyDAO {
 	private Session getSession() {
 		return sessionFactory.getCurrentSession();
 	}
+	@Transactional
 	public Integer select() {
 		
 		return  ((Integer)getSession().createQuery("select count(*) from REPLY").uniqueResult()).intValue();
@@ -44,34 +43,41 @@ public class ArticleReplyDAOHibernate implements ArticleReplyDAO {
 	}
 	
 	@Override
-	public LinkedList<HashMap<String, String>> select(Integer article_number) throws SQLException {
-
-		Connection conn = dataSource.getConnection();
-		PreparedStatement pstm = conn.prepareStatement(SELECT);
-		pstm.setInt(1, article_number);
-		ResultSet rs = pstm.executeQuery();
+	@Transactional
+	public LinkedList<HashMap<String, String>> select(Integer article_number) throws SQLException  {
 
 		LinkedList<HashMap<String, String>> l1 = new LinkedList<HashMap<String, String>>();
-
-		while (rs.next()) {
-			HashMap<String, String> m1 = new HashMap<>();
-			m1.put("article_number", rs.getString(1));
-			m1.put("reply", rs.getString(2));
-			m1.put("reply_date", rs.getString(3));
-			m1.put("m_account", rs.getString(4));
-			l1.add(m1);
+		ResultSet rs = null;
+		try (
+			Connection conn = dataSource.getConnection();
+			PreparedStatement pstm = conn.prepareStatement(SELECT);
+			){
+			pstm.setInt(1, article_number);
+			rs = pstm.executeQuery();
+			while (rs.next()) {
+				HashMap<String, String> m1 = new HashMap<>();
+				m1.put("article_number", rs.getString(1));
+				m1.put("reply", rs.getString(2));
+				m1.put("reply_date", rs.getString(3));
+				m1.put("m_account", rs.getString(4));
+				l1.add(m1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if(rs!=null) {
+				rs.close();
+			}
 		}
-		if (rs != null)
-			rs.close();
-		if (pstm != null)
-			pstm.close();
-		if (conn != null)
-			conn.close();
+		
+
+		
 		return l1;
 	}
 	
 	
 	@Override
+	@Transactional
 	public boolean insert(ArticleReplyBean bean) {
 		if(bean != null) {
 		Date date = new Date();	
@@ -86,7 +92,7 @@ public class ArticleReplyDAOHibernate implements ArticleReplyDAO {
 
 
 
-
+	@Transactional
 	public boolean delete(int article_number) {
 		
 		this.getSession().delete(article_number);

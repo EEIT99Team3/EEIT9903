@@ -1,5 +1,6 @@
 package model.dao;
 
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,6 +17,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.NativeQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import model.ArticleBean;
 import model.ArticleDAO;
@@ -44,50 +46,49 @@ public class ArticleDAOHibernate implements ArticleDAO {
 	}
 	
 	@Override
+	@Transactional
 	public ArticleBean select(int article_number) {
 		
 		return this.getSession().get(ArticleBean.class, article_number);
 	}
 
 	@Override
-	public LinkedList<HashMap<String,String>> select() throws SQLException {
+	@Transactional
+	public LinkedList<HashMap<String,String>> select()  {
 		
 		
-		Connection conn = dataSource.getConnection();
+	
+
+		LinkedList<HashMap<String,String>> l1 = null;
+		try (Connection conn = dataSource.getConnection();
 		PreparedStatement pstm = conn.prepareStatement(SELECT_ALL);
-		ResultSet rs =  pstm.executeQuery();
-	
-	
-		LinkedList<HashMap<String,String>> l1 = new LinkedList<HashMap<String,String>>();
-		
-		while (rs.next()) {
-			HashMap<String, String> m1 = new HashMap<>();
+		ResultSet rs = pstm.executeQuery();){
+			l1 = new LinkedList<HashMap<String,String>>();
+			while (rs.next()) {
+				HashMap<String, String> m1 = new HashMap<>();
+				
+				NativeQuery<Integer> query = this.getSession().createNativeQuery("select count(*) from REPLY where article_number="+rs.getString(3));
 			
-			NativeQuery<Integer> query = this.getSession().createNativeQuery("select count(*) from REPLY where article_number="+rs.getString(3));
-		
-			int result = (int)query.uniqueResult();
+				int result = (int)query.uniqueResult();
+				
+				m1.put("m_account",rs.getString(1));
+				m1.put("article_date",rs.getString(2));
+				m1.put("article_number",rs.getString(3));
+				m1.put("article_title",rs.getString(4));
+				m1.put("article",rs.getString(5));
+				m1.put("reply_count", Integer.toString(result));
+				l1.add(m1);
+			}
 			
-			m1.put("m_account",rs.getString(1));
-			m1.put("article_date",rs.getString(2));
-			m1.put("article_number",rs.getString(3));
-			m1.put("article_title",rs.getString(4));
-			m1.put("article",rs.getString(5));
-			m1.put("reply_count", Integer.toString(result));
-			l1.add(m1);
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
-	
-		
-		if(rs!=null)
-		rs.close();
-		if(pstm!=null)
-		pstm.close();
-		if(conn!=null)
-		conn.close();
-		
+
 		return l1;
 	}
 
 	@Override
+	@Transactional
 	public boolean insert(ArticleBean bean) throws SQLException { 
 		 Date date = new Date();	
 		 if(bean !=null) {
@@ -102,14 +103,13 @@ public class ArticleDAOHibernate implements ArticleDAO {
 	
 	
 	@Override
+	@Transactional
 	public boolean delete(int article_number) throws SQLException {
 		
-
-		Connection conn = dataSource.getConnection();
-		PreparedStatement pstm = conn.prepareStatement("delete from reply where article_number="+article_number);
-		pstm.executeUpdate();
-		
-		
+		NativeQuery<Integer> query1 = this.getSession().createNativeQuery("delete from reply where article_number="+article_number);
+		query1.executeUpdate();
+		NativeQuery<Integer> query2 = this.getSession().createNativeQuery("delete from report where article_number="+article_number);
+		query2.executeUpdate();
 		ArticleBean bean = this.getSession().get(ArticleBean.class, article_number);
 		if(bean != null) {
 			this.getSession().delete(bean);
@@ -119,6 +119,7 @@ public class ArticleDAOHibernate implements ArticleDAO {
 		return false;
 	}
 	@Override
+	@Transactional
 	public boolean articleupdate(Integer article_number,String title,String article) {
 		ArticleBean bean = this.getSession().get(ArticleBean.class, article_number);
 		if(bean != null) {

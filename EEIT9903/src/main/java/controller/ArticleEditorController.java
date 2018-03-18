@@ -57,7 +57,7 @@ public class ArticleEditorController {
 	    }
 		
 	
-	if(bean.getArticle_number()!=null && !"articleDelete".equals(prodaction) && !"articleEdit".equals(prodaction) && !"articleEditok".equals(prodaction) && !"submitOk".equals(prodaction)) {
+	if(bean.getArticle_number()!=null && !"showbotton".equals(prodaction) && !"articleDelete".equals(prodaction) && !"articleEdit".equals(prodaction) && !"articleEditok".equals(prodaction) && !"submitOk".equals(prodaction)) {
 			
 			bean = articleServise.select(Integer.parseInt(article_number));
 	
@@ -93,6 +93,10 @@ public class ArticleEditorController {
 			if (insertresult) {
 				return "article.do";
 			}
+		}
+		if("showbotton".equals(prodaction)) {
+			bean = articleServise.select(Integer.parseInt(article_number));
+			
 		}
 		if ("submitcancle".equals(prodaction)) {
 			
