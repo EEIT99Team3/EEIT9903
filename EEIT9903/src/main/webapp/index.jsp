@@ -26,6 +26,9 @@
 <script src="<c:url value="/lib/jquery-3.3.1.min.js" />"></script>
 <script src="<c:url value="/lib/jquery-ui-1.10.3.custom.min.js" />"></script>
 <script src="<c:url value="/js/aside.js" />"></script>
+<!-- <link rel="shortcut icon" href="/images/stock.ico" type="image/icon" /> -->
+<link rel="icon" href="<c:url value='/images/16x16.ico' />"  />
+<!-- <link rel="icon" href="images/16x16.ico"  /> -->
 </head>
 
 <body>
