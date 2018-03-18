@@ -57,7 +57,7 @@
 						<table class="table table-striped table-sm">
 							<thead>
 								<tr>
-									<th>年份/季度</th>
+									<th>年份/季度(單位:仟元)</th>
 									<th>${param.cfyear}${param.cfseason}</th>
 									<th>${param.cfyear-1}${param.cfseason}</th>
 								</tr>
