@@ -63,7 +63,7 @@ public class ArticleEditorController {
 	
 			session.setAttribute("articleDate", bean.getArticle_date());	
 			session.setAttribute("article", bean.getArticle());
-			model.addAttribute("M_account", bean.getM_account());
+			session.setAttribute("M_account", bean.getM_account());
 			session.setAttribute("article_title", bean.getArticle_title());
 			session.setAttribute("article_number", bean.getArticle_number());
 			return "articleshow.do";

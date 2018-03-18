@@ -44,18 +44,9 @@ public class SupervisorService {
 		return result;
 	}
 
-	public LinkedList<HashMap<String, Object>> select(String s_account) {
+	public LinkedList<HashMap<String, Object>> select() {
 		LinkedList<HashMap<String, Object>> result = new LinkedList<HashMap<String, Object>>();
-		if (s_account != null && s_account.trim().length() != 0) {
-			SupervisorBean temp1 = supervisorDAO.select(s_account);
-			if (temp1 != null) {
-				HashMap<String, Object> select1 = new HashMap<String, Object>();
-				select1.put("s_account", temp1.getS_account());
-				select1.put("s_pwd", temp1.getS_pwd());
-				select1.put("ispowerful", temp1.isIspowerful());
-				result.add(select1);
-			}
-		} else {
+ 
 			List<SupervisorBean> selectAll = supervisorDAO.select();
 			for (int i = 0; i < selectAll.size(); i++) {
 				SupervisorBean temp2 = selectAll.get(i);
@@ -65,8 +56,15 @@ public class SupervisorService {
 				select2.put("ispowerful", temp2.isIspowerful());
 				result.add(select2);
 			}
-		}
 
+		return result;
+	}
+
+	public SupervisorBean select(String s_account) {
+		SupervisorBean result = null;
+		if (s_account != null && s_account.trim().length() != 0) {
+			result = supervisorDAO.select(s_account);
+		}
 		return result;
 	}
 
