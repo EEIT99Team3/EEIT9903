@@ -33,7 +33,7 @@
 
 	<div class="container-fluid">
 		<div class="row">
-			<jsp:include page="/common/nav.html"></jsp:include>
+			<jsp:include page="/common/nav.jsp"></jsp:include>
 			<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 			<jsp:include page="/common/aside.jsp" /> <!-- 以下輸入各網頁不同的地方 -->
 
@@ -53,11 +53,11 @@
 					<span>${errors.input}</span><span>${errors.input2}</span><span>${errors.input3}</span>
 				</div>
 				<c:if test="${not empty bs_data}">
-					<div class="table-responsive" style="padding-right: 400px">
+					<div id="bstablefresh" class="table-responsive" style="padding-right: 400px">
 						<table class="table table-striped table-sm">
 							<thead>
 								<tr>
-									<th>年份/季度</th>
+									<th>年份/季度(單位:仟元)</th>
 									<th>${param.bsyear}${param.bsseason}</th>
 									<th>${param.bsyear-1}${param.bsseason}</th>
 								</tr>
@@ -134,6 +134,7 @@
 	<script>
 		feather.replace()
 	</script>
+
 </body>
 
 </html>
