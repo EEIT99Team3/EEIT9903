@@ -3,6 +3,8 @@ package controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.Cookie;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,10 +42,8 @@ public class LoginController {
 			loginerrors.put("frontpassworderror", "Account or Password is wrong.");
 			return "frontlogin.error";   //失敗導回登入頁
 		} else {
-			session.setAttribute("user", login);
+			session.setAttribute("user", login);			
 			return "frontlogin.success"; //成功導向下一頁
-		}
-		
+		}	
 	}
-
 }
