@@ -24,7 +24,7 @@
 				<!-- 下面這個是table外框 -->
 				<div class="card" style="width: 1800px">
 					<div class="card-header" style="width: 1800px">基本面指標建議選股</div>
-					<div class="card-body" style="width: 1800px">
+					<div class="card-body" style="width: 1800px;height:500px">
 						<!-- 每頁不同的內容從這裡開始 -->
 			<div id="notchoosed">
 			<div class="title2">未選條件</div>
