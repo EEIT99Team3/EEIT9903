@@ -11,8 +11,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import model.CompanyBean;
 import model.Income_statementBean;
 import model.Income_statementPK;
+import model.service.CompanyService;
 import model.service.Income_StatementService;
 
 @Controller
@@ -20,7 +22,8 @@ public class Income_StatementController {
 
 	@Autowired
 	private Income_StatementService service;
-
+    @Autowired
+	private CompanyService companyService;
 	@RequestMapping(path = { "/Statement/IncomeStatement" }, method = { RequestMethod.GET, RequestMethod.POST })
 	public String isMethod(String iscorporation, String isyear, String isseason, Model model, HttpSession session) {
 
@@ -59,6 +62,11 @@ public class Income_StatementController {
 		}
 
 		// 驗證資料
+		CompanyBean check = companyService.select(iscorporation);
+		if (check == null) {
+			errors.put("input", "查無此公司　");
+		}
+		
 		if (errors != null && !errors.isEmpty()) {
 			return "isstatement.error";
 		}
@@ -71,6 +79,10 @@ public class Income_StatementController {
 		Map<String, Income_statementBean> beans = new HashMap<>();
 		Income_statementBean bean1 = service.select(PK1);
 		Income_statementBean bean2 = service.select(PK2);
+		if (bean1 == null) {
+			errors.put("input", "查無此時段財報　");
+			return "isstatement.error";
+		}
 		beans.put("bean1", bean1);
 		beans.put("bean2", bean2);
 
