@@ -33,7 +33,7 @@
 
 	<div class="container-fluid">
 		<div class="row">
-			<jsp:include page="/common/nav.jsp"></jsp:include>
+			<jsp:include page="/common/nav.html"></jsp:include>
 			<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 			<jsp:include page="/common/aside.jsp" /> <!-- 以下輸入各網頁不同的地方 -->
 

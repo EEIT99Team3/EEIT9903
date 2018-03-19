@@ -79,111 +79,14 @@
 								</div>
 							</form>
 						</div>
-						<div class="back signup_form" style="opacity: 0;">
-							<p>Sign Up for Your New Account</p>
-							<form class="login-form" method="post"
-							    action="<c:url value='/member/register'/>">
-								<div class="form-group">
-									<div class="input-group">
-										<input type="text" class="form-control addname"
-											placeholder="Member Name" name="addname" value=""> <span
-											class="input-group-addon"> <i
-											class="glyphicon glyphicon-user"></i>
-										</span>
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="input-group">
-										<input type="text" class="form-control addaccount" placeholder="Account"
-											name="addaccount" value=""> <span
-											class="input-group-addon"> <i
-											class="glyphicon glyphicon-user"></i>
-										</span>
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="input-group">
-										<input type="password" class="form-control password" name="addpassword"
-											value="" placeholder="Password"> <span
-											class="input-group-addon"> <i
-											class="glyphicon glyphicon-lock"></i>
-										</span>
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="input-group">
-										<input type="email" class="form-control email" 
-										name="addemail" placeholder="Email">
-										<span class="input-group-addon"> <i
-											class="glyphicon glyphicon-envelope"></i>
-										</span></div>
-									
-								</div>
 
-								<div class="form-group sign-btn">
-									<input type="submit" class="btn register-btn" value="Sign up"> <br>
-									<br>
-									<p>
-										You have already Account So <a href="#" id="unflip-btn"
-											class="signup">Log in</a>
-									</p>
-								</div>
-							</form>
-						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<script src="<c:url value="/lib/jquery-3.3.1.min.js" />"></script>
-	<script type="text/javascript">
-		$().ready(function() {
-			$("#card").flip({
-				trigger : 'manual'
-			});
 
-			$('.register-btn').attr('disabled','disabled');
-
-			$('.email,.password,.addaccount,.addname').blur(function(){
-				let email=$('.email').val();
-				let password=$('.password').val();
-				let addaccount=$('.addaccount').val();
-				let addname=$('.addname').val();
-				if(email != "" && password != "" && password != "" && addname != ""){
-					$('.register-btn').removeAttr('disabled');
-					
-				}
-			});
-			
-			$('.register-btn').click(function(){
-				alert("Registered Success");
-				//alert(email+password+addaccount+addname);
-				});
-		});
-
-		$(".signup_link").click(function() {
-
-			$(".signin_form").css('opacity', '0');
-			$(".signup_form").css('opacity', '100');
-
-			$("#card").flip(true);
-
-			return false;
-		});
-
-		$("#unflip-btn").click(function() {
-
-			$(".signin_form").css('opacity', '100');
-			$(".signup_form").css('opacity', '0');
-
-			$("#card").flip(false);
-
-			return false;
-
-		});
-	</script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Flip/1.0.18/jquery.flip.js"></script>
 	<!-- 每頁不同的內容到這裡結束  -->
 
 	<%-- 	<jsp:include page="/partial/footer.jsp" /> --%>
