@@ -26,7 +26,7 @@ public class Member implements java.io.Serializable {
 	private String MPwd;
 	private String email;
 	private String MName;
-	private String blacklist;
+	private Boolean blacklist;
 	private byte[] photo;
 
 	
@@ -37,7 +37,7 @@ public class Member implements java.io.Serializable {
 		this.MAccount = MAccount;
 	}
 
-	public Member(String MAccount, String MPwd, String email, String MName, String blacklist, byte[] photo) {
+	public Member(String MAccount, String MPwd, String email, String MName, Boolean blacklist, byte[] photo) {
 		this.MAccount = MAccount;
 		this.MPwd = MPwd;
 		this.email = email;
@@ -84,11 +84,11 @@ public class Member implements java.io.Serializable {
 	}
 
 	@Column(name = "blacklist", length = 1)
-	public String getBlacklist() {
+	public Boolean getBlacklist() {
 		return this.blacklist;
 	}
 
-	public void setBlacklist(String blacklist) {
+	public void setBlacklist(Boolean blacklist) {
 		this.blacklist = blacklist;
 	}
 

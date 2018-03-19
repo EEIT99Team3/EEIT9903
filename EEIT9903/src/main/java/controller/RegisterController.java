@@ -50,7 +50,7 @@ public class RegisterController {
 			return "register.error";
 		}
 		
-		memberService.register(addaccount, addpassword, addemail, addname, "F", null);	
+		memberService.register(addaccount, addpassword, addemail, addname, false, null);	
 		return "register.success";
 	}
 	

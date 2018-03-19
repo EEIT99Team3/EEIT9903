@@ -11,6 +11,7 @@ import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import model.CompanyBean;
 import model.Income_statementBean;
 import model.Income_statementDAO;
 import model.Income_statementPK;
@@ -19,8 +20,8 @@ import model.Income_statementPK;
 public class Income_StatementService {
 	@Autowired
 	private Income_statementDAO dao;
-//	@Autowired
-//	private CompanyService service;
+	@Autowired
+	private CompanyService service;
 
 	public Income_statementBean select(Income_statementPK pk) {
 		Income_statementBean result = dao.select(pk);
@@ -41,35 +42,50 @@ public class Income_StatementService {
 
 		String url = "http://mops.twse.com.tw/mops/web/t164sb04";// 綜合損益表
 		List<Income_statementBean> is_bean = new ArrayList<Income_statementBean>();
+		Boolean check = true;
+		Boolean count = true;
 
-		for (int n = 1225; n <= 1236; n++) {
+		for (int n = 2321; n <= 2330; n++) {
 			String co_id = "" + n;
 
-			// 利用Company的Bean來做Select檢查是否有這間公司，若無此公司則跳過
-//			CompanyBean bean = service.select(co_id);
-//			if (bean == null) {
-//				continue;
-//			}
-			try {
-				Thread.currentThread().sleep(3000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
+//			 利用Company的Bean來做Select檢查是否有這間公司，若無此公司則跳過
+			CompanyBean bean = service.select(co_id);
+			if (bean == null) {
+				continue;
 			}
 
-			for (int m = 104; m < 107; m++) {
+			for (int m = 103; m < 107; m++) {
 				String year = "" + m;
-				try {
-					Thread.currentThread().sleep(3000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				for (int i = 1; i < 5; i++) {
 
-					// 每個請求設置延遲
+				for (int i = 1; i <= 5; i++) {
+					
 					try {
-						Thread.currentThread().sleep(3000);
+						Thread.currentThread().sleep(2500);
 					} catch (InterruptedException e) {
 						e.printStackTrace();
+					}
+					
+					if(!count) {
+						i = i - 1;
+						System.out.println(i);
+						count = true;
+					}
+					
+					if(!check) {
+						
+					// 每個請求設置延遲
+					try {
+						Thread.currentThread().sleep(90000);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					
+					check = true;
+					
+					}
+					
+					if(i == 5) {
+						break;
 					}
 
 					String season = "" + i;
@@ -98,6 +114,13 @@ public class Income_StatementService {
 					System.out.printf("\nTest: (%d)", tests.size());
 					for (Element test : tests) {
 						String temp = test.child(0).text().replaceAll("\\u3000", "").trim();
+						
+						if(temp.startsWith("Overrun - 查詢過於頻繁,請稍後再試!!") || temp.startsWith("Forbidden - 查詢過於頻繁,請稍後再試!!")) {
+							System.out.println("過於頻繁");
+							check = false;
+							count = false;
+							break;
+						}
 
 						if (i == 1 || i == 4) {
 
