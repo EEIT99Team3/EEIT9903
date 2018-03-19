@@ -33,8 +33,8 @@ ApplicationContext context = (ApplicationContext)
 // Balance_sheetService test = (Balance_sheetService) context.getBean("balance_sheetService");
 // test.insert();
 
-// Income_StatementService test2 = (Income_StatementService) context.getBean("income_StatementService");
-// test2.insert();
+Income_StatementService test2 = (Income_StatementService) context.getBean("income_StatementService");
+test2.insert();
 
 // Cash_flow_statementService test3 = (Cash_flow_statementService) context.getBean("cash_flow_statementService");
 // test3.insert();

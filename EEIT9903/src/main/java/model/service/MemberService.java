@@ -21,7 +21,7 @@ public class MemberService {
 	}
 
 	// 註冊
-	public Member register(String MAccount, String MPwd, String email, String MName, String blacklist, byte[] photo) {
+	public Member register(String MAccount, String MPwd, String email, String MName, Boolean blacklist, byte[] photo) {
 		Member temp = memberDAO.select(MAccount);
 		if (temp == null) {
 			Member addNew = new Member();

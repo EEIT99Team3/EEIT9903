@@ -35,7 +35,7 @@ public class MemberDAO {
 		return null;
 	}
 	@Transactional
-	public Member update(String MAccount, String MPwd, String email, String MName, String blacklist, byte[] photo) {
+	public Member update(String MAccount, String MPwd, String email, String MName, Boolean blacklist, byte[] photo) {
 		Member result = this.getSession().get(Member.class, MAccount);
 		if (result != null) {
 			result.setMAccount(MAccount);

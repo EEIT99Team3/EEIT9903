@@ -4,6 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import model.Balance_sheetBean;
 import model.Balance_sheetDAO;
@@ -22,6 +23,7 @@ public class Balance_sheetDAOHibernate implements Balance_sheetDAO {
 	}
 	
 	@Override
+	@Transactional
 	public Balance_sheetBean insert(Balance_sheetBean bean) {
 		if(bean!=null) {
 			Balance_sheetBean temp =
@@ -35,6 +37,7 @@ public class Balance_sheetDAOHibernate implements Balance_sheetDAO {
 	}
 	
 	@Override
+	@Transactional
 	public Balance_sheetBean select(Balance_sheetPK pk) {
 		return this.getSession().get(Balance_sheetBean.class, pk);
 	}
