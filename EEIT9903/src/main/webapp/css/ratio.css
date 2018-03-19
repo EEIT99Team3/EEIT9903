@@ -27,10 +27,16 @@
 	margin: 20px;
 	float: left;
 	hight: 200px;
-	border: solid black 1px;
+	border-top: ridge	#DDDDDD 10px;
+	border-left:ridge	#DDDDDD 10px;
+	border-bottom:ridge #888888 10px;
+	border-right:ridge  #888888 10px;
 }
 #choosedchoosed{
-	border: solid black 1px;
+	border-top: ridge	#DDDDDD 10px;
+	border-left:ridge	#DDDDDD 10px;
+	border-bottom:ridge #888888 10px;
+	border-right:ridge  #888888 10px;
 	width: 450px;
 	margin: 20px;
 	float: left
