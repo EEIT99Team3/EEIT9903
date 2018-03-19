@@ -85,7 +85,7 @@
 							    action="<c:url value='/member/register'/>">
 								<div class="form-group">
 									<div class="input-group">
-										<input type="text" class="form-control"
+										<input type="text" class="form-control addname"
 											placeholder="Member Name" name="addname" value=""> <span
 											class="input-group-addon"> <i
 											class="glyphicon glyphicon-user"></i>
@@ -94,7 +94,7 @@
 								</div>
 								<div class="form-group">
 									<div class="input-group">
-										<input type="text" class="form-control" placeholder="Account"
+										<input type="text" class="form-control addaccount" placeholder="Account"
 											name="addaccount" value=""> <span
 											class="input-group-addon"> <i
 											class="glyphicon glyphicon-user"></i>
@@ -103,7 +103,7 @@
 								</div>
 								<div class="form-group">
 									<div class="input-group">
-										<input type="password" class="form-control" name="addpassword"
+										<input type="password" class="form-control password" name="addpassword"
 											value="" placeholder="Password"> <span
 											class="input-group-addon"> <i
 											class="glyphicon glyphicon-lock"></i>
@@ -112,16 +112,16 @@
 								</div>
 								<div class="form-group">
 									<div class="input-group">
-										<input type="email" class="form-control" 
+										<input type="email" class="form-control email" 
 										name="addemail" placeholder="Email">
 										<span class="input-group-addon"> <i
 											class="glyphicon glyphicon-envelope"></i>
-										</span>
-									</div>
+										</span></div>
+									
 								</div>
 
 								<div class="form-group sign-btn">
-									<input type="submit" class="btn" value="Sign up"> <br>
+									<input type="submit" class="btn register-btn" value="Sign up"> <br>
 									<br>
 									<p>
 										You have already Account So <a href="#" id="unflip-btn"
@@ -141,6 +141,24 @@
 			$("#card").flip({
 				trigger : 'manual'
 			});
+
+			$('.register-btn').attr('disabled','disabled');
+
+			$('.email,.password,.addaccount,.addname').blur(function(){
+				let email=$('.email').val();
+				let password=$('.password').val();
+				let addaccount=$('.addaccount').val();
+				let addname=$('.addname').val();
+				if(email != "" && password != "" && password != "" && addname != ""){
+					$('.register-btn').removeAttr('disabled');
+					
+				}
+			});
+			
+			$('.register-btn').click(function(){
+				alert("Registered Success");
+				//alert(email+password+addaccount+addname);
+				});
 		});
 
 		$(".signup_link").click(function() {
