@@ -13,13 +13,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import model.Balance_sheetBean;
 import model.Balance_sheetPK;
+import model.CompanyBean;
 import model.service.Balance_sheetService;
+import model.service.CompanyService;
 
 @Controller
 public class Balance_SheetController {
 	@Autowired
 	private Balance_sheetService service;
-	
+	@Autowired
+	private CompanyService companyService;
 	@RequestMapping(path= {"/Statement/BalanceSheet"}, method= {RequestMethod.GET, RequestMethod.POST})
 	public String bsMethod(String bscorporation, String bsyear, String bsseason, Model model, HttpSession session) {
 
@@ -58,6 +61,11 @@ public class Balance_SheetController {
 		}
 
 		// 驗證資料
+		CompanyBean check = companyService.select(bscorporation);
+		if (check == null) {
+			errors.put("input", "查無此公司　");
+		}
+		
 		if (errors != null && !errors.isEmpty()) {
 			return "bsstatement.error";
 		}
@@ -70,6 +78,10 @@ public class Balance_SheetController {
 		Map<String, Balance_sheetBean> beans = new HashMap<>();
 		Balance_sheetBean bean1 = service.select(PK1);
 		Balance_sheetBean bean2 = service.select(PK2);
+		if (bean1 == null) {
+			errors.put("input", "查無此時段財報　");
+			return "bsstatement.error";
+		}
 		beans.put("bean1", bean1);
 		beans.put("bean2", bean2);
 		

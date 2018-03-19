@@ -12,16 +12,17 @@ import javax.persistence.Table;
 @Embeddable
 public class NewsBean {
 
+	private String stock_id;
+	private String news_title;
+	private Date news_date;
 	@Id
 	private String news_website;
-	private String stock_id;
-	private Date news_date;
 	private String news_source;
-
+	
 	@Override
 	public String toString() {
-		return "NewsBean [stock_id=" + stock_id + ", news_date=" + news_date + ", news_website=" + news_website
-				+ ", news_source=" + news_source + "]<br>";
+		return "NewsBean [stock_id=" + stock_id + ", news_title=" + news_title + ", news_date=" + news_date
+				+ ", news_website=" + news_website + ", news_source=" + news_source + "]";
 	}
 	
 	public String getStock_id() {
@@ -29,6 +30,12 @@ public class NewsBean {
 	}
 	public void setStock_id(String stock_id) {
 		this.stock_id = stock_id;
+	}
+	public String getNews_title() {
+		return news_title;
+	}
+	public void setNews_title(String news_title) {
+		this.news_title = news_title;
 	}
 	public Date getNews_date() {
 		return news_date;

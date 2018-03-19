@@ -1,21 +1,46 @@
-.condition{
-	border:solid black 1px;
-	width:100px;
-	height:100px;
-	margin:20px;
-	float:left;
-}
-.choosed{
-	border:solid black 1px;
-	width:500px;
-	height:500px;
-	margin:20px;
-	float:left;
+* {
+	font-family: 微軟正黑體;
 }
 
-#notchoosed{
-	border:solid black 1px;
-	width:500px;
-	margin:20px;
-	float:left
+.condition {
+	border: solid black 1px;
+	width: 100px;
+	height: 50px;
+	margin: 20px;
+	float: left;
+	text-align:center;
+}
+
+#notchoosed {
+	border: solid black 1px;
+	width: 450px;
+	margin: 20px;
+	float: left
+}
+
+.selectorc {
+	display: block;
+}
+
+#selected {
+	display: none;
+	margin: 20px;
+	float: left;
+	hight: 200px;
+	border: solid black 1px;
+}
+#choosedchoosed{
+	border: solid black 1px;
+	width: 450px;
+	margin: 20px;
+	float: left
+}
+.ccondition{
+	border: solid black 1px;
+	width: 100px;
+	height: 50px;
+	margin: 20px;
+	float: left;
+	text-align:center;
+	display:none;
 }

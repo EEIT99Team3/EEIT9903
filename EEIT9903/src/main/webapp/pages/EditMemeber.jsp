@@ -33,23 +33,21 @@
 
 	<div class="container-fluid">
 		<div class="row">
-			<jsp:include page="/common/nav.html"></jsp:include>
 			<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-			<jsp:include page="/common/aside.jsp" /> <!-- 以下輸入各網頁不同的地方 -->
+			<!-- 以下輸入各網頁不同的地方 -->
 
-			<h2 style="padding-top: 50px">Section title</h2>
+			<h2 style="padding-top: 50px"></h2>
 
-
-			<form class="form-horizontal">
-				<fieldset>
-
+            <fieldset>
+			<form action="<c:url value="/member/update" />" class="form-horizontal">
+				
 					<!-- Form Name -->
 					<legend>Edit Form</legend>
 
 					<!-- File Button -->
 					<div class="form-group">
-						<img style="width: 50px; height: 50px; padding-left: 15px"
-							src="https://statementdog.com/img/user/default_icon.png"> <label
+						<img style="width: 100px; height: 100px; padding-left: 15px"
+							src="<c:url value="/images/default.jpg" />"> <label
 							class="col-md-4 control-label" for="Upload Photo">Upload
 							Photo</label>
 						<div class="col-md-4">
@@ -62,8 +60,8 @@
 					<div class="form-group">
 						<label class="col-md-4 control-label" for="textinput">顯示名稱</label>
 						<div class="col-md-4">
-							<input id="textinput" name="textinput" type="text"
-								placeholder="顯示名稱" class="form-control input-md" required="">
+							<input id="nameupdate" name="nameupdate" type="text"
+								value="${user.MName}" class="form-control input-md" >
 						</div>
 					</div>
 
@@ -71,35 +69,30 @@
 					<div class="form-group">
 						<label class="col-md-4 control-label" for="Realty Name">Email:</label>
 						<div class="col-md-4">
-							<input id="textinput" name="textinput" type="text"
-								placeholder=" @mail" class="form-control input-md" required="">
+							<input id="emailupdate" name="emailupdate" type="text"
+								value="${user.email}" class="form-control input-md" >
 
 						</div>
 					</div>
-
 
 					<!-- Text input-->
 					<div class="form-group">
 						<label class="col-md-4 control-label" for="Tel:">Origin Password</label>
 						<div class="col-md-4">
-							<input id="Tel:" name="Tel:" type="text"
+							<input id="oldpwdupdate" name="oldpwdupdate" type="password"
 								placeholder="Origin Password" class="form-control input-md"
-								required="">
+								>
 						</div>
 					</div>
 				
 					<div class="form-group">
 						<label class="col-md-4 control-label" for="Tel:">New Password</label>
 						<div class="col-md-4">
-							<input id="Tel:" name="Tel:" type="text"
+							<input id="newpwdupdate" name="newpwdupdate" type="password"
 								placeholder="New Password" class="form-control input-md"
-								required="">
+								>
 						</div>
 					</div>
-				
-
-
-
 
 					<!-- Button -->
 					<div class="form-group">
@@ -108,9 +101,10 @@
 							<button id="Submit" name="Submit" class="btn btn-primary">Submit</button>
 						</div>
 					</div>
+					</form>
 
 				</fieldset>
-			</form>
+			
 
 
 			<!-- 以上輸入各網頁不同的地方 --> </main>

@@ -1,4 +1,3 @@
-
 		var table = null;
 		var stockid = document.getElementById("stockid");
 		var ratyear = document.getElementById("ratyear");
@@ -18,12 +17,12 @@
 		var fcfgrowth = document.getElementById("fcfgrowtht");
 		var ocfgrowth = document.getElementById("ocfgrowtht");
 		var revenuesgrowth = document.getElementById("revenuesgrowtht");
+		var selected = 	document.getElementById("selected");
 		var dragged=null;
 		var turnon=false;
-
+		var count = 0;
 		function condition() {//動態產生查詢條件
-			var cond = "/EEIT9903/ratio/data?";
-			cond += "stockid=" + stockid.value.toString();
+			var cond = "/EEIT9903/ratio/data?stockid=";
 			if (ratyear.value != "") {
 				cond += "&ratyear=" + ratyear.value.toString();
 			}
@@ -68,17 +67,18 @@
 				cond += "&debtratio=" + debtratio.value.toString();
 			}
 			if (currentratio.value != "") {
-				cond += "&currentratio=" + stockid.value.toString();
+				cond += "&currentratio=" + currentratio.value.toString();
 			}
 			if (fcfgrowth.value != "") {
-				cond += "&fcfgrowth=" + stockid.value.toString();
+				cond += "&fcfgrowth=" + fcfgrowth.value.toString();
 			}
 			if (ocfgrowth.value != "") {
-				cond += "&ocfgrowth=" + stockid.value.toString();
+				cond += "&ocfgrowth=" + ocfgrowth.value.toString();
 			}
 			if (revenuesgrowth.value != "") {
-				cond += "&revenuesgrowth=" + stockid.value.toString();
+				cond += "&revenuesgrowth=" + revenuesgrowth.value.toString();
 			}
+			console.log(cond);
 			return cond;
 		}
 		
@@ -159,7 +159,6 @@
 		}}
 		$(document).ready(function() {
 			table = $('#table1').DataTable({
-//				ajax : "/EEIT9903/ratio/data?",
 				columns : [ {
 					"visible" : true,
 					"data" : "stock_id"
@@ -224,102 +223,12 @@
 			table.ajax.reload();
 			dynamicolumn();
 		});
-		$(".condition").draggable({stop:function(event, ui){
-			if(turnon==true){
-				dragged=$(this).attr('id').toString()+"t";
-				document.getElementById(dragged).disabled=false;
-				turnon=false;
-				}
-		dragged=$(this).attr('id').toString();console.log(dragged);
-		}});
-		$(".choosed").droppable({drop:function(event, ui){
-			turnon=true;
-			}});
-
-
-// 		function condition() {
-//			var cond = "/EEIT9903/ratio/data?";
-//			cond += "stockid=" + stockid.value.toString();
-//			if (ratyear.value != "") {
-//				cond += "&ratyear=" + ratyear.value.toString();
-//			}
-//			if (ratseason.value != "") {
-//				cond += "&ratseason=" + ratseason.value.toString();
-//			}
-//			if (eps.value != "") {
-//				cond += "&eps=" + eps.value.toString();
-//				table.column(3).visible(true);
-//			}else{table.column(3).visible(false);
-//			}
-//			if (bvps.value != "") {
-//				cond += "&bvps=" + bvps.value.toString();
-//				table.column(4).visible(true);
-//			}else{table.column(4).visible(false);
-//			}
-//			if (gpmargin.value != "") {
-//				cond += "&gpmargin=" + gpmargin.value.toString();
-//				table.column(5).visible(true);
-//			}else{table.column(5).visible(false);
-//			}
-//			if (opmargin.value != "") {
-//				cond += "&opmargin=" + opmargin.value.toString();
-//				table.column(6).visible(true);
-//			}else{table.column(6).visible(false);
-//			}
-//			if (nimargin.value != "") {
-//				cond += "&nimargin=" + nimargin.value.toString();
-//				table.column(7).visible(true);
-//			}else{table.column(7).visible(false);
-//			}
-//			if (roe.value != "") {
-//				cond += "&roe=" + roe.value.toString();
-//				table.column(8).visible(true);
-//			}else{table.column(8).visible(false);
-//			}
-//			if (roa.value != "") {
-//				cond += "&roa=" + roa.value.toString();
-//				table.column(9).visible(true);
-//			}else{table.column(9).visible(false);
-//			}
-//			if (arturnover.value != "") {
-//				cond += "&arturnover=" + arturnover.value.toString();
-//				table.column(10).visible(true);
-//			}else{table.column(10).visible(false);
-//			}
-//			if (invturnover.value != "") {
-//				cond += "&invturnover=" + invturnover.value.toString();
-//				table.column(11).visible(true);
-//			}else{table.column(11).visible(false);
-//			}
-//			if (apturnover.value != "") {
-//				cond += "&apturnover=" + apturnover.value.toString();
-//				table.column(12).visible(true);
-//			}else{table.column(12).visible(false);
-//			}
-//			if (debtratio.value != "") {
-//				cond += "&debtratio=" + debtratio.value.toString();
-//				table.column(13).visible(true);
-//			}else{table.column(13).visible(false);
-//			}
-//			if (currentratio.value != "") {
-//				cond += "&currentratio=" + stockid.value.toString();
-//				table.column(14).visible(true);
-//			}else{table.column(14).visible(false);
-//			}
-//			if (fcfgrowth.value != "") {
-//				cond += "&fcfgrowth=" + stockid.value.toString();
-//				table.column(15).visible(true);
-//			}else{table.column(15).visible(false);
-//			}
-//			if (ocfgrowth.value != "") {
-//				cond += "&ocfgrowth=" + stockid.value.toString();
-//				table.column(16).visible(true);
-//			}else{table.column(16).visible(false);
-//			}
-//			if (revenuesgrowth.value != "") {
-//				cond += "&revenuesgrowth=" + stockid.value.toString();
-//				table.column(17).visible(true);
-//			}else{table.column(17).visible(false);
-//			}
-//			return cond;
-//		}
+		
+		$(".condition").click(function(event, ui){
+				$(this).css('display','none');
+				clickeds=$(this).attr('id').toString()+"s";	
+				$(clickeds).css('display','inline');
+				$(selected).css('display','inline');
+				clicked=$(this).attr('id').toString()+"t";
+				document.getElementById(clicked).disabled=false;
+		});

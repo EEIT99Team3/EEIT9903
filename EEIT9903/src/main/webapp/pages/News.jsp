@@ -47,23 +47,14 @@
 			<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 			<jsp:include page="/common/aside.jsp" /> <!-- 以下輸入各網頁不同的地方 -->
 
-			<h2 style="padding-top: 20px">Section title</h2>
+			<h2 style="padding-top: 20px">個股新聞</h2>
 			<div>
 				<div class="col-xl-3 col-sm-6 mb-3 ">
 <!-- 					<ul> -->
 <!-- 						<li>公司: 代號:</li> -->
 <!-- 					</ul> -->
-					<ul style="font-size: 30px">
-						<li>news</li>
-						<li>news</li>
-						<li>news</li>
-						<li>news</li>
-						<li>news</li>
-						<li>news</li>
-						<li>news</li>
-						<li>news</li>
-						<li>news</li>
-						<li>news</li>
+					<ul style="font-size: 30px" id="ulNews">
+						
 					</ul>
 
 				</div>
@@ -77,6 +68,22 @@
 	<%-- 	<script src="<c:url value="/lib/jquery-3.3.1.min.js" />"></script> --%>
 	<script>
 		feather.replace()
+	</script>
+	<script>
+		$(document).ready(function(){
+			$('#ulNews').empty();
+			$.getJSON("/EEIT9903/baseinfo/news", { }, function(data) {
+				$.each(data.data, function (i, data) {
+// 					console.log(data.news_title);
+					var cell1 = $('<li>').append(
+						$('<a>').attr('href' , data.news_website).attr('target' , "_blank").html(data.news_title)
+					).append($('<p>').attr("style","font-size:20px").text(data.news_date + "  " + data.news_source)
+							);
+
+					$('#ulNews').append(cell1);
+				})
+			})
+		})
 	</script>
 </body>
 

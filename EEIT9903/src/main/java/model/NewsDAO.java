@@ -7,5 +7,7 @@ public interface NewsDAO {
 	List<NewsBean> select(String stock_id);
 
 	NewsBean insert(NewsBean bean);
+	
+	Boolean matchTitle(String news_title);
 
 }

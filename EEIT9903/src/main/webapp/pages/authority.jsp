@@ -32,7 +32,7 @@
 	<jsp:include page="/common/footbar.jsp"></jsp:include>
 	<div class="content-wrapper">
 
-		<h2 style="padding-top: 20px; padding-left: 60px; padding-right: 300px">Section title</h2>
+		<h2 style="padding-top: 20px; padding-left: 60px; padding-right: 300px">管理員一覽</h2>
 		<div class="table-responsive"
 			style="padding-left: 60px; padding-right: 300px">
 			<table id="supervisortable" class="table table-striped table-sm">
@@ -44,17 +44,17 @@
 					</tr>
 				</thead>
 				<tbody>
-<!-- 					<tr> -->
-<!-- 						<th>1</th> -->
-<!-- 						<th>2</th> -->
-<!-- 						<th>3</th> -->
-<!-- 					</tr> -->
-<!-- 					<tr> -->
-<!-- 						<th>4</th> -->
-<!-- 						<th>5</th> -->
-<!-- 						<th>6</th> -->
-<!-- 					</tr> -->
+
 				</tbody>
+				<tfoot>
+				    <tr>
+				      <form name="supervisorform">
+						<td><input name="s_account" type="text" width="50px" placeholder="新增帳號"></td>
+						<td><input name="s_password" type="text" width="50px" placeholder="新增密碼"></td>
+						<td><button type="button" id="addsupervisor">新增管理員</button></td>				
+				      </form>
+				    </tr>
+				</tfoot>
 			</table>
 		</div>
 
@@ -101,7 +101,7 @@
 
                     var td1 = $("<td></td>").text(data.s_account);
                     var td2 = $("<td></td>").text(data.s_pwd);
-                    var td3 = $("<td></td>").text(data.ispowerful);
+                    var td3 = $('<td><button type="button">刪除</button></td>');
                     var row = $("<tr></tr>").append([td1, td2, td3]);
 
                     fragment.append(row); 
@@ -110,8 +110,28 @@
                 })   	
             }
 
+        $("#addsupervisor").click(function(){
+            var datas = $('form[name="supervisorform"]').serialize();
+            $.post("<c:url value="/Statement/addnew"/>", datas, function(data){
+                alert(data);
+                loadsupervisor();
+                $('input[name="s_account"]').val('');
+                $('input[name="s_password"]').val('');
+                })
+
             })
 
+        $('#supervisortable > tbody').on('click', 'tr button:first-child', function(){
+                var remove = $(this).parents('tr').find('td:first-child').text();
+                $.get('<c:url value="/Statement/delete"/>', {s_delete:remove}, function(data){
+                    alert(data);
+                    loadsupervisor();
+                    })
+
+            })    
+
+            
+            })
 
 		</script>
 
