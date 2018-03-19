@@ -4,6 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import model.Income_statementBean;
 import model.Income_statementDAO;
@@ -24,6 +25,7 @@ public class Income_statementDAOHibernate implements Income_statementDAO {
 	 * @see model.dao.Income_statementDAO#insert(model.Income_StatementBean)
 	 */
 	@Override
+	@Transactional
 	public Income_statementBean insert(Income_statementBean bean) {
 		if(bean!=null) {
 			Income_statementBean temp =
@@ -40,6 +42,7 @@ public class Income_statementDAOHibernate implements Income_statementDAO {
 	 * @see model.dao.Income_statementDAO#select(int)
 	 */
 	@Override
+	@Transactional
 	public Income_statementBean select(Income_statementPK pk) {
 		return this.getSession().get(Income_statementBean.class, pk);
 	}
