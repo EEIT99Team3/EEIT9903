@@ -27,49 +27,150 @@
 					<div class="card-body" style="width: 1800px">
 						<!-- 每頁不同的內容從這裡開始 -->
 			<div id="notchoosed">
-			<div class=condition id=eps>EPS</div>
-			<div class=condition id=bvps>每股淨值</div>
-			<div class=condition id=gpmargin>毛利率</div>
-			<div class=condition id=opmargin>營業利益率</div>
-			<div class=condition id=nimargin>稅後淨利率</div>
-			<div class=condition id=roe>ROE</div>
-			<div class=condition id=roa>ROA</div>
-			<div class=condition id=arturnover>應收帳款周轉率</div>
-			<div class=condition id=invturnover>存貨周轉率</div>
-			<div class=condition id=apturnover>應付帳款周轉率 </div>
-			<div class=condition id=debtratio>負債比率</div>
-			<div class=condition id=currentratio>流動比率</div>
-			<div class=condition id=fcfgrowth>自由現金流量年成長率</div>
-			<div class=condition id=ocfgrowth>營業現金流量年成長率</div>
-			<div class=condition id=revenuesgrowth>營收成長率</div>
-			
+			<div class="condition" id="eps">EPS</div>
+			<div class="condition" id="bvps">每股淨值</div>
+			<div class="condition" id="gpmargin">毛利率</div>
+			<div class="condition" id="opmargin">營業利益率</div>
+			<div class="condition" id="nimargin">稅後淨利率</div>
+			<div class="condition" id="roe">ROE</div>
+			<div class="condition" id="roa">ROA</div>
+			<div class="condition" id="arturnover">應收帳款周轉率</div>
+			<div class="condition" id="invturnover">存貨周轉率</div>
+			<div class="condition" id="apturnover">應付帳款周轉率 </div>
+			<div class="condition" id="debtratio">負債比率</div>
+			<div class="condition" id="currentratio">流動比率</div>
+			<div class="condition" id="fcfgrowth">自由現金流量年成長率</div>
+			<div class="condition" id="ocfgrowth">營業現金流量年成長率</div>
+			<div class="condition" id="revenuesgrowth">營收成長率</div>
 			</div>
-			<div class=choosed >選擇條件</div>
-						
-			<input id="stockid" type="text" value="" placeholder="請輸入股票代號" disabled="true">
-			<input id="ratyear" type="text" value="" placeholder="請輸入年" disabled="true">
-			<input id="ratseason" type="text" value="" placeholder="請輸入季" disabled="true">
-			<input id="epst" type="text" value="" placeholder="請輸入EPS>?" disabled="true">
-			<input id="bvpst" type="text" value="" placeholder="請輸入每股淨值>?" disabled="true">
-			<input id="gpmargint" type="text" value="" placeholder="毛利率>?" disabled="true">
-			<input id="opmargint" type="text" value="" placeholder="營業利益率>?" disabled="true">
-			<input id="nimargint" type="text" value="" placeholder="稅後淨利率>?" disabled="true">
-			<input id="roet" type="text" value="" placeholder="ROE(股東權益報酬率)>?" disabled="true">
-			<input id="roat" type="text" value="" placeholder="ROA(資產報酬率)>?" disabled="true">
-			<input id="arturnovert" type="text" value=""
-							placeholder="應收帳款周轉率>?" disabled="true">
-			<input id="invturnovert" type="text" value="" placeholder="存貨周轉率 >?" disabled="true">
-			<input id="apturnovert" type="text" value="" placeholder="應付帳款周轉率 <?" disabled="true">
-			<input id="debtratiot" type="text" value="" placeholder="負債比率 <?" disabled="true">
-			<input id="currentratiot" type="text" value=""
-							placeholder="流動比率 <?" disabled="true"> <input id="fcfgrowtht" type="text"
-							value="" placeholder="自由現金流量年成長率 >?" disabled="true">
-							<input
-							id="ocfgrowtht" type="text" value="" placeholder="營業現金流量年成長率>?" disabled="true">
-			<input id="revenuesgrowtht" type="text" value=""
-							placeholder="營收成長率>?" disabled="true">
-			<input id="sub" type="submit">
-					</div>
+			<div id="choosedchoosed">
+			<div class="ccondition" id="epss">EPS</div>
+			<div class="ccondition" id="bvpss">每股淨值</div>
+			<div class="ccondition" id="gpmargins">毛利率</div>
+			<div class="ccondition" id="opmargins">營業利益率</div>
+			<div class="ccondition" id="nimargins">稅後淨利率</div>
+			<div class="ccondition" id="roes">ROE</div>
+			<div class="ccondition" id="roas">ROA</div>
+			<div class="ccondition" id="arturnovers">應收帳款周轉率</div>
+			<div class="ccondition" id="invturnovers">存貨周轉率</div>
+			<div class="ccondition" id="apturnovers">應付帳款周轉率 </div>
+			<div class="ccondition" id="debtratios">負債比率</div>
+			<div class="ccondition" id="currentratios">流動比率</div>
+			<div class="ccondition" id="fcfgrowths">自由現金流量年成長率</div>
+			<div class="ccondition" id="ocfgrowths">營業現金流量年成長率</div>
+			<div class="ccondition" id="revenuesgrowths">營收成長率</div>
+			</div>
+			<div id="selected">
+			<span>年度</span>
+			<select class="selectorc" id="ratyear" >
+				<option value="">請選擇</option>
+  				<option value="106">106年</option>
+   				<option value="105">105年</option>
+   				<option value="104">104年</option>
+  			</select>
+  			<span>季別</span>
+  			<select class="selectorc" id="ratseason">
+  				<option value="">請選擇</option>
+  				<option value="1">Q1</option>
+   				<option value="2">Q2</option>
+   				<option value="3">Q3</option>
+   				<option value="4">Q4</option>
+  			</select>
+  			<span>EPS</span>
+  			<select class="selectorc" id="epst" disabled="true">
+  			  	<option value="">請選擇</option>
+   				<option value="0">普通篩選(>0))</option>
+   				<option value="10">嚴格篩選(10以上)</option>
+  			</select>
+   			<span>每股淨值</span> 			
+  			 <select class="selectorc" id="bvpst" disabled="true">
+  			   	<option value="">請選擇</option>
+   				<option value="20">普通篩選(>20))</option>
+   				<option value="50">嚴格篩選(>50)</option>
+  			</select>
+  			<span>毛利率</span>
+  			 <select class="selectorc" id="gpmargint" disabled="true">
+   				<option value="">請選擇</option>
+   				<option value="10">普通篩選(>10)</option>
+   				<option value="30">嚴格篩選(>30)</option>
+  			</select>
+  			<span>營業利益率</span> 			
+  			<select class="selectorc" id="opmargint" disabled="true">
+  			  	<option value="">請選擇</option>
+   				<option value="10">普通篩選(>10)</option>
+   				<option value=20>嚴格篩選(>20)</option>
+  			</select>
+  	  		<span>稅後淨利率</span>
+  			<select class="selectorc" id="nimargint" disabled="true">
+  				<option value="">請選擇</option>
+   				<option value="5">普通篩選(>5)</option>
+   				<option value=20>嚴格篩選(>20)</option>
+  			</select>
+  			<span>ROE</span>
+  			<select class="selectorc" id="roet" disabled="true">
+   				<option value="">請選擇</option> 			
+   				<option value="0">普通篩選(>0)</option>
+   				<option value="5">嚴格篩選(>5)</option>
+  			</select>
+  			<span>ROA</span>
+  			<select class="selectorc" id="roat" disabled="true">
+   				<option value="">請選擇</option>
+   				<option value="0">普通篩選(>0)</option>
+   				<option value="5">嚴格篩選(>5)</option>
+  			</select>
+  			<span>應收帳款周轉率</span>
+  			<select class="selectorc" id="arturnovert" disabled="true">
+  				<option value="">請選擇</option>
+   				<option value="3">普通篩選(>3)</option>
+   				<option value="6">嚴格篩選(>6)</option>
+  			</select>
+  			<span>存貨周轉率</span>
+  			<select class="selectorc" id="invturnovert" disabled="true">
+  			  	<option value="">請選擇</option>
+   				<option value="3">普通篩選(>3)</option>
+   				<option value="6">嚴格篩選(>6)</option>
+  			</select>			
+  			<span>應付帳款周轉率</span>
+  			<select class="selectorc" id="apturnovert" disabled="true">
+  			  	<option value="">請選擇</option>
+   				<option value="6">普通篩選(<6)</option>
+   				<option value="3">嚴格篩選(<3)</option>
+  			</select> 			
+   			<span>負債比率</span>
+  			
+  			<select class="selectorc" id="debtratiot" disabled="true">
+  			  	<option value="">請選擇</option>
+   				<option value="0.50">普通篩選(<50%)</option>
+   				<option value="0.25">嚴格篩選(<25%)</option>
+  			</select>
+  			<span>流動比率</span>		
+  			<span>流動比率</span>		
+  			<select class="selectorc" id="currentratiot" disabled="true">
+    			<option value="">請選擇</option>	
+   				<option value="0.75">普通篩選(>75%)</option>
+   				<option value="1.5">嚴格篩選(>150%)</option>
+  			</select>
+  			<span>自由現金流量年成長率</span>		
+  			<select class="selectorc" id="fcfgrowtht" disabled="true">
+  			  	<option value="">請選擇</option>
+   				<option value="0">普通篩選(>0)</option>
+   				<option value="10">嚴格篩選(>10)</option>
+  			</select>
+  			<span>營業現金流量年成長率</span>		
+  			<select class="selectorc" id="ocfgrowtht" disabled="true">
+  	  			<option value="">請選擇</option>		
+   				<option value="0">普通篩選(>0)</option>
+   				<option value="10">嚴格篩選(>10)</option>
+  			</select>
+  			<span>營收成長率</span>		
+   			<select class="selectorc" id="revenuesgrowtht" disabled="true">  			
+   				<option value="">請選擇</option>
+   				<option value="0">普通篩選(>0)</option>
+   				<option value="10">嚴格篩選(>10)</option>
+  			</select>
+  			<input id="sub" type="submit" value="開始選股!">
+  			</div> 			
+		</div>
 			<table id="table1"
 						class="table table-bordered table-striped table-hover"
 						style="width: 1800px">

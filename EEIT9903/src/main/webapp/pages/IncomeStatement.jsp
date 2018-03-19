@@ -58,7 +58,7 @@
 							<table class="table table-striped table-sm">
 								<thead>
 									<tr>
-										<th>年份/季度</th>
+										<th>年份/季度(單位:仟元)</th>
 										<th>${param.isyear}${param.isseason}</th>
 										<th>${param.isyear-1}${param.isseason}</th>
 									</tr>
