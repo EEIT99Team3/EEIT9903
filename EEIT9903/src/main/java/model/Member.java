@@ -1,35 +1,33 @@
 package model;
 
-import java.util.Arrays;
+import java.sql.Blob;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.hibernate.Session;
-
-import model.hibernate.HibernateUtil;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name = "MEMBER", schema = "dbo", catalog = "Project1")
-public class Member implements java.io.Serializable {
+public class Member {
 
 	private static final long serialVersionUID = 1L;
 	private String MAccount;
-	@Override
-	public String toString() {
-		return "Member [MAccount=" + MAccount + ", MPwd=" + MPwd + ", email=" + email + ", MName=" + MName
-				+ ", blacklist=" + blacklist + ", photo=" + Arrays.toString(photo) + "]";
-	}
 
 	private String MPwd;
 	private String email;
 	private String MName;
 	private Boolean blacklist;
-	private byte[] photo;
-
+	private Blob photo;
 	
+	@Override
+	public String toString() {
+		return "Member [MAccount=" + MAccount + ", MPwd=" + MPwd + ", email=" + email + ", MName=" + MName
+				+ ", blacklist=" + blacklist + ", photo=" + photo + "]";
+	}
+
 	public Member() {
 	}
 
@@ -37,7 +35,7 @@ public class Member implements java.io.Serializable {
 		this.MAccount = MAccount;
 	}
 
-	public Member(String MAccount, String MPwd, String email, String MName, Boolean blacklist, byte[] photo) {
+	public Member(String MAccount, String MPwd, String email, String MName, Boolean blacklist, Blob photo) {
 		this.MAccount = MAccount;
 		this.MPwd = MPwd;
 		this.email = email;
@@ -93,11 +91,11 @@ public class Member implements java.io.Serializable {
 	}
 
 	@Column(name = "photo")
-	public byte[] getPhoto() {
+	public Blob getPhoto() {
 		return this.photo;
 	}
 
-	public void setPhoto(byte[] photo) {
+	public void setPhoto(Blob photo) {
 		this.photo = photo;
 	}
 }

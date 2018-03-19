@@ -1,7 +1,10 @@
 package model.service;
 
+import java.sql.Blob;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import model.Member;
 import model.dao.MemberDAO;
@@ -21,7 +24,7 @@ public class MemberService {
 	}
 
 	// 註冊
-	public Member register(String MAccount, String MPwd, String email, String MName, Boolean blacklist, byte[] photo) {
+	public Member register(String MAccount, String MPwd, String email, String MName, Boolean blacklist, Blob photo) {
 		Member temp = memberDAO.select(MAccount);
 		if (temp == null) {
 			Member addNew = new Member();
@@ -52,7 +55,7 @@ public class MemberService {
 
 	// 更新資料
 	public Member updateInfo(String MAccount, String MPwd, String newPwd, String newEmail, String newName,
-			byte[] newPhoto) {
+			Blob newPhoto) {
 
 		Member update = memberDAO.select(MAccount);
 		if (update == null) {
@@ -78,7 +81,8 @@ public class MemberService {
 			update.setMName(newName);
 		}
 
-		if (newPhoto != null && newPhoto.length != 0) {
+		if (newPhoto != null) {
+			System.out.println("test");
 			update.setPhoto(newPhoto);
 		}
 		// 更新資料
