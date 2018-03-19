@@ -1,11 +1,18 @@
 package controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONValue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import model.ArticleReportBean;
 import model.Member;
@@ -21,14 +28,14 @@ public class ArticleReportController {
 			method= {RequestMethod.GET,RequestMethod.POST}
 			)
 	public String report(String article_number,String m_account,String type_of_report
-			,String report_content,ArticleReportBean bean,String prodaction,HttpSession session) { 
+			,String report_content,ArticleReportBean bean,String prodaction,HttpSession session,String article_title) { 
 		Member member = (Member) session.getAttribute("user");
 		
 		bean.setArticle_number(Integer.parseInt(article_number));
-		bean.setM_account(member.getMAccount());
+		bean.setM_account(m_account);
 		bean.setType_of_report(type_of_report);
 		bean.setReport_content(report_content);
-		
+	    bean.setArticle_title(article_title);
 		
 		
 		if("insertReport".equals(prodaction)) {
@@ -38,6 +45,22 @@ public class ArticleReportController {
 			}
 		}
 		
+		return "";
+	}
+	@RequestMapping(
+			path="/pages/reportshow.article",
+			method= {RequestMethod.GET,RequestMethod.POST},
+			produces="application/json;charset=UTF-8"
+			)
+	public @ResponseBody String reportshow() {
+		
+		List<HashMap<String, String>> result = new LinkedList<HashMap<String, String>>();
+		result = articleReportService.select();
+		if (result != null) {
+			String jsonString = JSONValue.toJSONString(result);
+			return jsonString; 
+		}
+	
 		return "";
 	}
 }

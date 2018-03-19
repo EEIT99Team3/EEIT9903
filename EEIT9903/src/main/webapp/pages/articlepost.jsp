@@ -25,6 +25,7 @@
 <link href="<c:url value="/lib/advanced Css/dashboard.css" />"
 	rel="stylesheet" type="text/css" />
 <link href="<c:url value="/css/aside.css" />" rel="stylesheet" type="text/css">
+
 <script src="<c:url value="/lib/jquery-1.10.2.min.js" />"></script>
 <script src="<c:url value="/lib/jquery-ui-1.10.3.custom.min.js" />"></script>
 <script src="<c:url value="/js/aside.js" />"></script>
@@ -43,7 +44,9 @@
 	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
 	crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
 </head>
+
 
 <body>
 	<jsp:include page="/common/header.html"></jsp:include>
@@ -136,6 +139,8 @@
           </div>
           <input type="hidden" name="article_number" value="${article_number}"> 
           <input type="hidden" name="type_of_report" id="type_of_report"> 
+          <input type="hidden" name="m_account" value="${M_account}" id="type_of_report"> 
+          <input type="hidden" name="article_title" value="${article_title}" id="type_of_report"> 
          	<div class="modal-footer">
         		<button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
         		<button id="reportsubmit" type="submit" class="btn btn-primary" name="prodaction" value="insertReport">確定</button>
@@ -200,9 +205,9 @@
 <script type="text/javascript">
 $(function(){
 
-	$("#reportsubmit").click(function(){
-		$("#aaa").empty().text("abc")
-		})
+// 	$("#reportsubmit").click(function(){
+// 		$("#aaa").empty().text("abc")
+// 		})
 	
 	var m_account = ${user.MAccount};
 

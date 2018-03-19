@@ -29,7 +29,6 @@ public class ArticleReplyController {
 	
 			List<HashMap<String, String>> result = new LinkedList<HashMap<String, String>>();
 		result = articleReplyServise.select(Integer.parseInt(article_number));
-		System.out.println(result);
 			if (result != null) {
 				String jsonString = JSONValue.toJSONString(result);
 				
