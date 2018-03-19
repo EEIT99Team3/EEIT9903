@@ -26,7 +26,7 @@
 					<div class="card-header" style="width: 1800px">基本面指標建議選股</div>
 					<div class="card-body" style="width: 1800px">
 						<!-- 每頁不同的內容從這裡開始 -->
-			<div id="notchoosed">
+			<div id="notchoosed" style="height: 450px">
 			<div class="condition" id="eps">EPS</div>
 			<div class="condition" id="bvps">每股淨值</div>
 			<div class="condition" id="gpmargin">毛利率</div>
@@ -43,7 +43,7 @@
 			<div class="condition" id="ocfgrowth">營業現金流量年成長率</div>
 			<div class="condition" id="revenuesgrowth">營收成長率</div>
 			</div>
-			<div id="choosedchoosed">
+			<div id="choosedchoosed" style="height: 450px">
 			<div class="ccondition" id="epss">EPS</div>
 			<div class="ccondition" id="bvpss">每股淨值</div>
 			<div class="ccondition" id="gpmargins">毛利率</div>
