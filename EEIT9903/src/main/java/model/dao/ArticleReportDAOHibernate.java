@@ -34,4 +34,6 @@ public class ArticleReportDAOHibernate {
 
 		return false;
 	}
+	
+	
 }

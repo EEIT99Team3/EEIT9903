@@ -29,6 +29,8 @@ public class ArticleReportController {
 		bean.setType_of_report(type_of_report);
 		bean.setReport_content(report_content);
 		
+		
+		
 		if("insertReport".equals(prodaction)) {
 			boolean insertResult = articleReportService.insertReport(bean);
 			if(insertResult) {

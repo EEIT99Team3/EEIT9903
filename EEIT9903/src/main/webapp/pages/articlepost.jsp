@@ -74,9 +74,9 @@
 					<!-- Author -->
 					<p class="lead">				 
 						by <a href="#">${M_account}</a> ${fn:substring(articleDate, 0,16)} 
-						<a role="button" href="<c:url value='/pages/article.article?prodaction=articleEdit&article_number='/>${article_number}" style="margin-left:50% " class="btn btn-info fa fa-edit">編輯</a>
-						<button type="button" class="btn btn-danger fa fa-close" data-toggle="modal" data-target="#exampleModalCenter">刪除</button>
-						<button type="button" class="btn btn-warning fa fa-ban" data-toggle="modal" data-target="#reportModal" data-whatever="@mdo">檢舉</button>
+						<a role="button" href="<c:url value='/pages/article.article?prodaction=articleEdit&article_number='/>${article_number}" style="margin-left:50% " class="btn btn-info fa fa-edit d-none" id="editorbotton">編輯</a>
+						<a role="button"  class="btn btn-danger fa fa-close d-none" data-toggle="modal" data-target="#exampleModalCenter" id="deletebotton">刪除</a>
+						<a role="button"  class="btn btn-warning fa fa-ban d-inline-block" data-toggle="modal" data-target="#reportModal" data-whatever="@mdo" id="reportbotton" style="margin-left:60%" >檢舉</a>
 					</p>
 					<!-- Modal -->
 					
@@ -104,7 +104,7 @@
 <!-- 檢舉文章的互動視窗 -->
 <div class="modal fade" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
+    <div class="modal-content" id="aaa" >
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">檢舉:</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -138,7 +138,7 @@
           <input type="hidden" name="type_of_report" id="type_of_report"> 
          	<div class="modal-footer">
         		<button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-        		<button type="submit" class="btn btn-primary" name="prodaction" value="insertReport">確定</button>
+        		<button id="reportsubmit" type="submit" class="btn btn-primary" name="prodaction" value="insertReport">確定</button>
       		</div>
         </form>
       </div>
@@ -200,13 +200,19 @@
 <script type="text/javascript">
 $(function(){
 
-	$.getJSON("articleshow.article",function(data){
-		$.each(data,function(idx,datas)){
-				if(${M_account} == datas.m_account)
+	$("#reportsubmit").click(function(){
+		$("#aaa").empty().text("abc")
+		})
+	
+	var m_account = ${user.MAccount};
 
-
+	$.get("showbotton.article",{article_number: ${article_number}},function(data){
+			if(data === m_account){
+				$("#deletebotton").addClass('d-inline-block');
+				$("#editorbotton").addClass('d-inline-block');
+				$("#reportbotton").addClass('d-none').css("margin-left","0");
+				
 			}
-
 		})
 	
 	$(".dropdown-item").click(function(){
@@ -223,7 +229,8 @@ $(function(){
 	  if(data!=null){
 	  var docFrag = $(document.createDocumentFragment());
 	  $.each(data,function(idx,replymain){
-		  
+
+	
 		  var eleImg = $("<img></img>").addClass("d-flex mr-3 rounded-circle").attr("src","http://placehold.it/50x50");
 		  var eleH5 = $("<h5></h5>").addClass("mt-0").html(replymain.m_account);
 		  var eleDivreply = $("<div></div>").html(replymain.reply);

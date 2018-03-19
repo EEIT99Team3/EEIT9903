@@ -16,6 +16,7 @@
 
 <!-- Bootstrap core CSS -->
 
+<link rel="icon" href="<c:url value="/images/ez.ico" />">
 <link href="<c:url value="/lib/bootstrap.min.css" />" rel="stylesheet"
 	type="text/css" />
 <!-- Custom styles for this template -->
@@ -28,6 +29,7 @@
 </head>
 
 <body>
+
 	<jsp:include page="/common/header.html"></jsp:include>
 
 <!-- 	<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0"> -->
@@ -46,9 +48,8 @@
 			<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
             <jsp:include page="/common/aside.jsp" />
 			<!-- 以下輸入各網頁不同的地方 -->
-
+	
 		<div class="container" style="margin-right:400px;margin-top:100px">
-
 		<a class="btn btn-primary" href="article.article?prodaction=articlepost" >發表文章</a>
 		<!-- Page Content -->
 		<div class="container">
@@ -57,9 +58,9 @@
 
 				<!-- Blog Entries Column -->
 				<div id="articlebody" class="col-md-12">
-
 					<h1 class="my-4">
 						文章專欄 
+						
 					</h1>
 
 					<!-- Blog Post -->
@@ -134,7 +135,6 @@
 	</div>
 </div>
 			
-
 			<!-- 以上輸入各網頁不同的地方 --> </main>
 		</div>
 	</div>

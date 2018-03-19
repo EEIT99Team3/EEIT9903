@@ -94,10 +94,7 @@ public class ArticleEditorController {
 				return "article.do";
 			}
 		}
-		if("showbotton".equals(prodaction)) {
-			bean = articleServise.select(Integer.parseInt(article_number));
-			
-		}
+	
 		if ("submitcancle".equals(prodaction)) {
 			
 			return "article.do"; 
@@ -115,7 +112,7 @@ public class ArticleEditorController {
 			produces = "application/json;charset=UTF-8"
 			)
 	public @ResponseBody String Articleshow() {
-		
+			
 			List<HashMap<String, String>> result = new LinkedList<HashMap<String, String>>();
 			result = articleServise.select();
 			if (result != null) {
@@ -125,4 +122,17 @@ public class ArticleEditorController {
 
 		return "";
 	}
+	
+	@RequestMapping(
+			path= {"/pages/showbotton.article"},
+			method= {RequestMethod.GET,RequestMethod.POST},
+			produces = "application/json;charset=UTF-8"
+			)
+	public @ResponseBody String showbotton(String article_number,ArticleBean bean) {
+			
+		bean = 	articleServise.select(Integer.parseInt(article_number));
+		
+		return bean.getM_account();
+	}
+	
 }
