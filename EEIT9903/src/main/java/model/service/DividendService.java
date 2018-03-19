@@ -79,7 +79,26 @@ public class DividendService {
 						DividendBean data = temp.get(k);
 						dividendDao.insert(data);
 					}
-					return "Insert:<br>"+temp;
+					List<DividendBean> showSelect = dividendDao.select(stock_id);
+					
+					if (showSelect.size() != 0) {
+						
+						LinkedList<HashMap<String,String>> listData = new LinkedList<HashMap<String,String>>();
+						for(int s=0 ; s < showSelect.size() ; s++) {
+							HashMap<String,String>  mapData = new HashMap<String,String>();
+							mapData.put("stock_id" , showSelect.get(s).getStock_id());
+							mapData.put("div_year" , showSelect.get(s).getDiv_year().toString());
+							mapData.put("div_cash" , showSelect.get(s).getDiv_cash().toString());
+							mapData.put("div_stock" , showSelect.get(s).getDiv_stock().toString());
+							
+							listData.add(mapData);
+						}
+						
+						HashMap<String,LinkedList<HashMap<String,String>>> mapTemp = new HashMap<String,LinkedList<HashMap<String,String>>>();
+						mapTemp.put("data" , listData);
+						
+						return JSONValue.toJSONString(mapTemp);
+					}
 				} catch (Exception e) {
 					return null;
 				}
@@ -87,6 +106,7 @@ public class DividendService {
 		} else {
 			return null;
 		}
+		return null;
 	}
 	
 	public void insertAll() throws Exception {
