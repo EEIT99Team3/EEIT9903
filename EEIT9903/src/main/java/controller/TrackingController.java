@@ -25,9 +25,15 @@ public class TrackingController {
 	public String doGetMyFavorite(HttpSession session) {
 		TrackMyFavoriteDAO_JDBC myFavorite = new TrackMyFavoriteDAO_JDBC();
 		//session.getAttribute("user");
-		Member memberInfo = (Member) session.getAttribute("user");
-	//	System.out.println(session.getAttribute("user"));
-		String result = myFavorite.TrackMyFavorite(memberInfo.getMAccount());
+		
+		String result;
+		try {
+			Member memberInfo = (Member) session.getAttribute("user");
+			result = myFavorite.TrackMyFavorite(memberInfo.getMAccount());
+		} catch (NullPointerException e) {
+		//	e.printStackTrace();
+			return "";
+		}
 		// System.out.println(result);
 		return result;
 
@@ -65,5 +71,4 @@ public class TrackingController {
 		}
 		return "Add Fail";
 	}
-
 }
