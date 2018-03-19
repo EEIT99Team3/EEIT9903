@@ -49,7 +49,7 @@
 
 			<h2 style="padding-top: 20px">個股新聞</h2>
 			<div>
-				<div class="col-xl-3 col-sm-6 mb-3 ">
+				<div class="col-xl-auto col-sm-auto mb-3 ">
 <!-- 					<ul> -->
 <!-- 						<li>公司: 代號:</li> -->
 <!-- 					</ul> -->
@@ -60,7 +60,7 @@
 				</div>
 
 			</div>
-
+<br><br><br><br>
 			<!-- 以上輸入各網頁不同的地方 --> </main>
 		</div>
 	</div>
