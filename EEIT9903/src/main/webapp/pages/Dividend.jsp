@@ -92,13 +92,14 @@
 					data : {
 						labels : dataYear,
 						datasets : [ {
+							label:'test1',
 							data : dataCash,
 							lineTension : 0,
 							backgroundColor : 'transparent',
 							borderColor : '#007bff',
 							borderWidth : 4,
 							pointBackgroundColor : '#007bff'
-						}, {
+						}, {label:'test2',
 							data : dataStock,
 							lineTension : 0,
 							backgroundColor : 'transparent',
