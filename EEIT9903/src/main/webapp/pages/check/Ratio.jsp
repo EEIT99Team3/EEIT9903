@@ -15,7 +15,7 @@
 <link rel="stylesheet" type="text/css" href="<c:url value="/css/ratio.css" />" />
 </head>
 <body>
-	<jsp:include page="/common/header.html" />
+	<jsp:include page="/common/header.jsp" />
 	<main role="main" class="container mt-2" style="margin-left:50px">
 	<div class="row" style="width: 700px">
 		<div class="col-lg-3" style="padding: 0px; width: 180px">
