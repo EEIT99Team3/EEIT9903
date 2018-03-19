@@ -4,6 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import model.Cash_flow_statementBean;
 import model.Cash_flow_statementDAO;
@@ -25,6 +26,7 @@ public class Cash_flow_statementDAOHibernate implements Cash_flow_statementDAO {
 	 * @see model.dao.Cash_flow_statementBeanDAO#insert(model.Cash_flow_statementBean)
 	 */
 	@Override
+	@Transactional
 	public Cash_flow_statementBean insert(Cash_flow_statementBean bean) {
 		if(bean!=null) {
 			Cash_flow_statementBean temp =
@@ -41,6 +43,7 @@ public class Cash_flow_statementDAOHibernate implements Cash_flow_statementDAO {
 	 * @see model.dao.Cash_flow_statementBeanDAO#select(model.Cash_flow_statementPK)
 	 */
 	@Override
+	@Transactional
 	public Cash_flow_statementBean select(Cash_flow_statementPK pk) {
 		return this.getSession().get(Cash_flow_statementBean.class, pk);
 	}
