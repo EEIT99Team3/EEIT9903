@@ -44,8 +44,8 @@ public class Income_StatementService {
 		List<Income_statementBean> is_bean = new ArrayList<Income_statementBean>();
 		Boolean check = true;
 		Boolean count = true;
-
-		for (int n = 1101; n <= 1110; n++) {
+		
+		for (int n = 2321; n <= 2329; n++) {
 			String co_id = "" + n;
 
 //			 利用Company的Bean來做Select檢查是否有這間公司，若無此公司則跳過

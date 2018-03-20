@@ -3,8 +3,7 @@
 }
 
 .condition {
-	background-image:
-		url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh0kVD-hRdqQYrOFZ3DpH5tMiElItN2zfSxpzHfgT-vRgfXohs);
+	background-image:url(../images/images.jpg);
 	border-left: ridge #DDDDDD 3px;
 	border-top: ridge #DDDDDD 3px;
 	border-bottom: ridge #AAAAAA 3px;
@@ -51,7 +50,7 @@
 }
 
 #start {
-	margin-top: 100px;
+	margin: 20px;
 	visibility: hidden;
 }
 

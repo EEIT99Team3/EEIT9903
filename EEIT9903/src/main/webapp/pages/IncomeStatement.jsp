@@ -41,8 +41,9 @@
 			<form action="<c:url value="/Statement/IncomeStatement" />">
 				<div class="table-responsive" style="padding-right: 400px">
 					<div>
-						<input type="text" name="iscorporation" width="20px"> <input
-							type="text" name="isyear" size="5px"> <select
+						公司代號：<input type="text" name="iscorporation" width="10px" value="${data}"> 
+						年度：<input type="text" name="isyear" size="5px"> 
+						季別：<select
 							name="isseason">
 							<option>1</option>
 							<option>2</option>

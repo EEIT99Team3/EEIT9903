@@ -224,7 +224,7 @@
   			</div>
   			<div class="item"><img id="arrow3" src="<c:url value="/images/icon7.png"/>"/></div>	
   			<div id="start">
-				<div class="title2">開始選股</div>
+			<div class="title2">開始選股</div>
   			<input id="sub" type="submit" value="開始選股!" style="margin-left:37px">
   			</div> 
   						
