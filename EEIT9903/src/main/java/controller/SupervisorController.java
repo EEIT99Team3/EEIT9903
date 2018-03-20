@@ -95,11 +95,11 @@ public class SupervisorController {
 		SupervisorBean bean = supervisorService.login(login_account, login_password);
 
 		if (bean == null) {
-			errorslogin.put("loginresult", "帳號或密碼有誤");
+			errorslogin.put("loginpassword", "帳號或密碼有誤");
 			return "backendlogin.error";
 		} else {
 			session.setAttribute("s_uesr", bean);
-			errorslogin.put("loginresult", "登入成功");
+//			errorslogin.put("loginresult", "登入成功");
 			return "backendlogin.success";
 		}
 	}
