@@ -40,8 +40,9 @@
 			<h2 style="padding-top: 50px">資產負債表</h2>
 			<form action="<c:url value="/Statement/BalanceSheet" />">
 				<div>
-					<input type="text" name="bscorporation" width="20px"> <input
-						type="text" name="bsyear" size="5px"> <select
+					公司代號：<input type="text" name="bscorporation" width="10px" value="${data}"> 
+					年度：<input type="text" name="bsyear" size="5px"> 
+					季別：<select
 						name="bsseason">
 						<option>1</option>
 						<option>2</option>

@@ -25,7 +25,7 @@
 		</ul>
 		<form class="form-inline mt-2 mt-md-0" action="/EEIT9903/pages/Company.jsp">
 			<input class="form-control mr-sm-2 mainInput" type="text" placeholder="Search"
-				aria-label="Search">
+				aria-label="Search" value="${data}">
 			<button class="btn btn-outline-success my-2 my-sm-0 mainSearch" type="submit">Search</button>
 		</form>
 		<ul class="navbar-nav px-4">
