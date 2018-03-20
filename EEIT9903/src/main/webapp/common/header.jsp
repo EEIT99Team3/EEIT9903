@@ -29,8 +29,14 @@
 			<button class="btn btn-outline-success my-2 my-sm-0 mainSearch" type="submit">Search</button>
 		</form>
 		<ul class="navbar-nav px-4">
+		    <c:if test="${empty user}">
 			<li class="nav-item text-nowrap"><a class="nav-link"
 				href='/EEIT9903/pages/login.jsp'>登入</a></li>
+			</c:if>
+		    <c:if test="${not empty user}">
+			<li id="logout" class="nav-item text-nowrap"><a class="nav-link"
+				href='/EEIT9903/pages/commonpage2.jsp'>登出</a></li>
+			</c:if>
 			<li class="nav-item text-nowrap"><a class="nav-link"
 				href='/EEIT9903/pages/login.jsp'>註冊</a></li>
 		</ul>
@@ -45,6 +51,5 @@
 				$('.mainSearch').submit();	
 			})
 		})
-
 
 </script>
