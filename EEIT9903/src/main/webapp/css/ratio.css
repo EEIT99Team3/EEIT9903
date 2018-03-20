@@ -29,12 +29,14 @@
 	margin-bottom: 10px;
 	display: none;
 }
+.selectoryearseason {
+	margin-bottom: 10px;
+}
 
 #selected {
 	float: left;
 	hight: 720px;
 	width: 260px;
-	visibility: hidden;
 	margin: 20px;
 }
 
