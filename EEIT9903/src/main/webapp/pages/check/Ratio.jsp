@@ -279,6 +279,8 @@
 </head>
 <body>
 
-
+	<script>
+		feather.replace()
+	</script>
 </body>
 </html>
