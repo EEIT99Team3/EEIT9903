@@ -24,9 +24,10 @@
 				<!-- 下面這個是table外框 -->
 				<div class="card" style="width: 1800px">
 					<div class="card-header" style="width: 1800px">基本面指標建議選股</div>
-					<div class="card-body" style="width: 1800px;height:500px">
+					<div class="card-body" style="width: 1800px;height:700px">
 						<!-- 每頁不同的內容從這裡開始 -->
 			<div id="notchoosed">
+			
 			<div class="title2">未選條件</div>
 			<div class="condition" id="eps">EPS</div>
 			<div class="condition" id="bvps">每股淨值</div>
@@ -212,7 +213,7 @@
   			<div class="item"><img id="arrow3" src="<c:url value="/images/icon7.png"/>"/></div>	
   			<div id="start">
 				<div class="title2">開始選股</div>
-  			<input id="sub" type="submit" value="開始選股!">
+  			<input id="sub" type="submit" value="開始選股!" style="margin-left:37px">
   			</div> 
   						
 		</div>
