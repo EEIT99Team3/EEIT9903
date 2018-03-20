@@ -14,7 +14,7 @@
 	href="https://cdn.datatables.net/v/bs4/dt-1.10.16/datatables.min.css" />
 <link rel="stylesheet" type="text/css" href="<c:url value="/css/ratio.css" />" />
 </head>
-<body>x
+<body>
 	<jsp:include page="/common/header.jsp" />
 	<main role="main" class="container mt-2" style="margin-left:50px">
 	<div class="row" style="width: 700px">
@@ -212,7 +212,7 @@
   			</div>
   			<div class="item"><img id="arrow3" src="<c:url value="/images/icon7.png"/>"/></div>	
   			<div id="start">
-				<div class="title2">開始選股</div>
+			<div class="title2">開始選股</div>
   			<input id="sub" type="submit" value="開始選股!" style="margin-left:37px">
   			</div> 
   						

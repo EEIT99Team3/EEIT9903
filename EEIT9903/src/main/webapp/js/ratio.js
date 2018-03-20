@@ -1,16 +1,16 @@
 var table = null;
 var stockid;
 var ratyear;
-var ratseason ;
+var ratseason;
 var eps;
 var bvps;
 var gpmargin;
 var opmargin;
 var nimargin;
-var roe ;
-var roa ;
+var roe;
+var roa;
 var arturnover;
-var invturnover ;
+var invturnover;
 var apturnover;
 var debtratio;
 var currentratio;
@@ -270,7 +270,6 @@ $(".ccondition").click(
 		});
 // 取值後送出
 $('#sub').click(function() {
-//	stockid = document.getElementById('stockidv').value;
 	ratyear = document.getElementById('ratyearv').value;
 	ratseason = document.getElementById('ratseasonv').value;
 	eps = document.getElementById('epstv').value;
@@ -289,7 +288,7 @@ $('#sub').click(function() {
 	fcfgrowth = document.getElementById('fcfgrowthtv').value;
 	ocfgrowth = document.getElementById('ocfgrowthtv').value;
 	revenuesgrowth = document.getElementById('revenuesgrowthtv').value;
-	
+
 	table.ajax.url(condition());
 	table.ajax.reload();
 	dynamicolumn();
