@@ -37,7 +37,7 @@ public class ArticleEditorController {
 		webDataBinder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
 	}
 	@RequestMapping(
-			path="/pages/article.article",
+			path="/pages/check/article.article",
 			method= {RequestMethod.GET,RequestMethod.POST})
 	public String method(String title,String content,
 			String user,String prodaction,ArticleBean bean,String article_number,Model model,HttpSession session,HttpServletResponse response) {
@@ -107,7 +107,7 @@ public class ArticleEditorController {
 	}
 
 	@RequestMapping(
-			path= {"/pages/articleshow.article"},
+			path= {"/pages/check/articleshow.article"},
 			method= {RequestMethod.GET,RequestMethod.POST},
 			produces = "application/json;charset=UTF-8"
 			)
@@ -124,7 +124,7 @@ public class ArticleEditorController {
 	}
 	
 	@RequestMapping(
-			path= {"/pages/showbotton.article"},
+			path= {"/pages/check/showbotton.article"},
 			method= {RequestMethod.GET,RequestMethod.POST},
 			produces = "application/json;charset=UTF-8"
 			)

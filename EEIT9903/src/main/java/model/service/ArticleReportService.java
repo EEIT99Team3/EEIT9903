@@ -1,5 +1,9 @@
 package model.service;
 
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,5 +21,12 @@ public class ArticleReportService {
 			return result;
 		}
 		return result;
+	}
+	public List<HashMap<String,String>> select(){
+		return dao.select();
+	}
+	
+	public boolean changeprocess(Integer article_number) {
+		return dao.changeprocess(article_number);
 	}
 }

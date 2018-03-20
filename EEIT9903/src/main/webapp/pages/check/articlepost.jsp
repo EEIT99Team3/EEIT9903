@@ -21,15 +21,14 @@
 <link href="<c:url value="/lib/bootstrap.min.css" />" rel="stylesheet"
 	type="text/css" />
 <!-- Custom styles for this template -->
-<link rel="stylesheet" href="<c:url value='../ckeditor/contents.css' />">
+
 <link href="<c:url value="/lib/advanced Css/dashboard.css" />"
 	rel="stylesheet" type="text/css" />
 <link href="<c:url value="/css/aside.css" />" rel="stylesheet" type="text/css">
+
 <script src="<c:url value="/lib/jquery-1.10.2.min.js" />"></script>
 <script src="<c:url value="/lib/jquery-ui-1.10.3.custom.min.js" />"></script>
 <script src="<c:url value="/js/aside.js" />"></script>
-<script src="<c:url value="../ckfinder/ckfinder.js" />"></script>
-<script src=" <c:url value="../ckeditor/ckeditor.js" />"></script>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -43,7 +42,9 @@
 	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
 	crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
 </head>
+
 
 <body>
 	<jsp:include page="/common/header.jsp"></jsp:include>
@@ -74,7 +75,7 @@
 					<!-- Author -->
 					<p class="lead">				 
 						by <a href="#">${M_account}</a> ${fn:substring(articleDate, 0,16)} 
-						<a role="button" href="<c:url value='/pages/article.article?prodaction=articleEdit&article_number='/>${article_number}" style="margin-left:50% " class="btn btn-info fa fa-edit d-none" id="editorbotton">編輯</a>
+						<a role="button" href="<c:url value='/pages/check/article.article?prodaction=articleEdit&article_number='/>${article_number}" style="margin-left:50% " class="btn btn-info fa fa-edit d-none" id="editorbotton">編輯</a>
 						<a role="button"  class="btn btn-danger fa fa-close d-none" data-toggle="modal" data-target="#exampleModalCenter" id="deletebotton">刪除</a>
 						<a role="button"  class="btn btn-warning fa fa-ban d-inline-block" data-toggle="modal" data-target="#reportModal" data-whatever="@mdo" id="reportbotton" style="margin-left:60%" >檢舉</a>
 					</p>
@@ -95,7 +96,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-        <a href="<c:url value='/pages/article.article?prodaction=articleDelete&article_number='/>${article_number}"  class="btn btn-primary">確定</a>
+        <a href="<c:url value='/pages/check/article.article?prodaction=articleDelete&article_number='/>${article_number}"  class="btn btn-primary">確定</a>
       </div>
     </div>
   </div>
@@ -136,6 +137,8 @@
           </div>
           <input type="hidden" name="article_number" value="${article_number}"> 
           <input type="hidden" name="type_of_report" id="type_of_report"> 
+          <input type="hidden" name="m_account" value="${M_account}" id="type_of_report"> 
+          <input type="hidden" name="article_title" value="${article_title}" id="type_of_report"> 
          	<div class="modal-footer">
         		<button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
         		<button id="reportsubmit" type="submit" class="btn btn-primary" name="prodaction" value="insertReport">確定</button>
@@ -157,7 +160,7 @@
 						<h5 class="card-header">回覆文章:</h5>
 						<div class="card-body">
 					
-							<form action="	<c:url value="/pages/reply.article#replybody" />">
+							<form action="	<c:url value="/pages/check/reply.article#replybody" />">
 						
 								<div class="form-group">
 									<textarea name="reply" class="form-control" rows="3"></textarea>
@@ -200,9 +203,9 @@
 <script type="text/javascript">
 $(function(){
 
-	$("#reportsubmit").click(function(){
-		$("#aaa").empty().text("abc")
-		})
+// 	$("#reportsubmit").click(function(){
+// 		$("#aaa").empty().text("abc")
+// 		})
 	
 	var m_account = ${user.MAccount};
 
