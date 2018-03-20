@@ -23,35 +23,28 @@ function condition() {// 動態產生查詢條件
 
 	if (ratyear != "") {
 		cond += "&ratyear=" + ratyear.toString();
-		console.log(cond);
 	}
 
 	if (ratseason != "") {
 		cond += "&ratseason=" + ratseason.toString();
-		console.log(cond);
 	}
 	if (eps != "") {
 		cond += "&eps=" + eps.toString();
-		console.log(cond);
 	}
 
 	if (bvps != "") {
 		cond += "&bvps=" + bvps.toString();
-		console.log(cond);
 	}
 
 	if (gpmargin != "") {
 		cond += "&gpmargin=" + gpmargin.toString();
-		console.log(cond);
 	}
 	;
 	if (opmargin != "") {
 		cond += "&opmargin=" + opmargin.toString();
-		console.log(cond);
 	}
 	if (nimargin != "") {
 		cond += "&nimargin=" + nimargin.toString();
-		console.log(cond);
 	}
 	if (roe != "") {
 		cond += "&roe=" + roe.toString();
@@ -59,28 +52,22 @@ function condition() {// 動態產生查詢條件
 	}
 	if (roa != "") {
 		cond += "&roa=" + roa.toString();
-		console.log(cond);
 	}
 	if (arturnover != "") {
 		cond += "&arturnover=" + arturnover.toString();
-		console.log(cond);
 	}
 	if (invturnover != "") {
 		cond += "&invturnover=" + invturnover.toString();
-		console.log(cond);
 	}
 	if (apturnover != "") {
 		cond += "&apturnover=" + apturnover.toString();
-		console.log(cond);
 	}
 	;
 	if (debtratio != "") {
 		cond += "&debtratio=" + debtratio.toString();
-		console.log(cond);
 	}
 	if (currentratio != "") {
 		cond += "&currentratio=" + currentratio.toString();
-		console.log(cond);
 	}
 	if (fcfgrowth != "") {
 		cond += "&fcfgrowth=" + fcfgrowth.toString();
@@ -91,7 +78,6 @@ function condition() {// 動態產生查詢條件
 	if (revenuesgrowth != "") {
 		cond += "&revenuesgrowth=" + revenuesgrowth.toString();
 	}
-	console.log(cond);
 	return cond;
 }
 
@@ -270,10 +256,9 @@ $(".ccondition").click(
 		});
 // 取值後送出
 $('#sub').click(function() {
-	ratyear = document.getElementById('ratyearv').value;
-	ratseason = document.getElementById('ratseasonv').value;
+	ratyear = document.getElementById('ratyeartv').value;
+	ratseason = document.getElementById('ratseasontv').value;
 	eps = document.getElementById('epstv').value;
-	console.log(eps);
 	bvps = document.getElementById('bvpstv').value;
 	gpmargin = document.getElementById('gpmargintv').value;
 	opmargin = document.getElementById('opmargintv').value;
