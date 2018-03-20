@@ -31,7 +31,7 @@
 </head>
 
 <body>
-	<jsp:include page="/common/header.html"></jsp:include>
+	<jsp:include page="/common/header.jsp"></jsp:include>
 
 	<div class="container-fluid">
 		<div class="row">
@@ -42,11 +42,11 @@
 			<div class="container">
                 <div class="main_highstock">
                     <h2>穩健的報酬,更悠閒的生活</h2>
-                    <div>
-                        <input type="text" id="stockNum" name="stockNum" value=""
-                            placeholder="請輸入股價代號"> <input type="button"  id="search" value="查詢" class="searchHS">
-                        <div id="stock_name"></div>
-                    </div>
+<!--                     <div> -->
+<!--                         <input type="text" id="stockNum" name="stockNum" value="" -->
+<!--                             placeholder="請輸入股價代號"> <input type="button"  id="search" value="查詢" class="searchHS"> -->
+<!--                         <div id="stock_name"></div> -->
+<!--                     </div> -->
             </div>
 			<div id="container" style="height: 400px; min-width: 310px">準備載入股票圖表...</div>
             </div>
@@ -61,9 +61,8 @@
 	</script>
 	<script>
  $(document).ready(function() {
-     $("#search").click(function(event) {
                         var url = '/EEIT9903/p/test.do?';
-                        var stockNum = $('#stockNum').val();
+                        var stockNum = $('').val();
                         url = url + "stock_id=" + stockNum;
                         //    /testWEB9903/p/test
                         //    https://www.highcharts.com/samples/data/jsonp.php?filename=aapl-ohlcv.json&callback=?
@@ -189,7 +188,6 @@
                         //          }else{
                         //              alert("很抱歉,你輸入的股票代號無資料");
                         //              }    //end if
-                    }); //end event
                }); //end ready
             </script> 
 </body>

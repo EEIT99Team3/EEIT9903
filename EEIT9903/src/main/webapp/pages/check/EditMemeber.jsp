@@ -29,7 +29,7 @@
 </head>
 
 <body>
-	<jsp:include page="/common/header.html"></jsp:include>
+	<jsp:include page="/common/header.jsp"></jsp:include>
 
 	<div class="container-fluid">
 		<div class="row">
@@ -39,7 +39,7 @@
 			<h2 style="padding-top: 50px"></h2>
 
             <fieldset>
-			<form action="<c:url value="/member/update" />" class="form-horizontal">
+			<form enctype="multipart/form-data" action="<c:url value="/member/update" />" class="form-horizontal">
 				
 					<!-- Form Name -->
 					<legend>Edit Form</legend>
@@ -51,7 +51,7 @@
 							class="col-md-4 control-label" for="Upload Photo">Upload
 							Photo</label>
 						<div class="col-md-4">
-							<input id="Upload Photo" name="Upload Photo" class="input-file"
+							<input id="Upload Photo" name="file1" class="input-file"
 								type="file">
 						</div>
 					</div>

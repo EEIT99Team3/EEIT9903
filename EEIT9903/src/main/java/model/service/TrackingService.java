@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.json.simple.JSONValue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,9 +13,9 @@ import org.springframework.stereotype.Service;
 import model.Tracking;
 import model.TrackingDAO;
 import model.TrackingId;
-import model.dao.TrackMyFavoriteDAO_JDBC;
 
 @Service
+@Transactional
 public class TrackingService {
 	
 	@Autowired

@@ -17,7 +17,6 @@
 		var fcfgrowth = document.getElementById("fcfgrowtht");
 		var ocfgrowth = document.getElementById("ocfgrowtht");
 		var revenuesgrowth = document.getElementById("revenuesgrowtht");
-		var selected = 	document.getElementById("selected");
 		var dragged=null;
 		var turnon=false;
 		var count = 0;
@@ -225,10 +224,20 @@
 		});
 		
 		$(".condition").click(function(event, ui){
-				$(this).css('display','none');
-				clickeds=$(this).attr('id').toString()+"s";	
-				$(clickeds).css('display','inline');
-				$(selected).css('display','inline');
+				$(this).css('visibility','hidden');
+				clickeds=$(this).attr('id').toString()+"s";
+				$(document.getElementById(clickeds)).css('visibility','visible');
+				$('#start').css('visibility','visible');
+				$('#selected').css('visibility','visible');
 				clicked=$(this).attr('id').toString()+"t";
-				document.getElementById(clicked).disabled=false;
+				var t=document.getElementById(clicked);
+				$(t).css('display','block');
 		});
+		
+		$(".ccondition").click(function(event, ui){
+			$(this).css('visibility','hidden');
+			clickback=$(this).attr('id').toString().slice(0,$(this).attr('id').toString().length-1);
+			$(document.getElementById(clickback)).css('visibility','visible');
+			clickbackt=clickback+"t";
+			$(document.getElementById(clickbackt)).css('display','none').value("");
+	});

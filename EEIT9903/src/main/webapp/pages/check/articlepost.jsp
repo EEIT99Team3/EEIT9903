@@ -47,7 +47,7 @@
 
 
 <body>
-	<jsp:include page="/common/header.html"></jsp:include>
+	<jsp:include page="/common/header.jsp"></jsp:include>
 
 	<div class="container-fluid">
 		<div class="row">
