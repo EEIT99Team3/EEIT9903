@@ -32,13 +32,15 @@
 	margin-bottom: 10px;
 	display: none;
 }
+.selectoryearseason {
+	margin-bottom: 10px;
+}
 
 #selected {
 	font-family: 微軟正黑體;
 	float: left;
 	hight: 720px;
 	width: 260px;
-	visibility: hidden;
 	margin: 20px;
 }
 

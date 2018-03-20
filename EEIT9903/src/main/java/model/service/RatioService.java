@@ -15,7 +15,6 @@ import model.dao.RatioDAOHibernate;
 @Service
 public class RatioService {
 	public RatioService() {
-		System.out.println("this is RatioService");
 	}
 	@Autowired
 	public RatioDAOHibernate RatioDAO;
@@ -31,10 +30,8 @@ public class RatioService {
 
 	// 選股
 	public String getRatioJson() {
-		System.out.println("time for getJson");
-		if (statement != null) {
-//			System.out.println(RatioDAO);
-			RatioDAO.statement = statement;
+		if (this.statement != null) {
+			RatioDAO.setStatement(this.getStatement());
 		}
 		List<Ratio> list = RatioDAO.select();
 		LinkedList<HashMap<String, String>> l1 = new LinkedList<HashMap<String, String>>();
