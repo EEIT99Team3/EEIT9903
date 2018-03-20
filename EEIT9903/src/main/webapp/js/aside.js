@@ -53,8 +53,21 @@ function showMyFafovrite(){
 
 function deleteMyFavrite(){
 	$('#stockTable>tbody').on('click','tr button:nth-child(1)',function(){
-		   var id = $(this).parents('tr').find('td:nth-child(1)').text();
-		   $.get('stockDelete.do',{stock_id:id},function(data){
+		   var stock_id = $(this).parents('tr').find('td:nth-child(1)').text();
+		   
+		   var url = '/EEIT9903/p/stockDelete.do?';
+//			url = url +"stock_id=" + stock_id;
+//			$.ajax({
+//				type : "get",
+//				url : url,
+//				dataType : "json",
+//				success : function(data){
+//					alert(data);
+//					refreshpage();
+//					}
+//				})
+		   
+		   $.get('/EEIT9903/p/stockDelete.do',{stock_id:stock_id},function(data){
 			   alert(data);
 			   refreshpage();
 		   })
@@ -88,8 +101,22 @@ function refreshpage(){
 function addMyFavorite(){
 	$('.addBtn').click(function(){
 		var stock_id = $("#stock_id").val();
+		
+		var url = '/EEIT9903/p/stockAdd.do?';
+//		url = url +"stock_id=" + stock_id;
+//		
+//		$.ajax({
+//			type : "get",
+//			url : url,
+//			dataType : "json",
+//			success : function(data){
+//				alert(data);
+//				refreshpage();
+//				}
+//			})
+			
 		//console.log(stock_id);
-		$.get('stockAdd.do',{stock_id:stock_id},function(data){
+		$.get('/EEIT9903/p/stockAdd.do',{stock_id:stock_id},function(data){
 		  alert(data);
 		  refreshpage();
 		});

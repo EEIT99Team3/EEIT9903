@@ -40,8 +40,9 @@
 			<h2 style="padding-top: 50px">現金流量表</h2>
 			<form action="<c:url value="/Statement/CashFlowStatement" />">
 				<div>
-					<input type="text" name="cfcorporation" width="20px"> <input
-						type="text" name="cfyear" size="5px"> <select
+					公司代號：<input type="text" name="cfcorporation" width="10px" value="${data}" >
+					年度：<input type="text" name="cfyear" size="5px"> 
+					季別：<select
 						name="cfseason">
 						<option>1</option>
 						<option>2</option>
@@ -54,7 +55,7 @@
 				</div>
 				<c:if test="${not empty cf_data}">
 					<div class="table-responsive" style="padding-right: 400px">
-						<table class="table table-striped table-sm">
+						<table id="cftable" class="table table-striped table-sm">
 							<thead>
 								<tr>
 									<th>年份/季度(單位:仟元)</th>

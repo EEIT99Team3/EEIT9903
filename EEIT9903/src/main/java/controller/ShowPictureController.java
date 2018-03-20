@@ -19,7 +19,7 @@ import model.service.MemberService;
 @Controller
 public class ShowPictureController {
 	@Autowired
-	private MemberService memberService; 
+	private MemberService memberService;
 	@RequestMapping(value = "/member/getImage", method = { RequestMethod.GET, RequestMethod.POST })
 	public ResponseEntity<byte[]> getImageAsResponseEntity(HttpSession session) {
 		Member member = null;
@@ -30,10 +30,17 @@ public class ShowPictureController {
 		byte[] media = null;
 		Blob blob = null;
 		try {
-			if (member != null && member.getPhoto() != null) {
-//				blob = member.getPhoto();
-				blob = memberService.memberPhoto(member.getMAccount());
-				media = blob.getBytes(1, (int) blob.length());
+			if (member != null) {
+				Member result = memberService.selectMember(member.getMAccount());
+				if(result.getPhoto() != null) {
+					System.out.println("not null");
+				    blob = memberService.memberPhoto(member.getMAccount());
+				    media = blob.getBytes(1, (int) blob.length());
+				} else {
+					System.out.println("null");
+					blob = memberService.memberPhoto("test");
+					media = blob.getBytes(1, (int) blob.length());
+				}
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

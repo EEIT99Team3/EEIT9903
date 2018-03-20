@@ -39,7 +39,7 @@ public class TrackingController {
 
 	}
 
-	@RequestMapping("*/stockDelete.do")
+	@RequestMapping("/p/stockDelete.do")
 	@ResponseBody
 	public String delete(@RequestParam("stock_id") String stockId, HttpSession session) {
 		TrackingId trackingId = new TrackingId();
@@ -54,7 +54,7 @@ public class TrackingController {
 
 	}
 
-	@RequestMapping("*/stockAdd.do")
+	@RequestMapping("/p/stockAdd.do")
 	@ResponseBody
 	public String insert(@RequestParam("stock_id") String stockId, HttpSession session) {
 		Tracking tracking = new Tracking();
