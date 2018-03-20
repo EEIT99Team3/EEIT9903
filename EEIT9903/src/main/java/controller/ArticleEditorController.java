@@ -57,7 +57,7 @@ public class ArticleEditorController {
 	    }
 		
 	
-	if(bean.getArticle_number()!=null && !"showbotton".equals(prodaction) && !"articleDelete".equals(prodaction) && !"articleEdit".equals(prodaction) && !"articleEditok".equals(prodaction) && !"submitOk".equals(prodaction)) {
+	if(bean.getArticle_number()!=null && !"showbotton".equals(prodaction) && !"articleDelete".equals(prodaction) && !"articleEdit".equals(prodaction) && !"articleEditok".equals(prodaction) && !"submitOk".equals(prodaction) && !"submitcancle".equals(prodaction)) {
 			
 			bean = articleServise.select(Integer.parseInt(article_number));
 	
