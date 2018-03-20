@@ -108,8 +108,7 @@ public class ArticleDAOHibernate implements ArticleDAO {
 		
 		NativeQuery<Integer> query1 = this.getSession().createNativeQuery("delete from reply where article_number="+article_number);
 		query1.executeUpdate();
-		NativeQuery<Integer> query2 = this.getSession().createNativeQuery("delete from report where article_number="+article_number);
-		query2.executeUpdate();
+		
 		ArticleBean bean = this.getSession().get(ArticleBean.class, article_number);
 		if(bean != null) {
 			this.getSession().delete(bean);

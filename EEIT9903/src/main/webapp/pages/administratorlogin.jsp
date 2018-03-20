@@ -38,15 +38,17 @@
 		
 		<div calss="login-form" style="margin-left:500px">
 			<h3 style="margin:0 auto">Ez_Stock管理員登入</h3>
-		    <form action="" method="get" >
+		    <form action="<c:url value="/Statement/login" />" method="get" >
 				<table>
 				  <tr>
 				    <th>帳號</th>
-				    <td><input type="text" name="account" value=""></td>
+				    <td><input type="text" name="login_account" value=""></td>
+				    <td>${errorslogin.loginaccount}</td>
 				  </tr>
 				  <tr>
 				    <th>密碼</th>
-				    <td><input type="text" name="password" value=""></td>
+				    <td><input type="password" name="login_password" value=""></td>
+				    <td>${errorslogin.loginpassword}</td>
 				  </tr>
 				</table>
 				<input type="submit" value="登入">

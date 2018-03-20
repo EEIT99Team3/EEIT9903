@@ -1,5 +1,7 @@
 package model.service;
 
+import java.sql.Blob;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +23,7 @@ public class MemberService {
 	}
 
 	// 註冊
-	public Member register(String MAccount, String MPwd, String email, String MName, Boolean blacklist, byte[] photo) {
+	public Member register(String MAccount, String MPwd, String email, String MName, Boolean blacklist, Blob photo) {
 		Member temp = memberDAO.select(MAccount);
 		if (temp == null) {
 			Member addNew = new Member();
@@ -52,7 +54,7 @@ public class MemberService {
 
 	// 更新資料
 	public Member updateInfo(String MAccount, String MPwd, String newPwd, String newEmail, String newName,
-			byte[] newPhoto) {
+			Blob newPhoto) {
 
 		Member update = memberDAO.select(MAccount);
 		if (update == null) {
@@ -61,13 +63,13 @@ public class MemberService {
 		// 確認哪些資料有被更新
 		if (newPwd != null && newPwd.trim().length() != 0) {
 			if (MPwd == null || MPwd.trim().length() == 0) {
-               return null;
+				return null;
 			} else {
-			   Member temp = this.changePassword(MAccount, MPwd, newPwd);
-			   if(temp!=null) {
-				   update.setMPwd(newPwd);
-			   }
-			}		
+				Member temp = this.changePassword(MAccount, MPwd, newPwd);
+				if (temp != null) {
+					update.setMPwd(newPwd);
+				}
+			}
 		}
 
 		if (newEmail != null && newEmail.trim().length() != 0) {
@@ -78,7 +80,8 @@ public class MemberService {
 			update.setMName(newName);
 		}
 
-		if (newPhoto != null && newPhoto.length != 0) {
+		if (newPhoto != null) {
+			System.out.println("test");
 			update.setPhoto(newPhoto);
 		}
 		// 更新資料
@@ -92,6 +95,16 @@ public class MemberService {
 		Member temp = memberDAO.select(MAccount);
 		if (temp != null) {
 			result = true;
+			return result;
+		}
+		return result;
+	}
+
+	public Blob memberPhoto(String MAccount) {
+		Blob result = null;
+		Member bean = memberDAO.select(MAccount);
+		if (bean != null) {
+			result = bean.getPhoto();
 			return result;
 		}
 		return result;

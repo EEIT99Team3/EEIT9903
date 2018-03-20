@@ -15,7 +15,14 @@
 
 	<bean
 		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
-	    <property name="alwaysUseFullPath" value="true"></property>
+	    <property name="alwaysUseFullPath" value="true"></property>	
 	</bean>
-
+	
+    <bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="104857600"></property>
+		<property name="maxInMemorySize" value="4096"></property>
+		<property name="defaultEncoding" value="UTF-8"></property>
+	</bean>
+	
 </beans>

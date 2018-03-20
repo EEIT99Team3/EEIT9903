@@ -11,18 +11,18 @@
 	<bean id="article.do"
 		class="org.springframework.web.servlet.view.RedirectView">
 		<property name="contextRelative" value="true"></property>
-		<property name="url" value="/pages/ForumIndex.jsp"></property>
+		<property name="url" value="/pages/check/ForumIndex.jsp"></property>
 	</bean>
 	
 	<bean id="articleshow.do"
 		class="org.springframework.web.servlet.view.RedirectView">
 		<property name="contextRelative" value="true"></property>
-		<property name="url" value="/pages/articlepost.jsp"></property>
+		<property name="url" value="/pages/check/articlepost.jsp"></property>
 	</bean>
 	<bean id="reply.do"
 		class="org.springframework.web.servlet.view.RedirectView">
 		<property name="contextRelative" value="true"></property>
-		<property name="url" value="/pages/articlepost.jsp"></property>
+		<property name="url" value="/pages/check/articlepost.jsp"></property>
 	</bean>
 	<bean id="deletesuccess.do"
 		class="org.springframework.web.servlet.view.RedirectView">
@@ -32,6 +32,11 @@
 	<bean id="ckeditor.do"
 		class="org.springframework.web.servlet.view.RedirectView">
 		<property name="contextRelative" value="true"></property>
-		<property name="url" value="/pages/CkEditor.jsp"></property>
+		<property name="url" value="/pages/check/CkEditor.jsp"></property>
+	</bean>
+	<bean id="changeprocess.do"
+		class="org.springframework.web.servlet.view.RedirectView">
+		<property name="contextRelative" value="true"></property>
+		<property name="url" value="/pages/articlereport.jsp"></property>
 	</bean>
 </beans>

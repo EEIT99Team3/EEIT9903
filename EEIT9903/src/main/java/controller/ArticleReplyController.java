@@ -21,7 +21,7 @@ public class ArticleReplyController {
 	@Autowired
 	private ArticleReplyServise articleReplyServise;
 	@RequestMapping(
-			path="/pages/replyshow.article",
+			path="/pages/check/replyshow.article",
 			method= {RequestMethod.GET,RequestMethod.POST},
 			produces="application/json;charset=UTF-8"
 			)
@@ -29,7 +29,6 @@ public class ArticleReplyController {
 	
 			List<HashMap<String, String>> result = new LinkedList<HashMap<String, String>>();
 		result = articleReplyServise.select(Integer.parseInt(article_number));
-		System.out.println(result);
 			if (result != null) {
 				String jsonString = JSONValue.toJSONString(result);
 				
@@ -39,7 +38,7 @@ public class ArticleReplyController {
 		return "";
 	}
 	@RequestMapping(
-			path="/pages/reply.article",
+			path="/pages/check/reply.article",
 			method= {RequestMethod.GET,RequestMethod.POST}
 			)
 	public String replyEditor(String prodaction,String reply,HttpSession session
