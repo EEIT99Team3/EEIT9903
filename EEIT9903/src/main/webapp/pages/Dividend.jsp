@@ -29,7 +29,7 @@
 </head>
 
 <body>
-	<jsp:include page="/common/header.html"></jsp:include>
+	<jsp:include page="/common/header.jsp"></jsp:include>
 
 	<div class="container-fluid">
 		<div class="row">
@@ -37,7 +37,7 @@
 			<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 			<jsp:include page="/common/aside.jsp" /> <!-- 以下輸入各網頁不同的地方 -->
 
-			<h2 style="padding-top: 100px">股利政策</h2>
+			<h2 style="padding-top: 65px">股利政策</h2>
 			<canvas class="my-4" id="myChart" width="800" height="300"
 				style="padding-right: 400px"></canvas>
 
@@ -92,14 +92,14 @@
 					data : {
 						labels : dataYear,
 						datasets : [ {
-							label:'test1',
+							label:'現金股利',
 							data : dataCash,
 							lineTension : 0,
 							backgroundColor : 'transparent',
 							borderColor : '#007bff',
 							borderWidth : 4,
 							pointBackgroundColor : '#007bff'
-						}, {label:'test2',
+						}, {label:'股票股利',
 							data : dataStock,
 							lineTension : 0,
 							backgroundColor : 'transparent',

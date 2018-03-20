@@ -15,7 +15,7 @@
 <link rel="stylesheet" type="text/css" href="<c:url value="/css/ratio.css" />" />
 </head>
 <body>
-	<jsp:include page="/common/header.html" />
+	<jsp:include page="/common/header.jsp" />
 	<main role="main" class="container mt-2" style="margin-left:50px">
 	<div class="row" style="width: 700px">
 		<div class="col-lg-3" style="padding: 0px; width: 180px">
@@ -24,7 +24,7 @@
 				<!-- 下面這個是table外框 -->
 				<div class="card" style="width: 1800px">
 					<div class="card-header" style="width: 1800px">基本面指標建議選股</div>
-					<div class="card-body" style="width: 1800px">
+					<div class="card-body" style="width: 1800px;height:500px">
 						<!-- 每頁不同的內容從這裡開始 -->
 			<div id="notchoosed">
 			<div class="title2">未選條件</div>

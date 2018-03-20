@@ -30,7 +30,7 @@
 
 <body>
 
-	<jsp:include page="/common/header.html"></jsp:include>
+	<jsp:include page="/common/header.jsp"></jsp:include>
 
 <!-- 	<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0"> -->
 <!-- 		<a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company -->
@@ -90,9 +90,9 @@
 								
 								var eleArticleDiv = $("<div></div>").attr("class","article").html(articlemain.article).css({"overflow":"hidden","width":"800px","height":"200px"});	
 								var eleADiv = $("<div></div>").addClass("abc").css("text-align","right");
-								var eleA = $("<a></a>").addClass("btn btn-primary ").attr("href","<c:url value='/pages/article.article?article_number=' />"+articlemain.article_number).html("Read More &rarr;")
+								var eleA = $("<a></a>").addClass("btn btn-primary ").attr("href","<c:url value='/pages/check/article.article?article_number=' />"+articlemain.article_number).html("Read More &rarr;")
 								
-								var div = $("<a></a>").addClass("btn btn-success mr-2").attr("href","<c:url value='/pages/article.article?article_number=' />"+articlemain.article_number+"#replybody").html("回覆("+articlemain.reply_count+")");
+								var div = $("<a></a>").addClass("btn btn-success mr-2").attr("href","<c:url value='/pages/check/article.article?article_number=' />"+articlemain.article_number+"#replybody").html("回覆("+articlemain.reply_count+")");
 								eleADiv.append(div);
 								eleADiv.append(eleA);
 								eleADiv.append(eleDivacdate);

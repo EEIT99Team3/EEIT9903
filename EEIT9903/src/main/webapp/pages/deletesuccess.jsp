@@ -48,7 +48,7 @@ function refer(){
 
     if(t==0){
 
-        location="ForumIndex.jsp"; //设定跳转的链接地址
+        location="check/ForumIndex.jsp"; //设定跳转的链接地址
 
     }
 

@@ -18,9 +18,15 @@ public class ArticleReportBean {
 	private String report_content;
 	private java.util.Date report_date;
 	private boolean processed;
+	private String article_title;
 	
 	
-	
+	public String getArticle_title() {
+		return article_title;
+	}
+	public void setArticle_title(String article_title) {
+		this.article_title = article_title;
+	}
 	@Override
 	public String toString() {
 		return "ArticleReportBean [report_number=" + report_number + ", article_number=" + article_number

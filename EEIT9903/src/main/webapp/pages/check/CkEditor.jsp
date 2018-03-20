@@ -16,7 +16,7 @@
 
 <!-- Bootstrap core CSS -->
 <c:url value="/js/aside.js" />
-<link rel="stylesheet" href="<c:url value='../ckeditor/contents.css' />">
+<link rel="stylesheet" href="<c:url value='/ckeditor/contents.css' />">
 <link href="<c:url value="/lib/bootstrap.min.css" />" rel="stylesheet"
 	type="text/css" />
 <!-- Custom styles for this template -->
@@ -26,8 +26,8 @@
 <script src="<c:url value="/lib/jquery-1.10.2.min.js" />"></script>
 <script src="<c:url value="/lib/jquery-ui-1.10.3.custom.min.js" />"></script>
 <script src="<c:url value="/js/aside.js" />"></script>
-<script src="<c:url value="../ckfinder/ckfinder.js" />"></script>
-<script src=" <c:url value="../ckeditor/ckeditor.js" />"></script>
+<script src="<c:url value="/ckfinder/ckfinder.js" />"></script>
+<script src=" <c:url value="/ckeditor/ckeditor.js" />"></script>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -45,7 +45,7 @@
 </head>
 
 <body>
-	<jsp:include page="/common/header.html"></jsp:include>
+	<jsp:include page="/common/header.jsp"></jsp:include>
 
 <!-- 	<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0"> -->
 <!-- 		<a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company -->
@@ -82,15 +82,15 @@
 			 var editor ;
 			$(function(){
 				editor = CKEDITOR.replace( 'content',{
-					filebrowserBrowseUrl : '<c:url value="../ckfinder/ckfinder.html"/>',
-					filebrowserImageBrowseUrl : '<c:url value="../ckfinder/ckfinder.html?type=Images"/>', 
-					filebrowserFlashBrowseUrl : '<c:url value="../ckfinder/ckfinder.html?type=Flash" />',
-					filebrowserUploadUrl : '	<c:url value="../ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Files"/>', 
-					filebrowserImageUploadUrl : '<c:url value="../ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Images"/>', 
-					filebrowserFlashUploadUrl : '<c:url value="../ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Flash"/>'  
+					filebrowserBrowseUrl : '<c:url value="/ckfinder/ckfinder.html"/>',
+					filebrowserImageBrowseUrl : '<c:url value="/ckfinder/ckfinder.html?type=Images"/>', 
+					filebrowserFlashBrowseUrl : '<c:url value="/ckfinder/ckfinder.html?type=Flash" />',
+					filebrowserUploadUrl : '	<c:url value="/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Files"/>', 
+					filebrowserImageUploadUrl : '<c:url value="/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Images"/>', 
+					filebrowserFlashUploadUrl : '<c:url value="/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Flash"/>'  
 		
 				 } );
-				 CKFinder.setupCKEditor( editor, '<c:url value="../ckfinder/"/>' );
+				 CKFinder.setupCKEditor( editor, '<c:url value="/ckfinder/"/>' );
 			})
 			
 			</script>
