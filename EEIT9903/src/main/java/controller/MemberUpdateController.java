@@ -25,7 +25,7 @@ public class MemberUpdateController {
 	@Autowired
 	private MemberService memberService;
     @RequestMapping(path="/member/update", method= {RequestMethod.GET, RequestMethod.POST})
-	public String updateMember(String nameupdate, String emailupdate, String oldpwdupdate, String newpwdupdate, MultipartFile file1, Model model, HttpSession session) throws IOException {
+    public String updateMember(String nameupdate, String emailupdate, String oldpwdupdate, String newpwdupdate, MultipartFile file1, Model model, HttpSession session) throws IOException {
 		Map<String, String> updateerror = new HashMap<>();
 		model.addAttribute("updateerror", updateerror);
 		Member updatebean = (Member) session.getAttribute("user");
@@ -45,7 +45,9 @@ public class MemberUpdateController {
 //		if (newpwdupdate == null || newpwdupdate.trim().length() == 0) {
 //			updateerror.put("newpwderror", "輸入有誤");
 //		}
-		
+		if(file1==null) {
+			System.out.println("這是null");
+		}
 		
 		Blob photo = null;
 		String fileName = null;

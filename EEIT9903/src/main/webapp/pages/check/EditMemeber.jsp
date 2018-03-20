@@ -39,7 +39,8 @@
 			<h2 style="padding-top: 50px"></h2>
 
             <fieldset>
-			<form enctype="multipart/form-data" action="<c:url value="/member/update" />" class="form-horizontal">
+			<form enctype="multipart/form-data" action="<c:url value="/member/update" />" 
+			class="form-horizontal" method="post">
 				
 					<!-- Form Name -->
 					<legend>Edit Form</legend>
@@ -50,6 +51,7 @@
 							src="<c:url value="/images/default.jpg" />"> <label
 							class="col-md-4 control-label" for="Upload Photo">Upload
 							Photo</label>
+                        <!-- /member/getImage -->
 						<div class="col-md-4">
 							<input id="Upload Photo" name="file1" class="input-file"
 								type="file">
@@ -114,6 +116,9 @@
 	<%-- 	<script src="<c:url value="/lib/jquery-3.3.1.min.js" />"></script> --%>
 	<script>
 		feather.replace()
+	</script>
+	<script>
+
 	</script>
 </body>
 
