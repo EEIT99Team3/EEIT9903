@@ -44,7 +44,7 @@ public class Income_StatementService {
 		List<Income_statementBean> is_bean = new ArrayList<Income_statementBean>();
 		Boolean check = true;
 		Boolean count = true;
-
+		
 		for (int n = 2321; n <= 2329; n++) {
 			String co_id = "" + n;
 

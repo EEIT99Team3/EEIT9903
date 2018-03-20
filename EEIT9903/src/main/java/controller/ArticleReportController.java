@@ -51,7 +51,7 @@ public class ArticleReportController {
 		return "";
 	}
 	@RequestMapping(
-			path="/pages/reportshow.article",
+			path="/pages/backendcheck/reportshow.article",
 			method= {RequestMethod.GET,RequestMethod.POST},
 			produces="application/json;charset=UTF-8"
 			)
@@ -67,7 +67,7 @@ public class ArticleReportController {
 		return "";
 	}
 	@RequestMapping(
-			path="/pages/processreport.article",
+			path="/pages/check/processreport.article",
 			method= {RequestMethod.GET,RequestMethod.POST}
 			)
 	public String processreport(String article_number,ArticleBean bean,String prodaction) {
@@ -76,4 +76,7 @@ public class ArticleReportController {
 	    boolean updateresult = articleReportService.changeprocess(Integer.parseInt(article_number));
 		return "changeprocess.do";
 	}
+	
+
+	
 }

@@ -36,29 +36,8 @@
 			<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 			<jsp:include page="/common/aside.jsp" /> <!-- 以下輸入各網頁不同的地方 -->
 
-			<h2 style="padding-top: 50px">Section title</h2>
 			<div class="table-responsive" style="padding-right: 400px">
-				<table class="table table-striped table-sm">
-					<thead>
-						<tr>
-							<th>A</th>
-							<th>B</th>
-							<th>c</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<th>1</th>
-							<th>2</th>
-							<th>3</th>
-						</tr>
-						<tr>
-							<th>4</th>
-							<th>5</th>
-							<th>6</th>
-						</tr>
-					</tbody>
-				</table>
+
 			</div>
 
 			<!-- 以上輸入各網頁不同的地方 --> </main>

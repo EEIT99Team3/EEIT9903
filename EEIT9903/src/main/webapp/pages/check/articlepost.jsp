@@ -64,7 +64,7 @@
 		<!-- Page Content -->
 		<div class="container">
 
-			<div class="row border border-primary">
+			<div class="row">
 
 				<!-- Post Content Column -->
 				<div class="col-lg-12">
@@ -123,10 +123,9 @@
 			  <div class="dropdown-menu btn-block " aria-labelledby="dropdownMenuButton">
 			    <button class="dropdown-item" type="button">1.內容與股市無關</button>
   				<button class="dropdown-item" type="button">2.謾罵</button>
-    			<button class="dropdown-item" type="button">3.技術不純熟的召喚師</button>
-    			<button class="dropdown-item" type="button">Something else here</button>
-    			<button class="dropdown-item" type="button">Something else here</button>
-    			<button class="dropdown-item" type="button">Something else here</button>
+    			<button class="dropdown-item" type="button">3.轉載未註明出處</button>
+    			<button class="dropdown-item" type="button">4.內容明顯釣魚引戰</button>
+    			<button class="dropdown-item" type="button">5.技術不純熟的分析師</button>
 			  </div>
 			</div>
 <!--             <input type="text" class="form-control" id="recipient-name"> -->
@@ -206,14 +205,15 @@ $(function(){
 // 	$("#reportsubmit").click(function(){
 // 		$("#aaa").empty().text("abc")
 // 		})
-	
+	var article_number = ${article_number};
 	var m_account = ${user.MAccount};
-
-	$.get("showbotton.article",{article_number: ${article_number}},function(data){
-			if(data === m_account){
+	$.get("showbotton.article",{article_number:article_number},function(data){
+		alert(${article_number})
+		alert(data)
+			if(data == ${user.MAccount}){
 				$("#deletebotton").addClass('d-inline-block');
 				$("#editorbotton").addClass('d-inline-block');
-				$("#reportbotton").addClass('d-none').css("margin-left","0");
+				$("#reportbotton").removeClass('d-inline-block').css({"margin-left":"0","display":"none"});
 				
 			}
 		})
@@ -228,7 +228,7 @@ $(function(){
 
 
 	
-  $.getJSON('replyshow.article',{article_number: ${article_number}},function(data){
+  $.getJSON('replyshow.article',{article_number:'${article_number}'},function(data){
 	  if(data!=null){
 	  var docFrag = $(document.createDocumentFragment());
 	  $.each(data,function(idx,replymain){

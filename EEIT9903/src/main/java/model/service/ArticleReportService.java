@@ -29,4 +29,6 @@ public class ArticleReportService {
 	public boolean changeprocess(Integer article_number) {
 		return dao.changeprocess(article_number);
 	}
+	
+	
 }

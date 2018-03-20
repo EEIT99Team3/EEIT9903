@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.Member;
+import model.SupervisorBean;
 @WebFilter(
 		urlPatterns = { "/*" }, 
 		initParams = { 
@@ -74,7 +75,8 @@ public class LoginCheckingFilter implements Filter {
 	private boolean checkLogin(HttpServletRequest req) {
 		HttpSession session = req.getSession();
 		Member loginToken = (Member) session.getAttribute("user");
-		if (loginToken == null) {
+		SupervisorBean backendloginToken = (SupervisorBean) session.getAttribute("s_uesr");
+		if (loginToken == null && backendloginToken == null) {
 			return false;
 		} else {
 			return true;
