@@ -4,19 +4,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
 <title>EZStock綜合股情查詢系統</title>
 
 <link rel="stylesheet" href="<c:url value="/lib/bootstrap.min.css"/>" />
-<link rel="stylesheet" href="<c:url value="/lib/jumbotron.css"/>" />
+<%-- <link rel="stylesheet" href="<c:url value="/lib/jumbotron.css"/>" /> --%>
+<link href="<c:url value="/lib/advanced Css/dashboardTable.css" />"
+	rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css"
 	href="https://cdn.datatables.net/v/bs4/dt-1.10.16/datatables.min.css" />
 <link rel="stylesheet" type="text/css" href="<c:url value="/css/ratio.css" />" />
+<!-- Custom styles for this template -->
+<link href="<c:url value="/css/aside.css" />" rel="stylesheet"
+	type="text/css">
+<script src="<c:url value="/lib/jquery-1.10.2.min.js" />"></script>
+<script src="<c:url value="/lib/jquery-ui-1.10.3.custom.min.js" />"></script>
+<script src="<c:url value="/js/aside.js" />"></script>
 </head>
-<body>x
+<body>
 	<jsp:include page="/common/header.jsp" />
-	<main role="main" class="container mt-2" style="margin-left:50px">
+			<jsp:include page="/common/aside.jsp" />
 	<div class="row" style="width: 700px">
 		<div class="col-lg-3" style="padding: 0px; width: 180px">
 			<div class="col-lg-9" style="width: 1800px">

@@ -45,7 +45,7 @@ public class Income_StatementService {
 		Boolean check = true;
 		Boolean count = true;
 
-		for (int n = 2321; n <= 2330; n++) {
+		for (int n = 1101; n <= 1110; n++) {
 			String co_id = "" + n;
 
 //			 利用Company的Bean來做Select檢查是否有這間公司，若無此公司則跳過
@@ -60,7 +60,7 @@ public class Income_StatementService {
 				for (int i = 1; i <= 5; i++) {
 					
 					try {
-						Thread.currentThread().sleep(2500);
+						Thread.currentThread().sleep(3000);
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
@@ -75,7 +75,7 @@ public class Income_StatementService {
 						
 					// 每個請求設置延遲
 					try {
-						Thread.currentThread().sleep(90000);
+						Thread.currentThread().sleep(120000);
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
