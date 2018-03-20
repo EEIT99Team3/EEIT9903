@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import model.ArticleBean;
 import model.ArticleReportBean;
 import model.Member;
 import model.service.ArticleReportService;
@@ -23,8 +24,10 @@ import model.service.ArticleServise;
 public class ArticleReportController {
 	@Autowired
 	private ArticleReportService articleReportService;
+	@Autowired
+	private ArticleServise articleServise;
 	@RequestMapping(
-			path="/pages/report.article",
+			path="/pages/check/report.article",
 			method= {RequestMethod.GET,RequestMethod.POST}
 			)
 	public String report(String article_number,String m_account,String type_of_report
@@ -62,5 +65,15 @@ public class ArticleReportController {
 		}
 	
 		return "";
+	}
+	@RequestMapping(
+			path="/pages/processreport.article",
+			method= {RequestMethod.GET,RequestMethod.POST}
+			)
+	public String processreport(String article_number,ArticleBean bean,String prodaction) {
+		bean.setArticle_number(Integer.parseInt(article_number));
+		boolean deleteresult = articleServise.delete(bean);
+	    boolean updateresult = articleReportService.changeprocess(Integer.parseInt(article_number));
+		return "changeprocess.do";
 	}
 }

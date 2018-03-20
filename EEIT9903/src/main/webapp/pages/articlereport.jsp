@@ -93,6 +93,7 @@
 								<th>檢舉補充內容</th>
 								<th>檢舉時間</th>
 								<th>處理狀態</th>
+								<th>處理操作</th>
 							</tr>
 						</thead>
 						<tbody >
@@ -116,7 +117,7 @@
 	
 	<script>
 		$(document).ready(function() {
-
+				
 			  $.getJSON('reportshow.article', function (data) {
 	              
 // 	                $('#table1>tbody').empty();
@@ -127,23 +128,31 @@
 	                    var cell3 = $("<td></td>").text(report.type_of_report);
 	                    var cell4 = $("<td></td>").text(report.report_content);
 	                    var cell5 = $("<td></td>").text(report.report_date.substring(0,16));
-					
-						var abotton = $("<a></a>").addClass("fa fa-eye btn btn-warning").css("margin-left","10px");
-						
+						var cell6 = $("<td></td>").html("未處理");
+						var showbotton = $("<a></a>").addClass("fa fa-eye btn btn-warning").css("margin-left","10px").attr("href","check/article.article?article_number="+report.article_number);
+						var deletebotton = $("<a></a>").addClass("fa fa-close btn btn-danger").css("margin-left","10px").attr("href","processreport.article?article_number="+report.article_number);
 		                if(report.processed == 0){
-	                    var cell6 = $("<td></td>").html("未處理");
-	                    cell6.append(abotton);
+	                    var cell7 = $("<td></td>")
+	                    cell7.append(showbotton);
+	                    cell7.append(deletebotton);
 	                    }else if(report.processed == 1){
-	                    	var cell6 = $("<td></td>").text("已處理");
+	                    	cell6.text("已處理");
+	                    	 var cell7 = $("<td></td>")
+	                    	 
+	 	                    cell7.append(deletebotton);
+		            
 		                }
+
 						
-	                    var row = $('<tr></tr>').append([cell1, cell2, cell3, cell4, cell5, cell6]);
+	                    var row = $('<tr></tr>').append([cell1, cell2, cell3, cell4, cell5, cell6 ,cell7]);
 
 	                    $('#table1>tbody').append(row);
 	                });
 
 	            
 	            })
+			
+	            
 		})
 	</script>
 	

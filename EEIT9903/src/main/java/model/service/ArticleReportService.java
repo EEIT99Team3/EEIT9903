@@ -25,4 +25,8 @@ public class ArticleReportService {
 	public List<HashMap<String,String>> select(){
 		return dao.select();
 	}
+	
+	public boolean changeprocess(Integer article_number) {
+		return dao.changeprocess(article_number);
+	}
 }

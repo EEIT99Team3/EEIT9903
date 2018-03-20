@@ -21,7 +21,7 @@ public class ArticleReplyController {
 	@Autowired
 	private ArticleReplyServise articleReplyServise;
 	@RequestMapping(
-			path="/pages/replyshow.article",
+			path="/pages/check/replyshow.article",
 			method= {RequestMethod.GET,RequestMethod.POST},
 			produces="application/json;charset=UTF-8"
 			)
@@ -38,7 +38,7 @@ public class ArticleReplyController {
 		return "";
 	}
 	@RequestMapping(
-			path="/pages/reply.article",
+			path="/pages/check/reply.article",
 			method= {RequestMethod.GET,RequestMethod.POST}
 			)
 	public String replyEditor(String prodaction,String reply,HttpSession session

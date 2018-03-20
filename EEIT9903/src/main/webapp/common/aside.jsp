@@ -33,8 +33,9 @@
 <!-- 			    <td><button>刪除</td> -->
 <!-- 			  </tr> -->
 			</tbody>
-			</table>
-	        <button class="slider"><img src="../images/btn_open.png"></button>
+			</table>	
+			
+	       <button class="slider"><img src="<c:url value="/images/btn_open.png" /> "/></button>
 	        <div class="addNew">        
 	        	<input type="text" name="stock_id" id="stock_id" value="">
 	        	<button class="addBtn">新增</button>

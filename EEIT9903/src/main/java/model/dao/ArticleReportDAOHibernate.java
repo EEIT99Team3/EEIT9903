@@ -38,7 +38,7 @@ public class ArticleReportDAOHibernate {
 				ResultSet rs = pstm.executeQuery();){
 					while (rs.next()) {
 						HashMap<String, String> m1 = new HashMap<>();
-						
+						m1.put("article_number", rs.getString(2));
 						m1.put("m_account",rs.getString(3));
 						m1.put("type_of_report",rs.getString(4));
 						m1.put("report_content",rs.getString(5));
@@ -65,6 +65,14 @@ public class ArticleReportDAOHibernate {
 		}
 
 		return false;
+	}
+	@Transactional
+	public boolean changeprocess(Integer article_number) {
+		
+		NativeQuery query = this.getSession().createNativeQuery(" update report set processed = 1 where article_number = "+article_number);
+		query.executeUpdate();
+		
+		return true;
 	}
 	
 }
