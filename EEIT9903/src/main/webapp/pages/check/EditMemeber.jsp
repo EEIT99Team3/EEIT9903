@@ -48,10 +48,10 @@
 					<!-- File Button -->
 					<div class="form-group">
 						<img style="width: 100px; height: 100px; padding-left: 15px"
-							src="<c:url value="/images/default.jpg" />"> <label
+							src="<c:url value="/member/getImage" />"> <label
 							class="col-md-4 control-label" for="Upload Photo">Upload
 							Photo</label>
-                        <!-- /member/getImage -->
+                        <!-- /images/default.jpg  -->
 						<div class="col-md-4">
 							<input id="Upload Photo" name="file1" class="input-file"
 								type="file">

@@ -4,7 +4,6 @@ import java.sql.Blob;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 import model.Member;
 import model.dao.MemberDAO;
@@ -64,13 +63,13 @@ public class MemberService {
 		// 確認哪些資料有被更新
 		if (newPwd != null && newPwd.trim().length() != 0) {
 			if (MPwd == null || MPwd.trim().length() == 0) {
-               return null;
+				return null;
 			} else {
-			   Member temp = this.changePassword(MAccount, MPwd, newPwd);
-			   if(temp!=null) {
-				   update.setMPwd(newPwd);
-			   }
-			}		
+				Member temp = this.changePassword(MAccount, MPwd, newPwd);
+				if (temp != null) {
+					update.setMPwd(newPwd);
+				}
+			}
 		}
 
 		if (newEmail != null && newEmail.trim().length() != 0) {
@@ -96,6 +95,16 @@ public class MemberService {
 		Member temp = memberDAO.select(MAccount);
 		if (temp != null) {
 			result = true;
+			return result;
+		}
+		return result;
+	}
+
+	public Blob memberPhoto(String MAccount) {
+		Blob result = null;
+		Member bean = memberDAO.select(MAccount);
+		if (bean != null) {
+			result = bean.getPhoto();
 			return result;
 		}
 		return result;
