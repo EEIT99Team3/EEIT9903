@@ -205,11 +205,12 @@ $(function(){
 // 	$("#reportsubmit").click(function(){
 // 		$("#aaa").empty().text("abc")
 // 		})
-	
+	var article_number = ${article_number};
 	var m_account = ${user.MAccount};
-
-	$.get("showbotton.article",{article_number: ${article_number}},function(data){
-			if(data === m_account){
+	$.get("showbotton.article",{article_number:article_number},function(data){
+		alert(${article_number})
+		alert(data)
+			if(data == ${user.MAccount}){
 				$("#deletebotton").addClass('d-inline-block');
 				$("#editorbotton").addClass('d-inline-block');
 				$("#reportbotton").removeClass('d-inline-block').css({"margin-left":"0","display":"none"});
@@ -227,7 +228,7 @@ $(function(){
 
 
 	
-  $.getJSON('replyshow.article',{article_number: ${article_number}},function(data){
+  $.getJSON('replyshow.article',{article_number:'${article_number}'},function(data){
 	  if(data!=null){
 	  var docFrag = $(document.createDocumentFragment());
 	  $.each(data,function(idx,replymain){

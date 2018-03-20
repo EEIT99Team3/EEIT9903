@@ -38,7 +38,7 @@ public class ArticleEditorController {
 	}
 	@RequestMapping(
 			path="/pages/check/article.article",
-			method= {RequestMethod.GET,RequestMethod.POST})
+			method= {RequestMethod.POST,RequestMethod.GET,})
 	public String method(String title,String content,
 			String user,String prodaction,ArticleBean bean,String article_number,Model model,HttpSession session,HttpServletResponse response) {
 		Member member = (Member) session.getAttribute("user");
@@ -69,15 +69,15 @@ public class ArticleEditorController {
 			return "articleshow.do";
 		}
 		if("articlepost".equals(prodaction)) {
-			session.setAttribute("article", "");
-			session.setAttribute("article_title", "");
+			session.removeAttribute("article");
+			session.removeAttribute("article_title");
 			return "ckeditor.do";
 		}
 		if("articleEdit".equals(prodaction)) {
 			bean = articleServise.select(Integer.parseInt(article_number));
 			
-			model.addAttribute("article", bean.getArticle());
-			model.addAttribute("article_title", bean.getArticle_title());
+			session.setAttribute("article", bean.getArticle());
+			session.setAttribute("article_title", bean.getArticle_title());
 			return "ckeditor.do";
 		}
 		if("articleEditok".equals(prodaction)) {
@@ -131,7 +131,6 @@ public class ArticleEditorController {
 	public @ResponseBody String showbotton(String article_number,ArticleBean bean) {
 			
 		bean = 	articleServise.select(Integer.parseInt(article_number));
-		
 		return bean.getM_account();
 	}
 	

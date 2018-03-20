@@ -77,34 +77,35 @@
 					$.getJSON( "articleshow.article", function(data) {
 						  var docFrag = $(document.createDocumentFragment());
 							$.each(data,function(idx,articlemain){
+											
 								
-								var eleImg = $("<img></img>").attr("src","http://via.placeholder.com/38x38").css("padding-right","20px");
-							 	var eleh2 = $("<h2></h2>").addClass("card-title").html(articlemain.article_title+"&nbsp&nbsp")
-								var eleAaccount = $("<a></a>").attr("href","#").html(articlemain.m_account);
-								var eleSpan = $("<span></span>").html(articlemain.article_date.substring(0,16) + " by ").addClass("pull-left font-italic font-weight-normal")
-								var eleDivacdate = $("<div></div>")
-								eleSpan.append(eleAaccount);
-							
-								eleh2.prepend(eleImg);
-								eleDivacdate.append(eleSpan);
+									var eleImg = $("<img></img>").attr("src","/EEIT9903/pages/check/getImage.article").css("padding-right","20px");
+									var eleh2 = $("<h2></h2>").addClass("card-title").html(articlemain.article_title+"&nbsp&nbsp")
+									var eleAaccount = $("<a></a>").attr("href","#").html(articlemain.m_account);
+									var eleSpan = $("<span></span>").html(articlemain.article_date.substring(0,16) + " by ").addClass("pull-left font-italic font-weight-normal")
+									var eleDivacdate = $("<div></div>")
+									eleSpan.append(eleAaccount);
 								
-								var eleArticleDiv = $("<div></div>").attr("class","article").html(articlemain.article).css({"overflow":"hidden","width":"800px","height":"200px"});	
-								var eleADiv = $("<div></div>").addClass("abc").css("text-align","right");
-								var eleA = $("<a></a>").addClass("btn btn-primary ").attr("href","<c:url value='/pages/check/article.article?article_number=' />"+articlemain.article_number).html("Read More &rarr;")
+									eleh2.prepend(eleImg);
+									eleDivacdate.append(eleSpan);
+									
+									var eleArticleDiv = $("<div></div>").attr("class","article").html(articlemain.article).css({"overflow":"hidden","width":"800px","height":"200px"});	
+									var eleADiv = $("<div></div>").addClass("abc").css("text-align","right");
+									var eleA = $("<a></a>").addClass("btn btn-primary ").attr("href","<c:url value='/pages/check/article.article?article_number=' />"+articlemain.article_number).html("Read More &rarr;")
+									
+									var div = $("<a></a>").addClass("btn btn-success mr-2").attr("href","<c:url value='/pages/check/article.article?article_number=' />"+articlemain.article_number+"#replybody").html("回覆("+articlemain.reply_count+")");
+									eleADiv.append(div);
+									eleADiv.append(eleA);
+									eleADiv.append(eleDivacdate);
 								
-								var div = $("<a></a>").addClass("btn btn-success mr-2").attr("href","<c:url value='/pages/check/article.article?article_number=' />"+articlemain.article_number+"#replybody").html("回覆("+articlemain.reply_count+")");
-								eleADiv.append(div);
-								eleADiv.append(eleA);
-								eleADiv.append(eleDivacdate);
-							
-								
-								var eleBodyDiv = $("<div></div>").addClass("card-body rounded m-2 ").css({"width":"1000px","padding":"0 20px 0 20px","border-bottom": "1px solid #8c8b8b"})
-							    
-								eleBodyDiv.append(eleh2);
-								eleBodyDiv.append(eleDivacdate);
-								eleBodyDiv.append(eleArticleDiv);
-								eleBodyDiv.append(eleADiv);
-								docFrag.prepend(eleBodyDiv);							
+									
+									var eleBodyDiv = $("<div></div>").addClass("card-body rounded m-2 ").css({"width":"1000px","padding":"0 20px 0 20px","border-bottom": "1px solid #8c8b8b"})
+								    
+									eleBodyDiv.append(eleh2);
+									eleBodyDiv.append(eleDivacdate);
+									eleBodyDiv.append(eleArticleDiv);
+									eleBodyDiv.append(eleADiv);
+									docFrag.prepend(eleBodyDiv);							
 
 							})
 							$('#articlebody').append(docFrag);

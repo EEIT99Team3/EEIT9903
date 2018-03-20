@@ -46,5 +46,29 @@ public class ShowPictureController {
 			return null;
 		}
 	}
+	
+	@RequestMapping(value = "/pages/check/getImage.article", method = { RequestMethod.GET, RequestMethod.POST })
+	public ResponseEntity<byte[]> getImageAsResponseEntity(String m_account) {
+		HttpHeaders headers = new HttpHeaders();
+		byte[] media = null;
+		Blob blob = null;
+		try {
+				if(m_account !=null) {
+//				blob = member.getPhoto();
+				blob = memberService.memberPhoto(m_account);
+				media = blob.getBytes(1, (int) blob.length());
+				}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		headers.setCacheControl(CacheControl.noCache().getHeaderValue());
+		if (media != null) {
+			ResponseEntity<byte[]> responseEntity = new ResponseEntity<>(media, headers, HttpStatus.OK);
+			System.out.println(responseEntity);
+			return responseEntity;
+		} else {
+			return null;
+		}
+	}
 
 }
