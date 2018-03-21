@@ -44,8 +44,10 @@ public class Income_StatementService {
 		List<Income_statementBean> is_bean = new ArrayList<Income_statementBean>();
 		Boolean check = true;
 		Boolean count = true;
+		int countbreak = 0;
 		
-		for (int n = 2321; n <= 2329; n++) {
+		a:
+		for (int n = 2391; n <= 2400; n++) {
 			String co_id = "" + n;
 
 //			 利用Company的Bean來做Select檢查是否有這間公司，若無此公司則跳過
@@ -98,6 +100,8 @@ public class Income_StatementService {
 								.post();
 					} catch (IOException e) {
 						e.printStackTrace();
+						i = i - 1;
+						continue;
 					}
 					Elements tests = doc.select("tr");
 
@@ -119,6 +123,10 @@ public class Income_StatementService {
 							System.out.println("過於頻繁");
 							check = false;
 							count = false;
+							countbreak++;
+							if(countbreak==3) {
+								break a;
+							}
 							break;
 						}
 
