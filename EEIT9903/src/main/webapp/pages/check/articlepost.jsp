@@ -63,7 +63,7 @@
 
 		<!-- Page Content -->
 		<div class="container">
-
+			
 			<div class="row">
 
 				<!-- Post Content Column -->
@@ -192,7 +192,8 @@
 	</div>
 
 	<!-- /.container --> 
-</body>
+
+
 
 
 
@@ -202,21 +203,24 @@
 <script type="text/javascript">
 $(function(){
 
-// 	$("#reportsubmit").click(function(){
-// 		$("#aaa").empty().text("abc")
-// 		})
-	var article_number = ${article_number};
-	var m_account = ${user.MAccount};
-	$.get("showbotton.article",{article_number:article_number},function(data){
-		alert(${article_number})
+	var aa = ${article_number};
+	var a_account = "${user.MAccount}";
+	alert(aa)
+$.get("showbotton.article",{article_number:aa},function(data){
+		
 		alert(data)
-			if(data == ${user.MAccount}){
+			if(data == a_account){
 				$("#deletebotton").addClass('d-inline-block');
 				$("#editorbotton").addClass('d-inline-block');
 				$("#reportbotton").removeClass('d-inline-block').css({"margin-left":"0","display":"none"});
 				
 			}
 		})
+})
+
+$(function(){
+	
+	
 	
 	$(".dropdown-item").click(function(){
 
@@ -229,6 +233,8 @@ $(function(){
 
 	
   $.getJSON('replyshow.article',{article_number:'${article_number}'},function(data){
+
+	 	
 	  if(data!=null){
 	  var docFrag = $(document.createDocumentFragment());
 	  $.each(data,function(idx,replymain){

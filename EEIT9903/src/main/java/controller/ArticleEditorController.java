@@ -129,8 +129,9 @@ public class ArticleEditorController {
 			produces = "application/json;charset=UTF-8"
 			)
 	public @ResponseBody String showbotton(String article_number,ArticleBean bean) {
-			
+			System.out.println(article_number);
 		bean = 	articleServise.select(Integer.parseInt(article_number));
+		System.out.println(bean.getM_account());
 		return bean.getM_account();
 	}
 	

@@ -72,11 +72,11 @@ public class ArticleDAOHibernate implements ArticleDAO {
 				
 				int result = (int)query.uniqueResult();
 
-				m1.put("m_account",rs.getString(1));
-				m1.put("article_date",rs.getString(2));
-				m1.put("article_number",rs.getString(3));
-				m1.put("article_title",rs.getString(4));
-				m1.put("article",rs.getString(5));
+				m1.put("m_account",rs.getString("m_account"));
+				m1.put("article_date",rs.getString("article_date"));
+				m1.put("article_number",rs.getString("article_number"));
+				m1.put("article_title",rs.getString("article_title"));
+				m1.put("article",rs.getString("article"));
 				m1.put("reply_count", Integer.toString(result));
 
 				l1.add(m1);
