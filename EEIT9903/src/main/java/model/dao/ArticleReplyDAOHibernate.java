@@ -12,6 +12,7 @@ import javax.sql.DataSource;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.NativeQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -54,12 +55,17 @@ public class ArticleReplyDAOHibernate implements ArticleReplyDAO {
 			){
 			pstm.setInt(1, article_number);
 			rs = pstm.executeQuery();
+			
 			while (rs.next()) {
+				NativeQuery<String> mName = this.getSession().createNativeQuery("select m_name from MEMBER where m_account=?");
+				mName.setParameter(1, rs.getString("m_account"));
+				String result2 = mName.uniqueResult();
 				HashMap<String, String> m1 = new HashMap<>();
 				m1.put("article_number", rs.getString("article_number"));
 				m1.put("reply", rs.getString("reply"));
 				m1.put("reply_date", rs.getString("reply_date"));
 				m1.put("m_account", rs.getString("m_account"));
+				m1.put("m_name", result2);
 				l1.add(m1);
 			}
 		} catch (SQLException e) {
