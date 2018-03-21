@@ -41,13 +41,38 @@
 			<form action="<c:url value="/Statement/CashFlowStatement" />">
 				<div>
 					公司代號：<input type="text" name="cfcorporation" width="10px" value="${data}" >
-					年度：<input type="text" name="cfyear" size="5px"> 
+					年度：<input type="text" name="cfyear" size="5px" value="${datayear}"> 
 					季別：<select
 						name="cfseason">
-						<option>1</option>
-						<option>2</option>
-						<option>3</option>
-						<option>4</option>
+							<c:if test="${empty dataseason}">
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							</c:if>	
+							<c:if test="${dataseason==1}">
+							<option selected="selected">1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							</c:if>	
+							<c:if test="${dataseason==2}">
+							<option>1</option>
+							<option selected="selected">2</option>
+							<option>3</option>
+							<option>4</option>
+							</c:if>	
+							<c:if test="${dataseason==3}">
+							<option>1</option>
+							<option>2</option>
+							<option selected="selected">3</option>
+							<option>4</option>
+							</c:if>	
+							<c:if test="${dataseason==4}">
+							<option>1</option>
+							<option>2</option>
+							<option selected="selected">4</option>
+							</c:if>
 					</select> <input id="cfquery" type="submit" value="查詢">
 				</div>
 				<div>
