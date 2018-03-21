@@ -16,7 +16,6 @@ public class RatioController {
 	String[] statement = null;
 	@RequestMapping(path= {"/choose"}, method= {RequestMethod.GET, RequestMethod.POST})
 	public String method() {
-		System.out.println("準備丟出choose page");
 		return "RatioController";
 	}
 	@RequestMapping(
@@ -133,7 +132,6 @@ public class RatioController {
 		if (list != null) {
 			String[] a = new String[list.size()];
 			statement = list.toArray(a);
-			System.out.println(statement.toString());
 			service.setStatement(statement);
 		}
 		return service.getRatioJson();

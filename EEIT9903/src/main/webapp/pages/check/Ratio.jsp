@@ -79,9 +79,9 @@
 			<div class="item"><img id="arrow2" src="<c:url value="/images/icon7.png"/>"/></div>
 			<div id="selected">
 			<div class="title2">設定條件</div>
-			<div id="ratyear"  class="selectorc">
+			<div id="ratyear" class="selectoryearseason">
 			<span>年度</span>
-			<select id="ratyearv">
+			<select id="ratyeartv">
 				<option value="">請選擇</option>
   				<option value="106">106年</option>
    				<option value="105">105年</option>
@@ -89,9 +89,9 @@
   			</select>
   			</div>
   			
-  			<div id="ratseason" class="selectorc">
+  			<div id="ratseason" class="selectoryearseason">
   			<span>季別</span>
-  			<select id="ratseasonv">
+  			<select id="ratseasontv">
   				<option value="">請選擇</option>
   				<option value="1">Q1</option>
    				<option value="2">Q2</option>

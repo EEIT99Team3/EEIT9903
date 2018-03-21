@@ -17,7 +17,7 @@ public class ArticleServise {
 		
 	}
 	
-	public ArticleBean select(int article_number) {
+	public ArticleBean select(Integer article_number) {
 		ArticleBean result = null;
 		if(article_number >= 0) {
 			result = dao.select(article_number);

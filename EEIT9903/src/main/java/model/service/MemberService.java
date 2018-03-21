@@ -110,4 +110,16 @@ public class MemberService {
 		return result;
 	}
 
+	public Member selectMember(String MAccount) {
+		Member bean = null;
+		if (MAccount != null) {
+			bean = memberDAO.select(MAccount);
+			if (bean != null) {
+				return bean;
+			} else {
+				return null;
+			}
+		}
+		return bean;
+	}
 }

@@ -10,7 +10,7 @@ public interface ArticleDAO {
 
 	Session getSession();
 
-	ArticleBean select(int article_number);
+	ArticleBean select(Integer article_number);
 
 	String SELECT_ALL = "select * from article";
 

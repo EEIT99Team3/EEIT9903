@@ -37,6 +37,6 @@
 	<bean id="changeprocess.do"
 		class="org.springframework.web.servlet.view.RedirectView">
 		<property name="contextRelative" value="true"></property>
-		<property name="url" value="/pages/articlereport.jsp"></property>
+		<property name="url" value="/pages/backendcheck/articlereport.jsp"></property>
 	</bean>
 </beans>

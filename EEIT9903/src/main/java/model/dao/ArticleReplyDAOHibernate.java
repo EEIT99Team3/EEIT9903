@@ -56,10 +56,10 @@ public class ArticleReplyDAOHibernate implements ArticleReplyDAO {
 			rs = pstm.executeQuery();
 			while (rs.next()) {
 				HashMap<String, String> m1 = new HashMap<>();
-				m1.put("article_number", rs.getString(1));
-				m1.put("reply", rs.getString(2));
-				m1.put("reply_date", rs.getString(3));
-				m1.put("m_account", rs.getString(4));
+				m1.put("article_number", rs.getString("article_number"));
+				m1.put("reply", rs.getString("reply"));
+				m1.put("reply_date", rs.getString("reply_date"));
+				m1.put("m_account", rs.getString("m_account"));
 				l1.add(m1);
 			}
 		} catch (SQLException e) {
