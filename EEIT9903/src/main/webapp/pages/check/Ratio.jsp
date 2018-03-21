@@ -31,12 +31,12 @@
 			<jsp:include page="/common/aside.jsp" />
 	<div class="row" style="width: 700px">
 		<div class="col-lg-3" style="padding: 0px; width: 180px">
-			<div class="col-lg-9" style="width: 1800px">
+			<div class="col-lg-9" >
 
 				<!-- 下面這個是table外框 -->
 				<div class="card" style="width: 1800px">
-					<div class="card-header" style="width: 1800px">基本面指標建議選股</div>
-					<div class="card-body" style="width: 1800px;height:700px">
+					<div class="card-header">基本面指標建議選股</div>
+					<div class="card-body" style="height:700px">
 						<!-- 每頁不同的內容從這裡開始 -->
 			<div id="notchoosed">
 			
