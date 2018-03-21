@@ -17,7 +17,29 @@ public class Income_statementPK implements Serializable{
 		this.is_year = is_year;
 		this.is_season = is_season;
 	}
+	public String getStock_id() {
+		return stock_id;
+	}
 
+	public void setStock_id(String stock_id) {
+		this.stock_id = stock_id;
+	}
+
+	public Integer getIs_year() {
+		return is_year;
+	}
+
+	public void setIs_year(Integer is_year) {
+		this.is_year = is_year;
+	}
+
+	public Integer getIs_season() {
+		return is_season;
+	}
+
+	public void setIs_season(Integer is_season) {
+		this.is_season = is_season;
+	}
 	public Income_statementPK() {
 
 	}
