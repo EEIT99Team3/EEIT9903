@@ -44,7 +44,7 @@ public class Balance_sheetService {
 		List<Balance_sheetBean> bs_bean = new ArrayList<Balance_sheetBean>();
 		Boolean check = true;
 		Boolean count = true;
-		for (int n = 2471; n <= 2480; n++) {
+		for (int n = 2497; n <= 2499; n++) {
 			String co_id = "" + n;
 
 //			 利用Company的Bean來做Select檢查是否有這間公司，若無此公司則跳過

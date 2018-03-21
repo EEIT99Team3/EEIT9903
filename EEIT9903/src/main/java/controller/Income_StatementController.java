@@ -86,6 +86,9 @@ public class Income_StatementController {
 		beans.put("bean1", bean1);
 		beans.put("bean2", bean2);
 
+		session.setAttribute("data", iscorporation);
+		model.addAttribute("datayear", year);
+		model.addAttribute("dataseason", season);
 		session.setAttribute("is_data", beans);
 		return "isstatement.success";
 

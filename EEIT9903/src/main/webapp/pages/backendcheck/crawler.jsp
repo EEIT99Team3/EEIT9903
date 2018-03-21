@@ -31,96 +31,70 @@
 	<jsp:include page="/common/navbar.html"></jsp:include>
 	<jsp:include page="/common/footbar.jsp"></jsp:include>
 	<div class="content-wrapper">
-
-		<h2 style="padding-top: 20px; padding-left: 60px; padding-right: 300px">爬蟲程式</h2>
-		<div class="table-responsive"
-			style="padding-left: 60px; padding-right: 300px">
-			<ul>
-			<li></li>
-			</ul>
+		<!--此頁內容由此開始 -->
+		<h2
+			style="padding-top: 20px; padding-left: 60px; padding-right: 300px">爬蟲程式</h2>
+		<div style="padding-left: 60px; padding-top: 20px;">
+			<button type="button" class="btn btn-secondary">
+				crawler <span class="badge badge-light">1</span>
+			</button>
+			<br> <br>
+			<button type="button" class="btn btn-secondary">
+				crawler <span class="badge badge-light">2</span>
+			</button>
+			<br> <br>
+			<button type="button" class="btn btn-secondary">
+				crawler <span class="badge badge-light">3</span>
+			</button>
+			<br> <br>
+			<button type="button" class="btn btn-secondary">
+				crawler <span class="badge badge-light">4</span>
+			</button>
+			<br> <br>
+			<button type="button" class="btn btn-secondary">
+				crawler <span class="badge badge-light">5</span>
+			</button>
+			<br> <br>
+			<button type="button" class="btn btn-secondary">
+				crawler <span class="badge badge-light">6</span>
+			</button>
 		</div>
+	</div>
 
-		<!-- Logout 展開-->
-		    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		      <div class="modal-dialog" role="document">
-		        <div class="modal-content">
-		          <div class="modal-header">
-		            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-		            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-		              <span aria-hidden="true">×</span>
-		            </button>
-		          </div>
-		          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-		          <div class="modal-footer">
-		            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-		            <a class="btn btn-primary" href="login.html">Logout</a>
-		          </div>
-		        </div>
-		      </div>
-		    </div>
-		<!-- Bootstrap core JavaScript-->
-		<script src="<c:url value="/lib/jquery-3.3.1.min.js" />"></script>
-		<script src="<c:url value="/lib/bootstrap.bundle.min.js" />"></script>
-		<!-- Core plugin JavaScript-->
-		<script src="<c:url value="/lib/jquery.easing.min.js" />"></script>
-		<!-- Custom scripts for all pages-->
-		<script src="<c:url value="/lib/sb-admin.min.js" />"></script>
-		
-		<script>
+	<!--此頁內容由此開始 -->
+	</div>
 
-        $(document).ready(function(){
-
-        loadsupervisor();
-
-        function loadsupervisor(){
-
-            $.getJSON("<c:url value="/Statement/all"/>" , function(datas){
-
-                var tb = $("#supervisortable > tbody");
-                tb.empty();
-                var fragment = $(document.createDocumentFragment());
-                $.each(datas, function(idx, data){
-
-                    var td1 = $("<td></td>").text(data.s_account);
-                    var td2 = $("<td></td>").text(data.s_pwd);
-                    var td3 = $('<td><button type="button">刪除</button></td>');
-                    var row = $("<tr></tr>").append([td1, td2, td3]);
-
-                    fragment.append(row); 
-                    })
-                    tb.append(fragment);
-                })   	
-            }
-
-        $("#addsupervisor").click(function(){
-            var datas = $('form[name="supervisorform"]').serialize();
-            $.post("<c:url value="/Statement/addnew"/>", datas, function(data){
-                alert(data);
-                loadsupervisor();
-                $('input[name="s_account"]').val('');
-                $('input[name="s_password"]').val('');
-                })
-
-            })
-
-        $('#supervisortable > tbody').on('click', 'tr button:first-child', function(){
-                var remove = $(this).parents('tr').find('td:first-child').text();
-                $.get('<c:url value="/Statement/delete"/>', {s_delete:remove}, function(data){
-                    alert(data);
-                    loadsupervisor();
-                    })
-
-            })    
-
-            
-            })
-
-		</script>
+	<!-- Logout 展開-->
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+					<button class="close" type="button" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">Select "Logout" below if you are ready
+					to end your current session.</div>
+				<div class="modal-footer">
+					<button class="btn btn-secondary" type="button"
+						data-dismiss="modal">Cancel</button>
+					<a class="btn btn-primary" href="login.html">Logout</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Bootstrap core JavaScript-->
+	<script src="<c:url value="/lib/jquery-3.3.1.min.js" />"></script>
+	<script src="<c:url value="/lib/bootstrap.bundle.min.js" />"></script>
+	<!-- Core plugin JavaScript-->
+	<script src="<c:url value="/lib/jquery.easing.min.js" />"></script>
+	<!-- Custom scripts for all pages-->
+	<script src="<c:url value="/lib/sb-admin.min.js" />"></script>
 
 	</div>
-		<script>
-		feather.replace()
-	</script>
 </body>
 
 </html>
