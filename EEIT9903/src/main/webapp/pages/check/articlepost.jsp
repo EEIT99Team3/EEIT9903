@@ -18,10 +18,10 @@
 <!-- Bootstrap core CSS -->
 <c:url value="/js/aside.js" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <link href="<c:url value="/lib/bootstrap.min.css" />" rel="stylesheet"
 	type="text/css" />
 <!-- Custom styles for this template -->
-
 <link href="<c:url value="/lib/advanced Css/dashboard.css" />"
 	rel="stylesheet" type="text/css" />
 <link href="<c:url value="/css/aside.css" />" rel="stylesheet" type="text/css">
@@ -29,6 +29,7 @@
 <script src="<c:url value="/lib/jquery-1.10.2.min.js" />"></script>
 <script src="<c:url value="/lib/jquery-ui-1.10.3.custom.min.js" />"></script>
 <script src="<c:url value="/js/aside.js" />"></script>
+
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -194,21 +195,15 @@
 	<!-- /.container --> 
 
 
-
-
-
-
-
-
 <script type="text/javascript">
 $(function(){
 
 	var aa = ${article_number};
 	var a_account = "${user.MAccount}";
-	alert(aa)
+	
 $.get("showbotton.article",{article_number:aa},function(data){
+	
 		
-		alert(data)
 			if(data == a_account){
 				$("#deletebotton").addClass('d-inline-block');
 				$("#editorbotton").addClass('d-inline-block');
@@ -219,11 +214,17 @@ $.get("showbotton.article",{article_number:aa},function(data){
 })
 
 $(function(){
-	
-	
-	
-	$(".dropdown-item").click(function(){
 
+	$("#reportsubmit").click(function(){
+		 alert("檢舉完成!");
+		
+		})
+	
+	
+	
+
+	$(".dropdown-item").click(function(){
+			
 			var xxx=  $(this).text();
 
 			$("#dropdownMenuButton").text(xxx);
@@ -240,8 +241,8 @@ $(function(){
 	  $.each(data,function(idx,replymain){
 
 	
-		  var eleImg = $("<img></img>").addClass("d-flex mr-3 rounded-circle").attr("src","http://placehold.it/50x50");
-		  var eleH5 = $("<h5></h5>").addClass("mt-0").html(replymain.m_account);
+		  var eleImg = $("<img></img>").addClass("d-flex mr-3 rounded-circle").attr("src","/EEIT9903/pages/check/getImage.article?m_account="+replymain.m_account).css({"width":"50px","height":"50px"});;
+		  var eleH5 = $("<h5></h5>").addClass("mt-0").html(replymain.m_name);
 		  var eleDivreply = $("<div></div>").html(replymain.reply);
 		  var eleDivmain = $("<div></div>").addClass("media-body")
 	      
