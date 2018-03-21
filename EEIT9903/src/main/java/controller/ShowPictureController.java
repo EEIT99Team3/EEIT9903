@@ -61,7 +61,6 @@ public class ShowPictureController {
 		Blob blob = null;
 		try {
 				if(m_account !=null) {
-//				blob = member.getPhoto();
 				blob = memberService.memberPhoto(m_account);
 				media = blob.getBytes(1, (int) blob.length());
 				}

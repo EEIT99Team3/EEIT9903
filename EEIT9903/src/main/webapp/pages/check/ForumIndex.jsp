@@ -79,9 +79,9 @@
 							$.each(data,function(idx,articlemain){
 											
 								
-									var eleImg = $("<img></img>").attr("src","/EEIT9903/pages/check/getImage.article").css("padding-right","20px");
+									var eleImg = $("<img></img>").attr("src","/EEIT9903/pages/check/getImage.article?m_account="+articlemain.m_account).css({"padding-right":"20px","width":"80px","height":"60px"});
 									var eleh2 = $("<h2></h2>").addClass("card-title").html(articlemain.article_title+"&nbsp&nbsp")
-									var eleAaccount = $("<a></a>").attr("href","#").html(articlemain.m_account);
+									var eleAaccount = $("<a></a>").attr("href","#").html(articlemain.m_name);
 									var eleSpan = $("<span></span>").html(articlemain.article_date.substring(0,16) + " by ").addClass("pull-left font-italic font-weight-normal")
 									var eleDivacdate = $("<div></div>")
 									eleSpan.append(eleAaccount);

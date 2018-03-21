@@ -125,8 +125,7 @@ public class ArticleEditorController {
 	
 	@RequestMapping(
 			path= {"/pages/check/showbotton.article"},
-			method= {RequestMethod.GET,RequestMethod.POST},
-			produces = "application/json;charset=UTF-8"
+			method= {RequestMethod.GET,RequestMethod.POST}
 			)
 	public @ResponseBody String showbotton(String article_number,ArticleBean bean) {
 			System.out.println(article_number);

@@ -86,6 +86,9 @@ public class Cash_Flow_StatementController {
 		beans.put("bean1", bean1);
 		beans.put("bean2", bean2);
 
+		session.setAttribute("data", cfcorporation);
+		model.addAttribute("datayear", year);
+		model.addAttribute("dataseason", season);
 		session.setAttribute("cf_data", beans);
 		return "cfstatement.success";
 

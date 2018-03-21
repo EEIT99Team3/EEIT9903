@@ -85,6 +85,9 @@ public class Balance_SheetController {
 		beans.put("bean1", bean1);
 		beans.put("bean2", bean2);
 		
+		session.setAttribute("data", bscorporation);
+		model.addAttribute("datayear", year);
+		model.addAttribute("dataseason", season);
 		session.setAttribute("bs_data", beans);
         return "bsstatement.success";
 	}
