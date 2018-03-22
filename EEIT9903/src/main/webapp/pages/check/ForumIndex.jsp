@@ -26,35 +26,26 @@
 <script src="<c:url value="/lib/jquery-1.10.2.min.js" />"></script>
 <script src="<c:url value="/lib/jquery-ui-1.10.3.custom.min.js" />"></script>
 <script src="<c:url value="/js/aside.js" />"></script>
+
 </head>
 
 <body>
 
 	<jsp:include page="/common/header.jsp"></jsp:include>
 
-<!-- 	<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0"> -->
-<!-- 		<a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company -->
-<!-- 			name</a> <input class="form-control form-control-dark w-100" type="text" -->
-<!-- 			placeholder="Search" aria-label="Search"> -->
-<!-- 		<ul class="navbar-nav px-3"> -->
-<!-- 			<li class="nav-item text-nowrap"><a class="nav-link" href="#">Sign -->
-<!-- 					out</a></li> -->
-<!-- 		</ul> -->
-<!-- 	</nav> -->
-
-	<div class="container-fluid">
-		<div class="row">
+	<div class="container-fluid" >
+		<div class="row" >
 <%-- 			<jsp:include page="/common/nav.html"></jsp:include>		 --%>
 			<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-            <jsp:include page="/common/aside.jsp" />
+<%--             <jsp:include page="/common/aside.jsp" /> --%>
 			<!-- 以下輸入各網頁不同的地方 -->
 	
-		<div class="container" style="margin-right:400px;margin-top:100px">
+		<div class="container" style="margin-right:350px;margin-top:100px;" >
 		<a class="btn btn-primary" href="article.article?prodaction=articlepost" >發表文章</a>
 		<!-- Page Content -->
-		<div class="container">
+		<div class="container" >
 
-			<div class="row">
+			<div class="row" >
 
 				<!-- Blog Entries Column -->
 				<div id="articlebody" class="col-md-12">
