@@ -10,6 +10,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import model.Balance_sheetBean;
 import model.Balance_sheetPK;
@@ -19,6 +20,7 @@ import model.Cash_flow_statementPK;
 import model.CompanyBean;
 
 @Service
+@Transactional
 public class Cash_flow_statementService {
 	@Autowired
 	private Cash_flow_statementDAO dao;

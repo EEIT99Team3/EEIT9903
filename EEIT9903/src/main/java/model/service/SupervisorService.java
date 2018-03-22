@@ -6,11 +6,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import model.SupervisorBean;
 import model.SupervisorDAO;
 
 @Service
+@Transactional
 public class SupervisorService {
 	@Autowired
 	private SupervisorDAO supervisorDAO;

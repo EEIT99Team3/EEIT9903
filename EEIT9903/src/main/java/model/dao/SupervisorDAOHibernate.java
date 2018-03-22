@@ -23,7 +23,6 @@ public class SupervisorDAOHibernate implements SupervisorDAO {
 	 * @see model.dao.SupervisorDAO#insert(model.SupervisorBean)
 	 */
 	@Override
-	@Transactional
 	public SupervisorBean insert(SupervisorBean bean) {
 		if(bean!=null) {
 			SupervisorBean temp = this.getSession().get(SupervisorBean.class, bean.getS_account());
@@ -39,7 +38,6 @@ public class SupervisorDAOHibernate implements SupervisorDAO {
 	 * @see model.dao.SupervisorDAO#delete(java.lang.String)
 	 */
 	@Override
-	@Transactional
 	public Boolean delete(String s_account) {
 		SupervisorBean temp = this.getSession().get(SupervisorBean.class, s_account);
 		if(temp!=null) {
@@ -53,7 +51,6 @@ public class SupervisorDAOHibernate implements SupervisorDAO {
 	 * @see model.dao.SupervisorDAO#select(java.lang.String)
 	 */
 	@Override
-	@Transactional
 	public SupervisorBean select(String s_account) {
 		return this.getSession().get(SupervisorBean.class, s_account);
 	}
@@ -62,7 +59,6 @@ public class SupervisorDAOHibernate implements SupervisorDAO {
 	 * @see model.dao.SupervisorDAO#select()
 	 */
 	@Override
-	@Transactional
 	public List<SupervisorBean> select() {
 		return this.getSession().createQuery("from SupervisorBean", SupervisorBean.class).list();
 	}
