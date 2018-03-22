@@ -93,7 +93,7 @@ public class Balance_sheetService {
 				try {
 					doc = Jsoup.connect(url)
 							.data("encodeURIComponent", "1", "step", "1", "firstin", "1", "off", "1", "queryName",
-									"co_id", "inpuType", "co_id", "TYPEK", "all", "isnew", "false", "co_id", "2330",
+									"co_id", "inpuType", "co_id", "TYPEK", "all", "isnew", "false", "co_id", co_id,
 									"year", year, "season", season)
 							.post();
 				} catch (IOException e) {
