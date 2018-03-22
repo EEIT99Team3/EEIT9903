@@ -47,7 +47,7 @@ public class Cash_flow_statementService {
 		Boolean count = true;
 		int countbreak = 0;
 
-		a: for (int n = 2351; n <= 2380; n++) {
+		a: for (int n = 2421; n <= 2450; n++) {
 			String co_id = "" + n;
 
 			// 利用Company的Bean來做Select檢查是否有這間公司，若無此公司則跳過
