@@ -28,14 +28,7 @@ import model.service.ArticleServise;
 public class ArticleEditorController {
 	@Autowired
 	private ArticleServise articleServise;
-	
-	
-	@InitBinder
-	public void initializer(WebDataBinder webDataBinder) {
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd"); 
-		dateFormat.setLenient(false); 
-		webDataBinder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
-	}
+		
 	@RequestMapping(
 			path="/pages/check/article.article",
 			method= {RequestMethod.POST,RequestMethod.GET,})
@@ -60,8 +53,8 @@ public class ArticleEditorController {
 	if(bean.getArticle_number()!=null && !"showbotton".equals(prodaction) && !"articleDelete".equals(prodaction) && !"articleEdit".equals(prodaction) && !"articleEditok".equals(prodaction) && !"submitOk".equals(prodaction) && !"submitcancle".equals(prodaction)) {
 			
 			bean = articleServise.select(Integer.parseInt(article_number));
-	
-			session.setAttribute("articleDate", bean.getArticle_date());	
+			SimpleDateFormat date = new SimpleDateFormat("EEE,yyyy MMM d HH:mm");
+			session.setAttribute("articleDate",date.format(bean.getArticle_date()));
 			session.setAttribute("article", bean.getArticle());
 			session.setAttribute("M_account", bean.getM_account());
 			session.setAttribute("article_title", bean.getArticle_title());
@@ -130,7 +123,6 @@ public class ArticleEditorController {
 	public @ResponseBody String showbotton(String article_number,ArticleBean bean) {
 			System.out.println(article_number);
 		bean = 	articleServise.select(Integer.parseInt(article_number));
-		System.out.println(bean.getM_account());
 		return bean.getM_account();
 	}
 	

@@ -37,9 +37,9 @@ public class ArticleDAOHibernate implements ArticleDAO {
 	private SessionFactory sessionFactory ;
 	
 	
-	private SimpleDateFormat sdf;
+	
 	public ArticleDAOHibernate() {
-		sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm");	
+		 
 	}
 	@Override
 	public Session getSession() {

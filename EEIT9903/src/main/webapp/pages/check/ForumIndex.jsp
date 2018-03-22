@@ -68,17 +68,20 @@
 					$.getJSON( "articleshow.article", function(data) {
 						  var docFrag = $(document.createDocumentFragment());
 							$.each(data,function(idx,articlemain){
-											
+							
 								
 									var eleImg = $("<img></img>").attr("src","/EEIT9903/pages/check/getImage.article?m_account="+articlemain.m_account).css({"padding-right":"20px","width":"80px","height":"60px"});
 									var eleh2 = $("<h2></h2>").addClass("card-title").html(articlemain.article_title+"&nbsp&nbsp")
 									var eleAaccount = $("<a></a>").attr("href","#").html(articlemain.m_name);
-									var eleSpan = $("<span></span>").html(articlemain.article_date.substring(0,16) + " by ").addClass("pull-left font-italic font-weight-normal")
-									var eleDivacdate = $("<div></div>")
+									var eleSpan = $("<span></span>").html("Post by ").addClass("pull-left")
+									var eleDivacdate = $("<div></div>").css("padding-bottom","25px");
+									var eleDateSpan = $("<span></span>").html("發表於" + articlemain.article_date.substring(0,16))
+									var eleDivnone = $("<div></div>").css("padding-top","25px").addClass("pull-left font-italic font-weight-normal");
 									eleSpan.append(eleAaccount);
-								
+									eleDivnone.append(eleDateSpan);
 									eleh2.prepend(eleImg);
 									eleDivacdate.append(eleSpan);
+									eleDivacdate.append(eleDivnone);
 									
 									var eleArticleDiv = $("<div></div>").attr("class","article").html(articlemain.article).css({"overflow":"hidden","width":"800px","height":"200px"});	
 									var eleADiv = $("<div></div>").addClass("abc").css("text-align","right");

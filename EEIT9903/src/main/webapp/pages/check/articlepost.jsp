@@ -75,7 +75,7 @@
 
 					<!-- Author -->
 					<p class="lead">				 
-						by <a href="#">${M_account}</a> ${fn:substring(articleDate, 0,16)} 
+						by <a href="#">${M_account}</a> ${articleDate} 
 						<a role="button" href="<c:url value='/pages/check/article.article?prodaction=articleEdit&article_number='/>${article_number}" style="margin-left:50% " class="btn btn-info fa fa-edit d-none" id="editorbotton">編輯</a>
 						<a role="button"  class="btn btn-danger fa fa-close d-none" data-toggle="modal" data-target="#exampleModalCenter" id="deletebotton">刪除</a>
 						<a role="button"  class="btn btn-warning fa fa-ban d-inline-block" data-toggle="modal" data-target="#reportModal" data-whatever="@mdo" id="reportbotton" style="margin-left:60%" >檢舉</a>
