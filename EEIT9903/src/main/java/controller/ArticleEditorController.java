@@ -40,7 +40,7 @@ public class ArticleEditorController {
 			path="/pages/check/article.article",
 			method= {RequestMethod.POST,RequestMethod.GET,})
 	public String method(String title,String content,
-			String user,String prodaction,ArticleBean bean,String article_number,Model model,HttpSession session,HttpServletResponse response) {
+			String user,String prodaction,ArticleBean bean,String article_number,Model model,HttpSession session) {
 		Member member = (Member) session.getAttribute("user");
 		bean.setArticle_title(title);
 		bean.setArticle(content);
