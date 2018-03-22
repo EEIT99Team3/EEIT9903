@@ -106,7 +106,7 @@
 						<span>EPS</span> <select id="epstv">
 							<option value="">請選擇</option>
 							<option value="0">普通篩選(>0))</option>
-							<option value="10">嚴格篩選(10以上)</option>
+							<option value="5">嚴格篩選(5以上)</option>
 						</select>
 					</div>
 
