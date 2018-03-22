@@ -1,5 +1,8 @@
 body {
   font-size: .875rem;
+background: url(#);
+background-repeat: no-repeat;
+background-size: 100%
 }
 
 .feather {

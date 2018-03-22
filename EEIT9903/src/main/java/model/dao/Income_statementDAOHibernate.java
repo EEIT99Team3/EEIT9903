@@ -1,7 +1,10 @@
 package model.dao;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,9 +12,9 @@ import org.springframework.transaction.annotation.Transactional;
 import model.Income_statementBean;
 import model.Income_statementDAO;
 import model.Income_statementPK;
+
 @Repository
 public class Income_statementDAOHibernate implements Income_statementDAO {
-
 	@Autowired
 	private SessionFactory sessionFactory;
 //	public Income_statementBeanDAOHibernate(SessionFactory sessionFactory) {
@@ -45,5 +48,14 @@ public class Income_statementDAOHibernate implements Income_statementDAO {
 	@Transactional
 	public Income_statementBean select(Income_statementPK pk) {
 		return this.getSession().get(Income_statementBean.class, pk);
+	}
+	
+	@Transactional
+	public List<Income_statementBean> select(Integer ratyear, Integer ratseason) {
+		Query<Income_statementBean> query = this.getSession().createQuery(
+				"FROM Income_statementBean where is_year = :year AND is_season = :season", Income_statementBean.class);
+		query.setParameter("year", ratyear);
+		query.setParameter("season", ratseason);
+		return query.list();
 	}
 }

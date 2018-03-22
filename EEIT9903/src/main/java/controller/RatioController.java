@@ -1,6 +1,7 @@
 package controller;
 
 import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,18 +15,20 @@ public class RatioController {
 	@Autowired
 	RatioService service = null;
 	String[] statement = null;
-	@RequestMapping(path= {"/choose"}, method= {RequestMethod.GET, RequestMethod.POST})
+
+	// 丟出頁面
+	@RequestMapping(path = { "/choose" }, method = { RequestMethod.GET, RequestMethod.POST })
 	public String method() {
 		return "RatioController";
 	}
-	@RequestMapping(
-			path= {"/data"},
-			method= {RequestMethod.GET,RequestMethod.POST},
-			produces = "application/json;charset=UTF-8"
-			)
-	public @ResponseBody String getData(String ratyear,String ratseason,String eps,String bvps,
-			String gpmargin,String opmargin,String nimargin,String roe,String roa,String arturnover,String invturnover,
-			String apturnover,String debtratio,String currentratio,String fcfgrowth,String ocfgrowth,String revenuesgrowth) {
+
+	// 接收前端來的選股條件，並回應JSON給前端
+	@RequestMapping(path = { "/data" }, method = { RequestMethod.GET,
+			RequestMethod.POST }, produces = "application/json;charset=UTF-8")
+	public @ResponseBody String getData(String ratyear, String ratseason, String eps, String bvps, String gpmargin,
+			String opmargin, String nimargin, String roe, String roa, String arturnover, String invturnover,
+			String apturnover, String debtratio, String currentratio, String fcfgrowth, String ocfgrowth,
+			String revenuesgrowth) {
 		ArrayList<String> list = new ArrayList<String>();
 		if (ratyear != null) {
 			list.add("rat_year");
@@ -135,6 +138,26 @@ public class RatioController {
 			service.setStatement(statement);
 		}
 		return service.getRatioJson();
-		
+
 	}
+
+	// 接收前端管理員所要計算的選股指標季年，呼叫RatioService中的方法計算後將資料塞進RatioTable
+//	@RequestMapping(path = { "/calculation" }, method = { RequestMethod.GET, RequestMethod.POST })
+//	public @ResponseBody String doCalculate(Integer ratyear, Integer ratseason) {
+//		System.out.println("RatioController:doCalculate has been called");
+//		if (ratyear != null && ratseason != null) {
+//			service.calcRatio(ratyear, ratseason);
+//			System.out.println("RatioController:doCalculate has finished.");
+//			return "RatioController:doCalculate has finished.";
+//		} else if(ratyear != null || ratseason != null) {
+//			System.out.println("RatioController:doCalculate方法錯誤，參數不得傳入null:");
+//			if (ratyear == null)
+//				System.out.print("ratyear為null ");
+//			if (ratseason == null)
+//				System.out.println("ratseason");
+//			return "RatioController:doCalculate方法錯誤，參數不得傳入null:";
+//		}else { 
+//			System.out.println("RatioController:doCalculate方法未呼叫RatioService:calcRatio");
+//			return "RatioController:doCalculate方法未呼叫RatioService:calcRatio";}
+//	}
 }
