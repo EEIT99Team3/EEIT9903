@@ -178,8 +178,8 @@ public class RatioService {
 				mR.get(stockid).setInvTurnover(service.calcINVTurnover(r));
 				mR.get(stockid).setApTurnover(service.calcAPTurnover(r));
 				//
-				mR.get(stockid).setOcfGrowth(null);
-				mR.get(stockid).setFcfGrowth(null);
+				mR.get(stockid).setOcfGrowth(service.calcOCFGrowth(r));
+				mR.get(stockid).setFcfGrowth(service.calcFCFGrowth(r));
 				//
 				mR.get(stockid).setRevenuesGrowth(service.calcRevenuesGrowth(r));
 				RatioDAO.insert(mR.get(stockid));
@@ -316,12 +316,12 @@ public class RatioService {
 	}
 
 	// C:***兩期 calcOCFGrowth(Integer ratyear,Integer ratseason);
-	private BigDecimal calcOCFGrowth(Integer ratyear, Integer ratseason) {
-		return null;
+	private BigDecimal calcOCFGrowth(RatioServiceBean r) {
+		return BigDecimal.valueOf(0);
 	}
 
 	// 計算有困難
-	private BigDecimal calcFCFGrowth(Integer ratyear, Integer ratseason) {
-		return null;
+	private BigDecimal calcFCFGrowth(RatioServiceBean r) {
+		return BigDecimal.valueOf(0);
 	}
 }
