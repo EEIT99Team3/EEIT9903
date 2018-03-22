@@ -15,7 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import model.Balance_sheetBean;
 import model.Balance_sheetDAO;
-import model.CompanyDAO;
 import model.Income_statementBean;
 import model.Income_statementDAO;
 import model.Ratio;
