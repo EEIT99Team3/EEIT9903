@@ -204,8 +204,8 @@ public class RatioService {
 //		System.out.println(r.balance_sheetBean.getCaptial_stock());
 //		System.out.println("EPS:"+((double)(r.income_statementBean.getNet_income()) / (double)(companyDAO.select(stockid).getCaptial()/10)));
 //		System.out.println("================");
-		return BigDecimal.valueOf((double)(r.income_statementBean.getNet_income()) / 
-				(double)(r.balance_sheetBean.getCaptial_stock()/10));
+		return BigDecimal.valueOf((double)(r.income_statementBean.getNet_income()) * 1000 / 
+				(double)(companyService.select(stockid).getCaptial()/10));
 	}
 
 	public BigDecimal calcROE(RatioServiceBean r) {
