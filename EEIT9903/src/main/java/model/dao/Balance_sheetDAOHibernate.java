@@ -12,8 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 import model.Balance_sheetBean;
 import model.Balance_sheetDAO;
 import model.Balance_sheetPK;
-import model.Income_statementBean;
-import model.service.RatioService;
 
 @Repository
 public class Balance_sheetDAOHibernate implements Balance_sheetDAO {

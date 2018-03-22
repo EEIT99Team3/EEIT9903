@@ -13,7 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import model.Ratio;
 import model.RatioId;
-import model.service.RatioService;
 
 @Repository
 public class RatioDAOHibernate {

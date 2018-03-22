@@ -1,21 +1,20 @@
 package model.dao;
 
 import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
 import model.Income_statementBean;
 import model.Income_statementDAO;
 import model.Income_statementPK;
-import model.service.RatioService;
 
 @Repository
 public class Income_statementDAOHibernate implements Income_statementDAO {
-	@Autowired
-	RatioService service;
 	@Autowired
 	private SessionFactory sessionFactory;
 //	public Income_statementBeanDAOHibernate(SessionFactory sessionFactory) {

@@ -77,6 +77,15 @@ public class ArticleReportController {
 		return "changeprocess.do";
 	}
 	
-
+	@RequestMapping(
+			path="/pages/check/processreportok.article",
+			method= {RequestMethod.GET,RequestMethod.POST}
+			)
+	public String processreportok(String article_number,ArticleBean bean,String prodaction) {
+		bean.setArticle_number(Integer.parseInt(article_number));
+		
+	    boolean updateresult = articleReportService.changeprocess(Integer.parseInt(article_number));
+		return "changeprocess.do";
+	}
 	
 }

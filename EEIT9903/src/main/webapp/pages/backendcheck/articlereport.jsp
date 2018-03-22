@@ -107,18 +107,21 @@
 						var cell6 = $("<td></td>").html("未處理");
 						var showbotton = $("<a></a>").addClass("fa fa-eye btn btn-warning").css("margin-left","10px").attr({"href":"../check/article.article?article_number="+report.article_number,"target":"_blank"});
 						var deletebotton = $("<a></a>").addClass("fa fa-close btn btn-danger").css("margin-left","10px").attr("href","../check/processreport.article?article_number="+report.article_number);
+						var passbotton = $("<a></a>").addClass("fa fa-check-circle btn btn-success").css("margin-left","10px").attr("href","../check/processreportok.article?article_number="+report.article_number);						
 		                if(report.processed == 0){
 	                    var cell7 = $("<td></td>")
 	                    cell7.append(showbotton);
 	                    cell7.append(deletebotton);
+	                    cell7.append(passbotton);
 	                    }else if(report.processed == 1){
 	                    	cell6.text("已處理");
 	                    	 var cell7 = $("<td></td>")
 	                    	 var showbotton2 = $("<a></a>").addClass("fa fa-eye btn btn-warning disabled").css("margin-left","10px").attr({"href":"../check/article.article?article_number="+report.article_number,"target":"_blank","aria-disabled":"true"});
 	                    	 var deletereport = $("<a></a>").addClass("fa fa-close btn btn-danger disabled").css("margin-left","10px").attr({"href":"processreport.article?article_number="+report.article_number,"aria-disabled":"true"});
-	                    	 cell7.append(showbotton2);
+	                    	 var passbotton2 = $("<a></a>").addClass("fa fa-check-circle btn btn-success disabled").css("margin-left","10px").attr({"href":"../check/processreportok.article?article_number="+report.article_number,"aria-disabled":"true"});						
+		                     cell7.append(showbotton2);
 		 	                 cell7.append(deletereport);
-		            		
+		            		 cell7.append(passbotton2);
 		                }
 
 						

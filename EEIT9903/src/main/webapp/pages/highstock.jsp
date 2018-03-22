@@ -41,7 +41,6 @@
 			<!-- 以下輸入各網頁不同的地方 -->
 			<div class="container">
                 <div class="main_highstock">
-                    <h2>穩健的報酬,更悠閒的生活</h2>
 <!--                     <div> -->
 <!--                         <input type="text" id="stockNum" name="stockNum" value="" -->
 <!--                             placeholder="請輸入股價代號"> <input type="button"  id="search" value="查詢" class="searchHS"> -->

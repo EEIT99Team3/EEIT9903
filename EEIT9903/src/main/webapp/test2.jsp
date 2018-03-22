@@ -30,14 +30,14 @@ ApplicationContext context = (ApplicationContext)
 // Cash_flow_statementBean bean3 = dao3.select(new Cash_flow_statementPK("2317", 105, 4));
 // out.println(bean3);
 
-Balance_sheetService test = (Balance_sheetService) context.getBean("balance_sheetService");
-test.insert();
+// Balance_sheetService test = (Balance_sheetService) context.getBean("balance_sheetService");
+// test.insert();
 
 // Income_StatementService test2 = (Income_StatementService) context.getBean("income_StatementService");
 // test2.insert();
 
-// Cash_flow_statementService test3 = (Cash_flow_statementService) context.getBean("cash_flow_statementService");
-// test3.insert();
+Cash_flow_statementService test3 = (Cash_flow_statementService) context.getBean("cash_flow_statementService");
+test3.insert();
 
 // SupervisorService service = (SupervisorService) context.getBean("supervisorService");
 // LinkedList<HashMap<String, Object>> test = service.select(null);
