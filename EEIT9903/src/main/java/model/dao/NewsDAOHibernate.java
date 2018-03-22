@@ -8,7 +8,6 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import model.CompanyBean;
 import model.NewsBean;
 import model.NewsDAO;
 
@@ -33,9 +32,9 @@ public class NewsDAOHibernate implements NewsDAO {
 	}
 	
 	@Override
-	public Boolean matchTitle(String news_title) {
-		Query<NewsBean> query = this.getSession().createQuery("from NewsBean where news_title = :news_title", NewsBean.class);
-		query.setParameter("news_title", news_title);
+	public Boolean matchWebsite(String news_website) {
+		Query<NewsBean> query = this.getSession().createQuery("from NewsBean where news_website = :news_website", NewsBean.class);
+		query.setParameter("news_website", news_website);
 		if(query.list().size() == 1) {
 			return true;
 		}	

@@ -42,15 +42,15 @@ public class NewsService {
 			
 			Document doc = Jsoup.connect(url).header("user-agent", header).get();
 			for(int i=0 ; i < 10 ; i++) {
-				String news_title = doc.select("tbody tbody tbody a").get(i).text();
+				String news_website = "https://tw.stock.yahoo.com" + doc.select("tbody tbody tbody a").get(i).attr("href");
 				
-				if(!newsDao.matchTitle(news_title)) {
+				if(!newsDao.matchWebsite(news_website)) {
 					
 					bean = new NewsBean();
 					bean.setStock_id(doc.select("table b").text().substring(0, 4));
-					bean.setNews_title(news_title);
+					bean.setNews_title(doc.select("tbody tbody tbody a").get(i).text());
 					bean.setNews_date(new SimpleDateFormat("yyyy/MM/dd").parse(doc.select("tbody tbody font").get(i).text().substring(1, 11)));
-					bean.setNews_website("https://tw.stock.yahoo.com" + doc.select("tbody tbody tbody a").get(i).attr("href"));
+					bean.setNews_website(news_website);
 					bean.setNews_source(doc.select("tbody tbody font").get(i).text().substring(12).replace(")", ""));
 					
 					temp.add(bean);
