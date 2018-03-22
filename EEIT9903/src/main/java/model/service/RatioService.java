@@ -3,10 +3,10 @@ package model.service;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
-import java.util.HashSet;
 
 import org.json.simple.JSONValue;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import model.Balance_sheetBean;
 import model.Balance_sheetDAO;
+import model.CompanyDAO;
 import model.Income_statementBean;
 import model.Income_statementDAO;
 import model.Ratio;
@@ -26,9 +27,11 @@ public class RatioService {
 	}
 
 	@Autowired
-	public RatioDAOHibernate RatioDAO;
+	public RatioDAOHibernate ratioDAO;
 	@Autowired
-	public Income_statementDAO IncomeDAO;
+	public Income_statementDAO incomeDAO;
+	@Autowired
+	public CompanyDAO companyDAO;
 	@Autowired
 	public Balance_sheetDAO BalDAO;
 	@Autowired
@@ -56,9 +59,9 @@ public class RatioService {
 	// 選股
 	public String getRatioJson() {
 		if (this.statement != null) {
-			RatioDAO.setStatement(this.getStatement());
+			ratioDAO.setStatement(this.getStatement());
 		}
-		List<Ratio> list = RatioDAO.select();
+		List<Ratio> list = ratioDAO.select();
 		LinkedList<HashMap<String, String>> l1 = new LinkedList<HashMap<String, String>>();
 		for (Ratio p : list) {
 			HashMap<String, String> m1 = new HashMap<String, String>();
@@ -96,9 +99,9 @@ public class RatioService {
 	}
 
 	public void calcRatio(Integer ratyear, Integer ratseason) {
-		List<Income_statementBean> listI = IncomeDAO.select(ratyear, ratseason);
+		List<Income_statementBean> listI = incomeDAO.select(ratyear, ratseason);
 		List<Balance_sheetBean> listB = BalDAO.select(ratyear, ratseason);
-		List<Income_statementBean> listIlast = IncomeDAO.select(ratyear - 1, ratseason);
+		List<Income_statementBean> listIlast = incomeDAO.select(ratyear - 1, ratseason);
 		List<Balance_sheetBean> listBlast = BalDAO.select(ratyear - 1, ratseason);
 		HashMap<String, Income_statementBean> mI = new HashMap<String, Income_statementBean>();
 		HashMap<String, Income_statementBean> mIlast = new HashMap<String, Income_statementBean>();
@@ -154,15 +157,13 @@ public class RatioService {
 		}
 
 		if (arr.size() != 0) {
-//			System.out.println("計算開始");
 			for (RatioServiceBean r : arr) {
-//				 System.out.println("");
 				String stockid = r.income_statementBean.getIncome_StatementPK().getStock_id();
 				System.out.println("stockid:" + stockid);
 				mR.put(stockid, new Ratio());
 				mR.get(stockid).setId(new RatioId(stockid, ratyear, ratseason));
 				// IB
-				mR.get(stockid).setEps(service.calcEPS(r));
+				mR.get(stockid).setEps(service.calcEPS(r,stockid));
 				mR.get(stockid).setRoe(service.calcROE(r));
 				mR.get(stockid).setRoa(service.calcROA(r));
 				// B
@@ -182,21 +183,20 @@ public class RatioService {
 				mR.get(stockid).setFcfGrowth(service.calcFCFGrowth(r));
 				//
 				mR.get(stockid).setRevenuesGrowth(service.calcRevenuesGrowth(r));
-				RatioDAO.insert(mR.get(stockid));
-//				System.out.println(mR.get(stockid));
+				ratioDAO.insert(mR.get(stockid));
 			}
 		}
 	}
 
 	// IB:calcEPS(Integer ratyear,Integer ratseason); calcROE(Integer
 	// ratyear,Integer ratseason);calcROA(Integer ratyear,Integer ratseason);
-	private BigDecimal calcEPS(RatioServiceBean r) {
-//		System.out.println("calcEPS:");
-//		System.out.println(r.income_statementBean.getNet_income());
-//		System.out.println(r.balance_sheetBean.getCaptial_stock());
-//		System.out.println("EPS:"+((double)(r.income_statementBean.getNet_income()) / (double)(r.balance_sheetBean.getCaptial_stock())));
-//		System.out.println("================");
-		return BigDecimal.valueOf((double)(r.income_statementBean.getNet_income()) / (double)(r.balance_sheetBean.getCaptial_stock()));
+	private BigDecimal calcEPS(RatioServiceBean r,String stockid) {
+		System.out.println("calcEPS:");
+		System.out.println(r.income_statementBean.getNet_income());
+		System.out.println(r.balance_sheetBean.getCaptial_stock());
+		System.out.println("EPS:"+((double)(r.income_statementBean.getNet_income()) / (double)(companyDAO.select(stockid).getCaptial()/10)));
+		System.out.println("================");
+		return BigDecimal.valueOf((double)(r.income_statementBean.getNet_income()) / (double)(r.balance_sheetBean.getCaptial_stock()/10));
 	}
 
 	private BigDecimal calcROE(RatioServiceBean r) {
