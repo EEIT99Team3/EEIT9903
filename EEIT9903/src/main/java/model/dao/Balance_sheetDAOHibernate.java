@@ -26,7 +26,6 @@ public class Balance_sheetDAOHibernate implements Balance_sheetDAO {
 	}
 	
 	@Override
-	@Transactional
 	public Balance_sheetBean insert(Balance_sheetBean bean) {
 		if(bean!=null) {
 			Balance_sheetBean temp =
@@ -40,12 +39,11 @@ public class Balance_sheetDAOHibernate implements Balance_sheetDAO {
 	}
 	
 	@Override
-	@Transactional
 	public Balance_sheetBean select(Balance_sheetPK pk) {
 		return this.getSession().get(Balance_sheetBean.class, pk);
 	}
 
-	@Transactional
+
 	public List<Balance_sheetBean> select(Integer ratyear, Integer ratseason) {
 		Query<Balance_sheetBean> query = this.getSession().createQuery(
 				"FROM Balance_sheetBean where bs_year = :year AND bs_season = :season", Balance_sheetBean.class);

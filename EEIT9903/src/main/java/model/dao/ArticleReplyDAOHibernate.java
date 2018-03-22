@@ -15,7 +15,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.NativeQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import model.ArticleReplyBean;
 import model.ArticleReplyDAO;
@@ -35,7 +34,7 @@ public class ArticleReplyDAOHibernate implements ArticleReplyDAO {
 	private Session getSession() {
 		return sessionFactory.getCurrentSession();
 	}
-	@Transactional
+	
 	public Integer select() {
 		
 		return  ((Integer)getSession().createQuery("select count(*) from REPLY").uniqueResult()).intValue();
@@ -44,7 +43,6 @@ public class ArticleReplyDAOHibernate implements ArticleReplyDAO {
 	}
 	
 	@Override
-	@Transactional
 	public LinkedList<HashMap<String, String>> select(Integer article_number) throws SQLException  {
 
 		LinkedList<HashMap<String, String>> l1 = new LinkedList<HashMap<String, String>>();
@@ -83,7 +81,6 @@ public class ArticleReplyDAOHibernate implements ArticleReplyDAO {
 	
 	
 	@Override
-	@Transactional
 	public boolean insert(ArticleReplyBean bean) {
 		if(bean != null) {
 		Date date = new Date();	
@@ -98,7 +95,6 @@ public class ArticleReplyDAOHibernate implements ArticleReplyDAO {
 
 
 
-	@Transactional
 	public boolean delete(int article_number) {
 		
 		this.getSession().delete(article_number);

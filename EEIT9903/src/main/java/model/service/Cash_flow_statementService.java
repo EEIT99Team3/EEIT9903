@@ -10,6 +10,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import model.Balance_sheetBean;
 import model.Balance_sheetPK;
@@ -19,6 +20,7 @@ import model.Cash_flow_statementPK;
 import model.CompanyBean;
 
 @Service
+@Transactional
 public class Cash_flow_statementService {
 	@Autowired
 	private Cash_flow_statementDAO dao;
@@ -94,7 +96,7 @@ public class Cash_flow_statementService {
 					try {
 						doc = Jsoup.connect(url)
 								.data("encodeURIComponent", "1", "step", "1", "firstin", "1", "off", "1", "queryName",
-										"co_id", "inpuType", "co_id", "TYPEK", "all", "isnew", "false", "co_id", "2317",
+										"co_id", "inpuType", "co_id", "TYPEK", "all", "isnew", "false", "co_id", co_id,
 										"year", year, "season", season)
 								.post();
 					} catch (IOException e) {

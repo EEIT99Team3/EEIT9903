@@ -106,7 +106,7 @@
 						<span>EPS</span> <select id="epstv">
 							<option value="">請選擇</option>
 							<option value="0">普通篩選(>0))</option>
-							<option value="10">嚴格篩選(10以上)</option>
+							<option value="5">嚴格篩選(5以上)</option>
 						</select>
 					</div>
 
@@ -120,22 +120,22 @@
 					<div id="gpmargint" class="selectorc">
 						<span>毛利率</span> <select id="gpmargintv">
 							<option value="">請選擇</option>
-							<option value="10">普通篩選(>10)</option>
-							<option value="30">嚴格篩選(>30)</option>
+							<option value="0.1">普通篩選(>10)</option>
+							<option value="0.3">嚴格篩選(>30)</option>
 						</select>
 					</div>
 					<div id="opmargint" class="selectorc">
 						<span>營業利益率</span> <select id="opmargintv">
 							<option value="">請選擇</option>
-							<option value="10">普通篩選(>10)</option>
-							<option value=20>嚴格篩選(>20)</option>
+							<option value="0.1">普通篩選(>10)</option>
+							<option value="0.2">嚴格篩選(>20)</option>
 						</select>
 					</div>
 					<div id="nimargint" class="selectorc">
 						<span>稅後淨利率</span> <select id="nimargintv">
 							<option value="">請選擇</option>
-							<option value="5">普通篩選(>5)</option>
-							<option value=20>嚴格篩選(>20)</option>
+							<option value="0.05">普通篩選(>5)</option>
+							<option value="0.2">嚴格篩選(>20)</option>
 						</select>
 					</div>
 					<div id="roet" class="selectorc">

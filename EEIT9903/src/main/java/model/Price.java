@@ -18,7 +18,6 @@ public class Price implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private PriceId id;
-	private Company company;
 	private BigDecimal priceOpen;
 	private BigDecimal priceClose;
 	private BigDecimal priceHighest;
@@ -37,15 +36,14 @@ public class Price implements java.io.Serializable {
 	public Price() {
 	}
 
-	public Price(PriceId id, Company company) {
+	public Price(PriceId id) {
 		this.id = id;
-		this.company = company;
+		
 	}
 
-	public Price(PriceId id, Company company, BigDecimal priceOpen, BigDecimal priceClose, BigDecimal priceHighest,
+	public Price(PriceId id, BigDecimal priceOpen, BigDecimal priceClose, BigDecimal priceHighest,
 			BigDecimal priceLowest, Long volume, BigDecimal peRatio, BigDecimal yieldRate) {
 		this.id = id;
-		this.company = company;
 		this.priceOpen = priceOpen;
 		this.priceClose = priceClose;
 		this.priceHighest = priceHighest;
@@ -66,16 +64,6 @@ public class Price implements java.io.Serializable {
 
 	public void setId(PriceId id) {
 		this.id = id;
-	}
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "stock_id", nullable = false, insertable = false, updatable = false)
-	public Company getCompany() {
-		return this.company;
-	}
-
-	public void setCompany(Company company) {
-		this.company = company;
 	}
 
 	@Column(name = "price_open", scale = 1)

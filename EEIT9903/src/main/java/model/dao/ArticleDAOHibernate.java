@@ -54,7 +54,6 @@ public class ArticleDAOHibernate implements ArticleDAO {
 	}
 
 	@Override
-	@Transactional
 	public LinkedList<HashMap<String,String>> select()  {
 		
 		
@@ -93,7 +92,6 @@ public class ArticleDAOHibernate implements ArticleDAO {
 
 
 	@Override
-	@Transactional
 	public boolean insert(ArticleBean bean) throws SQLException { 
 		 Date date = new Date();	
 		 if(bean !=null) {
@@ -108,7 +106,6 @@ public class ArticleDAOHibernate implements ArticleDAO {
 	
 	
 	@Override
-	@Transactional
 	public boolean delete(int article_number) throws SQLException {
 		
 		NativeQuery<Integer> query1 = this.getSession().createNativeQuery("delete from reply where article_number="+article_number);
@@ -123,7 +120,6 @@ public class ArticleDAOHibernate implements ArticleDAO {
 		return false;
 	}
 	@Override
-	@Transactional
 	public boolean articleupdate(Integer article_number,String title,String article) {
 		ArticleBean bean = this.getSession().get(ArticleBean.class, article_number);
 		if(bean != null) {

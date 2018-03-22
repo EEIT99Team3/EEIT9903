@@ -8,6 +8,6 @@ public interface NewsDAO {
 
 	NewsBean insert(NewsBean bean);
 	
-	Boolean matchTitle(String news_title);
+	Boolean matchWebsite(String news_website);
 
 }

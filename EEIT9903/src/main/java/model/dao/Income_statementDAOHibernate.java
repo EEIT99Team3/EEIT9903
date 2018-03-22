@@ -28,7 +28,6 @@ public class Income_statementDAOHibernate implements Income_statementDAO {
 	 * @see model.dao.Income_statementDAO#insert(model.Income_StatementBean)
 	 */
 	@Override
-	@Transactional
 	public Income_statementBean insert(Income_statementBean bean) {
 		if(bean!=null) {
 			Income_statementBean temp =
@@ -45,12 +44,10 @@ public class Income_statementDAOHibernate implements Income_statementDAO {
 	 * @see model.dao.Income_statementDAO#select(int)
 	 */
 	@Override
-	@Transactional
 	public Income_statementBean select(Income_statementPK pk) {
 		return this.getSession().get(Income_statementBean.class, pk);
 	}
 	
-	@Transactional
 	public List<Income_statementBean> select(Integer ratyear, Integer ratseason) {
 		Query<Income_statementBean> query = this.getSession().createQuery(
 				"FROM Income_statementBean where is_year = :year AND is_season = :season", Income_statementBean.class);
