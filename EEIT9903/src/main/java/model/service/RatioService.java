@@ -11,6 +11,7 @@ import java.util.HashSet;
 import org.json.simple.JSONValue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import model.Balance_sheetBean;
 import model.Balance_sheetDAO;
@@ -21,6 +22,7 @@ import model.RatioId;
 import model.dao.RatioDAOHibernate;
 
 @Service
+@Transactional
 public class RatioService {
 	public RatioService() {
 	}

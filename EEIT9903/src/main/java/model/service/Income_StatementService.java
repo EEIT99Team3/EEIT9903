@@ -10,6 +10,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import model.CompanyBean;
 import model.Income_statementBean;
@@ -17,6 +18,7 @@ import model.Income_statementDAO;
 import model.Income_statementPK;
 
 @Service
+@Transactional
 public class Income_StatementService {
 	@Autowired
 	private Income_statementDAO dao;

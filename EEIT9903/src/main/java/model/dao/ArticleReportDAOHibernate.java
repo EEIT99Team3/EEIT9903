@@ -7,17 +7,14 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.List;
 
 import javax.sql.DataSource;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.NativeQuery;
-import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import model.ArticleReportBean;
 @Repository
@@ -30,7 +27,7 @@ public class ArticleReportDAOHibernate {
 	public Session getSession() {
 		return sessionFactory.getCurrentSession();
 	}
-	@Transactional
+	
 	public LinkedList<HashMap<String,String>> select() {
 		LinkedList<HashMap<String,String>> l1 = new LinkedList<>();
 		try (Connection conn = dataSource.getConnection();
@@ -55,7 +52,7 @@ public class ArticleReportDAOHibernate {
 		return l1;
 		
 	}
-	@Transactional
+	
 	public boolean insertReport(ArticleReportBean bean) {
 		 Date date = new Date();	
 		if (bean != null) {
@@ -66,7 +63,7 @@ public class ArticleReportDAOHibernate {
 
 		return false;
 	}
-	@Transactional
+	
 	public boolean changeprocess(Integer article_number) {
 		
 		NativeQuery query = this.getSession().createNativeQuery(" update report set processed = 1 where article_number = "+article_number);

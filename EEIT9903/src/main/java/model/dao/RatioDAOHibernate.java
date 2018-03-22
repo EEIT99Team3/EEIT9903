@@ -51,17 +51,17 @@ public class RatioDAOHibernate {
 	public Session getSession() {
 		return sessionFactory.getCurrentSession();
 	}
-	@Transactional
+	
 	public Ratio select(RatioId id) {
 		return this.getSession().get(Ratio.class, id);
 	}
-	@Transactional
+	
 	public List<Ratio> select() {
 		Query<Ratio> query = this.getSession().createQuery(generateStatement(statement), Ratio.class);
 		return query.list();
 	}
 	
-	@Transactional
+	
 	public Ratio insert(Ratio bean) {
 		Ratio temp = this.getSession().get(Ratio.class, bean.getId());
 		if (temp == null) {
@@ -70,7 +70,7 @@ public class RatioDAOHibernate {
 		}
 		return null;
 	}
-	@Transactional
+	
 	public Ratio update(RatioId id, BigDecimal eps, BigDecimal bvps, BigDecimal gpMargin, BigDecimal opMargin,
 			BigDecimal niMargin, BigDecimal roe, BigDecimal roa, BigDecimal arTurnover, BigDecimal invTurnover,
 			BigDecimal apTurnover, BigDecimal debtRatio, BigDecimal currentRatio, BigDecimal fcfGrowth,
@@ -96,7 +96,7 @@ public class RatioDAOHibernate {
 		}
 		return result;
 	}
-	@Transactional
+	
 	public int delete(RatioId id) {
 		Ratio bean = this.getSession().get(Ratio.class, id);
 		if (bean != null) {
