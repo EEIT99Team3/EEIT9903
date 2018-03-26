@@ -171,9 +171,11 @@ function dynamicolumn() {
 	} else {
 		table.column(17).visible(false);
 	}
+	table.ajax.reload();
 }
 $(document).ready(function() {
 	table = $('#table1').DataTable({
+		autoWidth:false,
 		columns : [ {
 			"visible" : true,
 			"data" : "stock_id"
@@ -275,6 +277,27 @@ $('#sub').click(function() {
 	revenuesgrowth = document.getElementById('revenuesgrowthtv').value;
 
 	table.ajax.url(condition());
-	table.ajax.reload();
 	dynamicolumn();
+//	table.ajax.reload();
+	
+	ratyear,ratseason,eps,bvps,gpmargin,opmargin,nimargin,roe,
+	roa,arturnover,invturnover,apturnover,invturnover,
+	apturnover,debtratio,currentratio,fcfgrowth,ocfgrowth,revenuesgrowth
+	= "";
+//	ratseason = document.getElementById('ratseasontv').value;
+//	eps = document.getElementById('epstv').value;
+//	bvps = document.getElementById('bvpstv').value;
+//	gpmargin = document.getElementById('gpmargintv').value;
+//	opmargin = document.getElementById('opmargintv').value;
+//	nimargin = document.getElementById('nimargintv').value;
+//	roe = document.getElementById('roetv').value;
+//	roa = document.getElementById('roatv').value;
+//	arturnover = document.getElementById('arturnovertv').value;
+//	invturnover = document.getElementById('invturnovertv').value;
+//	apturnover = document.getElementById('apturnovertv').value;
+//	debtratio = document.getElementById('debtratiotv').value;
+//	currentratio = document.getElementById('currentratiotv').value;
+//	fcfgrowth = document.getElementById('fcfgrowthtv').value;
+//	ocfgrowth = document.getElementById('ocfgrowthtv').value;
+//	revenuesgrowth = document.getElementById('revenuesgrowthtv').value;
 });
