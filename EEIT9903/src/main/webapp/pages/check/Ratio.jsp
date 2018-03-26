@@ -118,14 +118,14 @@
 						</select>
 					</div>
 					<div id="gpmargint" class="selectorc">
-						<span>毛利率</span> <select id="gpmargintv">
+						<span>毛利率(%)</span> <select id="gpmargintv">
 							<option value="">請選擇</option>
-							<option value="0.1">普通篩選(>10)</option>
-							<option value="0.3">嚴格篩選(>30)</option>
+							<option value="0.1">普通篩選(>10%)</option>
+							<option value="0.3">嚴格篩選(>30%)</option>
 						</select>
 					</div>
 					<div id="opmargint" class="selectorc">
-						<span>營業利益率</span> <select id="opmargintv">
+						<span>營業利益率(%)</span> <select id="opmargintv">
 							<option value="">請選擇</option>
 							<option value="0.1">普通篩選(>10)</option>
 							<option value="0.2">嚴格篩選(>20)</option>
@@ -153,56 +153,56 @@
 						</select>
 					</div>
 					<div id="arturnovert" class="selectorc">
-						<span>應收帳款周轉率</span> <select id="arturnovertv">
+						<span>應收帳款周轉率(%)</span> <select id="arturnovertv">
 							<option value="">請選擇</option>
 							<option value="3">普通篩選(>3)</option>
 							<option value="6">嚴格篩選(>6)</option>
 						</select>
 					</div>
 					<div id="invturnovert" class="selectorc">
-						<span>存貨周轉率</span> <select id="invturnovertv">
+						<span>存貨周轉率(%)</span> <select id="invturnovertv">
 							<option value="">請選擇</option>
 							<option value="3">普通篩選(>3)</option>
 							<option value="6">嚴格篩選(>6)</option>
 						</select>
 					</div>
 					<div id="apturnovert" class="selectorc">
-						<span>應付帳款周轉率</span> <select id="apturnovertv">
+						<span>應付帳款周轉率(%)</span> <select id="apturnovertv">
 							<option value="">請選擇</option>
 							<option value="6">普通篩選(<6)</option>
 							<option value="3">嚴格篩選(<3)</option>
 						</select>
 					</div>
 					<div id="debtratiot" class="selectorc">
-						<span>負債比率</span> <select id="debtratiotv">
+						<span>負債比率(%)</span> <select id="debtratiotv">
 							<option value="">請選擇</option>
 							<option value="0.50">普通篩選(<50%)</option>
 							<option value="0.25">嚴格篩選(<25%)</option>
 						</select>
 					</div>
 					<div id="currentratiot" class="selectorc">
-						<span>流動比率</span> <select id="currentratiotv">
+						<span>流動比率(%)</span> <select id="currentratiotv">
 							<option value="">請選擇</option>
 							<option value="0.75">普通篩選(>75%)</option>
 							<option value="1.5">嚴格篩選(>150%)</option>
 						</select>
 					</div>
 					<div id="fcfgrowtht" class="selectorc">
-						<span>自由現金流量年成長率</span> <select id="fcfgrowthtv">
+						<span>自由現金流量年成長率(%)</span> <select id="fcfgrowthtv">
 							<option value="">請選擇</option>
 							<option value="0">普通篩選(>0)</option>
 							<option value="10">嚴格篩選(>10)</option>
 						</select>
 					</div>
 					<div id="ocfgrowtht" class="selectorc">
-						<span>營業現金流量年成長率</span> <select id="ocfgrowthtv">
+						<span>營業現金流量年成長率(%)</span> <select id="ocfgrowthtv">
 							<option value="">請選擇</option>
 							<option value="0">普通篩選(>0)</option>
 							<option value="10">嚴格篩選(>10)</option>
 						</select>
 					</div>
 					<div id="revenuesgrowtht" class="selectorc">
-						<span>營收成長率</span> <select id="revenuesgrowthtv">
+						<span>營收成長率(%)</span> <select id="revenuesgrowthtv">
 							<option value="">請選擇</option>
 							<option value="0">普通篩選(>0)</option>
 							<option value="10">嚴格篩選(>10)</option>

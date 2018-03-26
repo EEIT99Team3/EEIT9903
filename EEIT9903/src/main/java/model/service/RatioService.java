@@ -198,28 +198,18 @@ public class RatioService {
 	// IB:calcEPS(Integer ratyear,Integer ratseason); calcROE(Integer
 	// ratyear,Integer ratseason);calcROA(Integer ratyear,Integer ratseason);
 	public BigDecimal calcEPS(RatioServiceBean r,String stockid) {
-//		System.out.println("calcEPS:");
-//		System.out.println(r.income_statementBean.getNet_income());
-//		System.out.println(r.balance_sheetBean.getCaptial_stock());
-//		System.out.println("EPS:"+((double)(r.income_statementBean.getNet_income()) / (double)(companyDAO.select(stockid).getCaptial()/10)));
-//		System.out.println("================");
+
 		return BigDecimal.valueOf((double)(r.income_statementBean.getNet_income()) * 1000 / 
 				(double)(companyService.select(stockid).getCaptial()/10));
 	}
 
 	public BigDecimal calcROE(RatioServiceBean r) {
-//		System.out.println("calcROE:");
-//		System.out.println(r.income_statementBean.getNet_income());
-//		System.out.println(r.balance_sheetBean.getTotal_equity());
-//		System.out.println("================");
+
 		return BigDecimal.valueOf((double)(r.income_statementBean.getNet_income()*100) /(double) (r.balance_sheetBean.getTotal_equity()));
 	}
 
 	public BigDecimal calcROA(RatioServiceBean r) {
-//		System.out.println("calcROA:");
-//		System.out.println(r.income_statementBean.getNet_income());
-//		System.out.println(r.balance_sheetBean.getAccount_payables());
-//		System.out.println("================");
+
 		return BigDecimal
 				.valueOf((double)(r.income_statementBean.getNet_income()*100) /(double) (r.balance_sheetBean.getTotal_assets()));
 	}
@@ -228,11 +218,6 @@ public class RatioService {
 	// ratseason);calcINVTurnover(Integer ratyear,Integer
 	// ratseason);calcAPTurnover(Integer ratyear,Integer ratseason) {};
 	public BigDecimal calcARTurnover(RatioServiceBean r) {
-//		System.out.println("calcARTurnover:");
-//		System.out.println(r.income_statementBean.getRevenues());
-//		System.out.println(
-//				r.balance_sheetBean.getAccount_receivables() + r.balance_sheetBeanlast.getAccount_receivables());
-//		System.out.println("================");
 		//分子其實要隨季別變換
 		return BigDecimal.valueOf((double)r.income_statementBean.getRevenues()
 				/ ((double)(r.balance_sheetBean.getAccount_receivables() + (double)r.balance_sheetBeanlast.getAccount_receivables())
@@ -240,19 +225,13 @@ public class RatioService {
 	}
 
 	public BigDecimal calcINVTurnover(RatioServiceBean r) {
-//		System.out.println("calcINVTurnover:");
-//		System.out.println(r.income_statementBean.getCosts());
-//		System.out.println(r.balance_sheetBean.getInventories() + r.balance_sheetBeanlast.getInventories());
-//		System.out.println("================");
+
 		return BigDecimal.valueOf((double)r.income_statementBean.getCosts()
 				/ ((double)(r.balance_sheetBean.getInventories() +(double) r.balance_sheetBeanlast.getInventories()) / 2));
 	}
 
 	public BigDecimal calcAPTurnover(RatioServiceBean r) {
-//		System.out.println("calcAPTurnover:");
-//		System.out.println(r.income_statementBean.getCosts());
-//		System.out.println(r.balance_sheetBean.getAccount_payables() + r.balance_sheetBeanlast.getAccount_payables());
-//		System.out.println("================");
+
 		return BigDecimal.valueOf((double)r.income_statementBean.getCosts()
 				/ (((double)r.balance_sheetBean.getAccount_payables() +(double) r.balance_sheetBeanlast.getAccount_payables()) / 2));
 	}
@@ -260,37 +239,24 @@ public class RatioService {
 	// I:calcGPMargin(Integer ratyear,Integer ratseason);calcOPMargin(Integer
 	// ratyear,Integer ratseason);calcNIMargin(Integer ratyear,Integer ratseason);
 	public BigDecimal calcGPMargin(RatioServiceBean r) {
-//		System.out.println("calcGPMargin:"+(double)r.income_statementBean.getGross_profit() / (double)r.income_statementBean.getRevenues());
-//		System.out.println("toBigDecimal:"+BigDecimal.valueOf(((double)r.income_statementBean.getGross_profit() / (double)r.income_statementBean.getRevenues())));
-//		System.out.println(r.income_statementBean.getCosts());
-//		System.out.println(r.income_statementBean.getRevenues());
-//		System.out.println("================");
+
 		return BigDecimal.valueOf(((double)r.income_statementBean.getGross_profit() / (double)r.income_statementBean.getRevenues()));
 	}
 
 	public BigDecimal calcOPMargin(RatioServiceBean r) {
-//		System.out.println("calcOPMargin:");
-//		System.out.println(r.income_statementBean.getOperating_income());
-//		System.out.println(r.income_statementBean.getRevenues());
-//		System.out.println("================");
+
 		return BigDecimal
 				.valueOf(((double)r.income_statementBean.getOperating_income() /(double) r.income_statementBean.getRevenues()));
 	}
 
 	public BigDecimal calcNIMargin(RatioServiceBean r) {
-//		System.out.println("calcNIMargin:");
-//		System.out.println(r.income_statementBean.getNet_income());
-//		System.out.println(r.income_statementBean.getRevenues());
-//		System.out.println("================");
+
 		return BigDecimal.valueOf(((double)r.income_statementBean.getNet_income() / (double)r.income_statementBean.getRevenues()));
 	}
 
 	// ***兩期:calcRevenuesGrowth(Integer ratyear,Integer ratseason);
 	public BigDecimal calcRevenuesGrowth(RatioServiceBean r) {
-//		System.out.println("calcRevenuesGrowth:");
-//		System.out.println(r.income_statementBean.getRevenues() - r.income_statementBeanlast.getRevenues());
-//		System.out.println(r.income_statementBeanlast.getRevenues());
-//		System.out.println("================");
+
 		return BigDecimal.valueOf(100*((double)r.income_statementBean.getRevenues() - (double)r.income_statementBeanlast.getRevenues())
 				/(double) r.income_statementBeanlast.getRevenues());
 	}
@@ -299,30 +265,15 @@ public class RatioService {
 	// ratyear,Integer ratseason);calcCurrentRatio(Integer ratyear,Integer
 	// ratseason);
 	public BigDecimal calcBVPS(RatioServiceBean r,String stockid) {
-		System.out.println("calcBVPS:");
-		System.out.println(r);
-		System.out.println(r.balance_sheetBean.getTotal_equity() );
-//		System.out.println((companyDAO.select(stockid).getCaptial()/10));
-//		System.out.println(companyDAO);
-		System.out.println((companyService.select(stockid)));
-//		System.out.println("================");
 		return BigDecimal.valueOf((double)r.balance_sheetBean.getTotal_equity() / (double)(companyService.select(stockid).getCaptial()/10));
 	}
 
 	public BigDecimal calcDeptRatio(RatioServiceBean r) {
-//		System.out.println("calcDeptRatio:");
-//		System.out.println(r.balance_sheetBean.getTotal_liabilities());
-//		System.out.println(r.balance_sheetBean.getCurrent_liabilities());
-//		System.out.println("================");
 		return BigDecimal
 				.valueOf((double)r.balance_sheetBean.getTotal_liabilities()*100 /(double) r.balance_sheetBean.getTotal_assets());
 	}
 
 	public BigDecimal calcCurrentRatio(RatioServiceBean r) {
-//		System.out.println("calcCurrentRatio:");
-//		System.out.println(r.balance_sheetBean.getCurrent_assets());
-//		System.out.println(r.balance_sheetBean.getCurrent_liabilities());
-//		System.out.println("================");
 		return BigDecimal
 				.valueOf((double)r.balance_sheetBean.getCurrent_assets()*100 / (double)r.balance_sheetBean.getCurrent_liabilities());
 	}
