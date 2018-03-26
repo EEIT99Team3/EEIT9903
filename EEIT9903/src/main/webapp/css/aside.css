@@ -1,0 +1,94 @@
+.page-main {
+    position: relative;
+}
+
+.page-main > aside {
+    width: 350px;
+    right: -297px;
+	height: 74%;
+    top: 65px;  
+    position: fixed;
+    background-color: white;
+    z-index: 1000;
+}
+
+.page-main > aside h3 {
+    margin: 0;
+    padding: 0;
+    top: 8px;
+    left: 114px;
+    position: absolute;
+}
+
+/*
+.page-main > aside ul {
+    margin: 0;
+    padding: 0;
+    top: 180px;
+    left: 114px;
+    position: absolute;
+}
+
+.page-main > aside li {
+    margin: 0 0 20px;
+    list-style: none;
+}
+*/
+
+.page-main > aside >.slider {
+    background-color: rgba(0,0,0,0.8);
+    display: block;
+    position: absolute;
+    top: 40px;
+    left: 0px;
+    width: 52px;
+    height: 132px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    
+}
+
+
+.deleteBtn{
+	cursor: pointer;
+  //  background-color: lightgray;
+    color: white;
+    border: 2px solid gray;
+  	border-radius: 5px;
+	background-color:black;
+}
+
+.addNew {
+    position: absolute;
+    top: 500px;
+    left: 123px;
+}
+
+.addBtn {
+	border-radius: 5px;
+}
+
+#stock_id{
+	border-radius: 5px;
+}
+
+#stockTable {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    top: 52px;
+    left: 114px;
+    position: absolute;
+}
+
+td.myFav, th.myFav {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even).myFav {
+    background-color: #dddddd;
+}
